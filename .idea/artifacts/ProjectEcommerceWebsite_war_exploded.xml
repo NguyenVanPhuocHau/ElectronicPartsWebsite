@@ -6,12 +6,22 @@
         <exploded>true</exploded>
         <module>ProjectEcommerceWebsite</module>
         <packaging>war</packaging>
+        <unpackNestedArchives>false</unpackNestedArchives>
       </options>
     </properties>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="ProjectEcommerceWebsite" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.30" />
+          <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.19.4" />
+          <element id="library" level="project" name="Maven: org.jdbi:jdbi3-core:3.30.0" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.32" />
+          <element id="library" level="project" name="Maven: io.leangen.geantyref:geantyref:1.3.13" />
+          <element id="library" level="project" name="Maven: com.github.ben-manes.caffeine:caffeine:3.0.3" />
         </element>
       </element>
       <element id="directory" name="META-INF">
