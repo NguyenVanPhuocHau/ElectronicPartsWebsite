@@ -9,14 +9,14 @@
 <html>
 <head>
     <title>Login</title>
-    <link rel="stylesheet" href="/ProjectEcommerceWebsite_war_exploded/css/Login.css"/>
+    <link rel="stylesheet" href="assets/css/Login.css"/>
 </head>
 <body>
 <div class="login-wrap">
     <div class="login-html">
-        <input id="tab-1" type="radio" name="tab" class="sign-in" ><a href="/ProjectEcommerceWebsite_war_exploded/view/login.jsp" for="tab-1" class="tab">Đăng
+        <input id="tab-1" type="radio" name="tab" class="sign-in" ><a href="login.jsp" for="tab-1" class="tab">Đăng
         nhập</a>
-        <input id="tab-2" type="radio" name="tab" class="sign-up" ><a href="/ProjectEcommerceWebsite_war_exploded/view/register.jsp" for="tab-2" class="tab">Đăng
+        <input id="tab-2" type="radio" name="tab" class="sign-up" ><a href="register.jsp" for="tab-2" class="tab">Đăng
         ký</a>
         <form class="login-form" action='${pageContext.request.contextPath}/Register' method="post" name="Register">
 
@@ -58,7 +58,7 @@
         </form>
     </div>
 </div>
-<script src="../js/login.js"></script>
+<script src="assetsjs/login.js"></script>
 
 </body>
 

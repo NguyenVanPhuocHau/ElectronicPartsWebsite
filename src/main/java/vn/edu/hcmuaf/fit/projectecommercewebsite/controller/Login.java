@@ -1,6 +1,6 @@
-package controller;
+package vn.edu.hcmuaf.fit.projectecommercewebsite.controller;
 
-import Service.UserService;
+import vn.edu.hcmuaf.fit.projectecommercewebsite.Service.UserService;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -32,10 +32,10 @@ public class Login extends HttpServlet {
 
 
         if (UserService.getInstance().checkLogin(getUsername, getPass)) {
-                response.sendRedirect("view/home.jsp");
+                response.sendRedirect("home.jsp");
 
         } else {
-            request.getRequestDispatcher("view/login.jsp").forward(request, response);
+            request.getRequestDispatcher("login.jsp").forward(request, response);
 //            System.out.println("aaaaa"+getUsername + "   / " + getPass);
 
         }
