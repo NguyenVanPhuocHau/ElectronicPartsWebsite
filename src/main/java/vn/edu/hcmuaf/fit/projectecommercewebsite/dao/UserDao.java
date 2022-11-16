@@ -1,6 +1,6 @@
 package vn.edu.hcmuaf.fit.projectecommercewebsite.dao;
 
-import beans.User;
+import vn.edu.hcmuaf.fit.projectecommercewebsite.beans.User;
 import vn.edu.hcmuaf.fit.projectecommercewebsite.connect.Connect;
 import vn.edu.hcmuaf.fit.projectecommercewebsite.connect.DBconnect;
 

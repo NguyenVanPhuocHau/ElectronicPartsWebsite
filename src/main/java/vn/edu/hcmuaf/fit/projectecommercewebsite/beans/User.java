@@ -1,4 +1,4 @@
-package beans;
+package vn.edu.hcmuaf.fit.projectecommercewebsite.beans;
 
 public class User {
     private String username;

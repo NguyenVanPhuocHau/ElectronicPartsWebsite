@@ -1,4 +1,4 @@
-package Service;
+package vn.edu.hcmuaf.fit.projectecommercewebsite.Service;
 
 import vn.edu.hcmuaf.fit.projectecommercewebsite.dao.UserDao;
 

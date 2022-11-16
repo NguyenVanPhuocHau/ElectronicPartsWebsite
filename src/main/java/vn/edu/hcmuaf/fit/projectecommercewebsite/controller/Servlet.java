@@ -1,4 +1,4 @@
-package controller;
+package vn.edu.hcmuaf.fit.projectecommercewebsite.controller;
 
 import javax.servlet.*;
 import javax.servlet.http.*;

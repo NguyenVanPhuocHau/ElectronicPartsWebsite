@@ -13,13 +13,13 @@ function ValidateEmail(inputText) {
 
 function sign_in() {
     var sign_in = document.getElementById("tab-1");
-    window.location = "../view/login.jsp"
+    window.location = "login.js"
 
 
 }
 function register() {
     var register = document.getElementById("tab-2");
-    window.location = "../view/register.jsp"
+    window.location = "../../register.jsp"
 
 
 }

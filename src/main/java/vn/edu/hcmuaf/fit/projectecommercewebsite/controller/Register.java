@@ -1,4 +1,4 @@
-package controller;
+package vn.edu.hcmuaf.fit.projectecommercewebsite.controller;
 
 import vn.edu.hcmuaf.fit.projectecommercewebsite.dao.UserDao;
 
@@ -26,11 +26,11 @@ public class Register extends HttpServlet {
         try {
             if(getPassword_regis.equals(getRePassword)&& !getUsername_regis.equals("")&&!getPassword_regis.equals("")){
                 UserDao.getInstance().insertData(getUsername_regis,getPassword_regis,getAddressEmail,getPhoneNumber);
-                response.sendRedirect("view/login.jsp");
+                response.sendRedirect("login.jsp");
 
             }
             else {
-                request.getRequestDispatcher("view/register.jsp").forward(request,response);
+                request.getRequestDispatcher("register.jsp").forward(request,response);
             }
         } catch (SQLException e) {
             e.printStackTrace();
