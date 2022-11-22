@@ -9,15 +9,25 @@
 <html>
 <head>
     <title>Login</title>
+<<<<<<< Updated upstream:src/main/webapp/login.jsp
     <link rel="stylesheet" href="assets/css/Login.css"/>
+=======
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/Login.css"/>
+>>>>>>> Stashed changes:src/main/webapp/view/login.jsp
 </head>
 <body>
 <div class="login-wrap">
     <div class="login-html">
+<<<<<<< Updated upstream:src/main/webapp/login.jsp
         <input  type="radio" name="tab" class="sign-in login"><a id="login" href="login.jsp" for="login" class="tab">Đăng
         nhập</a>
         <input  type="radio" name="tab register" class="sign-up register"><a  href="register.jsp"
                                                                                           for="register" class="tab">Đăng
+=======
+        <input id="tab-1" type="radio" name="tab" class="sign-in" ><a href="${pageContext.request.contextPath}/view/login.jsp" for="tab-1" class="tab">Đăng
+        nhập</a>
+        <input id="tab-2" type="radio" name="tab" class="sign-up" ><a href="${pageContext.request.contextPath}/view/register.jsp" for="tab-2" class="tab">Đăng
+>>>>>>> Stashed changes:src/main/webapp/view/login.jsp
         ký</a>
         <form class="login-form" action='${pageContext.request.contextPath}/Login' method="post">
             <div class="sign-in-htm">
