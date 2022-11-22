@@ -14,9 +14,9 @@
 <body>
 <div class="login-wrap">
     <div class="login-html">
-        <input id="tab-1" type="radio" name="tab" class="sign-in" ><a href="login.jsp" for="tab-1" class="tab">Đăng
+        <input id="tab-1" type="radio" name="tab" class="sign-in" ><a  href="login.jsp" for="tab-1" class="tab">Đăng
         nhập</a>
-        <input id="tab-2" type="radio" name="tab" class="sign-up" ><a href="register.jsp" for="tab-2" class="tab">Đăng
+        <input id="tab-2" type="radio" name="tab" class="sign-up" ><a id="register" href="register.jsp" for="tab-2" class="tab">Đăng
         ký</a>
         <form class="login-form" action='${pageContext.request.contextPath}/Register' method="post" name="Register">
 
@@ -51,9 +51,9 @@
                            onclick="ValidateEmail(document.Register.addressEmail_regis)">
                 </div>
                 <div class="hr"></div>
-                <div class="foot-lnk">
-                    <label for="tab-1">Sẵn sàng là thành viên ?</label>
-                </div>
+<%--                <div class="foot-lnk">--%>
+<%--                    <label for="tab-1">Sẵn sàng là thành viên ?</label>--%>
+<%--                </div>--%>
             </div>
         </form>
     </div>
