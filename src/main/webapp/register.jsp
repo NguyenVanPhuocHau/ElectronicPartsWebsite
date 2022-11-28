@@ -9,14 +9,24 @@
 <html>
 <head>
     <title>Login</title>
+<<<<<<< Updated upstream:src/main/webapp/register.jsp
     <link rel="stylesheet" href="assets/css/Login.css"/>
+=======
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/Login.css"/>
+>>>>>>> Stashed changes:src/main/webapp/view/register.jsp
 </head>
 <body>
 <div class="login-wrap">
     <div class="login-html">
-        <input id="tab-1" type="radio" name="tab" class="sign-in" ><a href="login.jsp" for="tab-1" class="tab">Đăng
+<<<<<<< Updated upstream:src/main/webapp/register.jsp
+        <input id="tab-1" type="radio" name="tab" class="sign-in" ><a  href="login.jsp" for="tab-1" class="tab">Đăng
         nhập</a>
-        <input id="tab-2" type="radio" name="tab" class="sign-up" ><a href="register.jsp" for="tab-2" class="tab">Đăng
+        <input id="tab-2" type="radio" name="tab" class="sign-up" ><a id="register" href="register.jsp" for="tab-2" class="tab">Đăng
+=======
+        <input id="tab-1" type="radio" name="tab" class="sign-in" ><a href="${pageContext.request.contextPath}/view/login.jsp" for="tab-1" class="tab">Đăng
+        nhập</a>
+        <input id="tab-2" type="radio" name="tab" class="sign-up" ><a href="${pageContext.request.contextPath}/view/register.jsp" for="tab-2" class="tab">Đăng
+>>>>>>> Stashed changes:src/main/webapp/view/register.jsp
         ký</a>
         <form class="login-form" action='${pageContext.request.contextPath}/Register' method="post" name="Register">
 
@@ -51,9 +61,9 @@
                            onclick="ValidateEmail(document.Register.addressEmail_regis)">
                 </div>
                 <div class="hr"></div>
-                <div class="foot-lnk">
-                    <label for="tab-1">Sẵn sàng là thành viên ?</label>
-                </div>
+<%--                <div class="foot-lnk">--%>
+<%--                    <label for="tab-1">Sẵn sàng là thành viên ?</label>--%>
+<%--                </div>--%>
             </div>
         </form>
     </div>
