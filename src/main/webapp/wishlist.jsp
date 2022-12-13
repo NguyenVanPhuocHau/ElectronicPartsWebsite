@@ -1,10 +1,12 @@
+<%@include file="common/tablig.jsp" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Trang cá nhân</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
-
+    <c:import url="common/header.jsp"></c:import>
 </head>
 <style>
     body {
@@ -245,6 +247,7 @@
 </style>
 
 <body>
+<jsp:include page="component/header.jsp"></jsp:include>
 <div id="content" class=" ">
     <div class="g1180">
         <div id="profilePage">
@@ -367,6 +370,7 @@
     </div>
 
 </div>
+<jsp:include page="component/footer.jsp"></jsp:include>
 
 </body>
 </html>
