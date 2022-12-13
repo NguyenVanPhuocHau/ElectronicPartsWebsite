@@ -1,0 +1,303 @@
+
+
+.background-footer-03 {
+    background-color: rgb(245 245 245);
+}
+
+@media (min-width: 769px){
+    .container {
+        padding: 0;
+    }
+
+}
+a:hover, a:focus, a:visited, a:active, button:hover, button:focus, button:visited, button:active {
+    text-decoration: none;
+    outline: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    outline: none;
+}
+
+.footer-phone-info {
+    margin-top: 40px;
+}
+
+.footer-phone-info .biolife-icon {
+    color: #666666;
+    font-size: 40px;
+    line-height: 1;
+    display: inline-block;
+    float: left;
+    width: 40px;
+    padding-top: 9px;
+}
+
+.icon-head-phone:before {
+    content: "\e928";
+}
+
+.footer-phone-info .r-info {
+    font-size: 18px;
+    line-height: 24px;
+    color: #222222;
+    display: inline-block;
+    width: calc(100% - 40px);
+    font-weight: 600;
+    margin: 0;
+    padding-left: 20px;
+}
+
+.footer-phone-info .r-info span {
+    display: block;
+}
+
+.xs-margin-top-40px {
+    margin-top: 40px;
+}
+
+.footer-item .section-title {
+    font-size: 24px;
+    line-height: 1;
+    color: #222222;
+    font-weight: 700;
+    display: block;
+    margin: 0 0 24px;
+}
+.wrap-custom-menu ul.menu {
+    display: block;
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+    font-size: 0;
+}
+
+.wrap-custom-menu.vertical-menu-2 ul li a {
+    color: #666666;
+}
+.wrap-custom-menu ul.menu>li a {
+    color: #555555;
+}
+a:hover, a:focus, a:visited, a:active, button:hover, button:focus, button:visited, button:active {
+    text-decoration: none;
+    outline: none;
+}
+
+.wrap-custom-menu ul.menu {
+    display: block;
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+    font-size: 0;
+    list-style: none;
+}
+.wrap-custom-menu.vertical-menu-2 ul li {
+    font-size: 14px;
+    line-height: 33px;
+}
+
+.wrap-custom-menu.vertical-menu-2 ul li a {
+    color: #666666;
+}
+
+.wrap-custom-menu ul.menu>li a {
+    color: #555555;
+}
+
+.xs-margin-top-40px {
+    margin-top: 40px;
+}
+
+.footer-item .section-title {
+    font-size: 24px;
+    line-height: 1;
+    color: #222222;
+    font-weight: 700;
+    display: block;
+    margin: 0 0 24px;
+}
+
+.xs-padding-top-10px {
+    padding-top: 10px;
+}
+
+.contact-info-block.footer-layout ul {
+    padding: 0;
+    display: block;
+}
+.contact-info-block.footer-layout ul {
+    padding-top: 3px;
+}
+
+.contact-info-block.footer-layout ul li {
+    display: block;
+    list-style: none;
+}
+
+.contact-info-block.footer-layout li p.info-item {
+    display: block;
+    margin: 0;
+}
+
+.contact-info-block.footer-layout li .biolife-icon {
+    font-size: 22px;
+    color: #525252;
+    display: inline-block;
+    float: left;
+    width: 36px;
+    text-align: left;
+}
+.biolife-icon {
+    font-family: 'biolife', sans-serif !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-location:before {
+    content: "\e908";
+}
+
+.contact-info-block.footer-layout li .desc {
+    font-size: 15px;
+    line-height: 20px;
+    color: #666666;
+    display: inline-block;
+    font-weight: 400;
+    width: calc( 100% - 36px);
+}
+.biolife-social {
+    margin-top: 25px;
+}
+
+.biolife-social ul {
+    padding: 0;
+    margin: 0;
+    font-size: 0;
+    line-height: 0;
+    text-align: left;
+}
+
+.biolife-social ul li {
+    list-style: none;
+    display: inline-block;
+}
+
+.biolife-social ul li a {
+    font-size: 18px;
+    color: #666666;
+}
+
+.biolife-social ul li+li {
+    margin-left: 30px;
+}
+
+.biolife-social ul li {
+    list-style: none;
+    display: inline-block;
+}
+
+.biolife-social ul li a {
+    font-size: 18px;
+    color: #666666;
+}
+
+.xs-margin-top-40px {
+    margin-top: 40px;
+}
+.separator {
+    display: block;
+    border: none;
+    height: 1px;
+    background-color: #e6e6e6;
+}
+
+.copy-right-text {
+    margin-top: 37px;
+}
+
+.copy-right-text p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 20px;
+    color: #222222;
+    font-weight: 400;
+}
+
+.payment-methods ul {
+    padding: 0;
+    display: block;
+    text-align: right;
+    margin: 0;
+}
+
+.payment-methods ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 26px 0 29px;
+}
+
+@media (min-width: 1200px) {
+    .col-lg-4 {
+        width: 33.33333333%;
+    }
+}
+    @media (min-width: 1200px) {
+        .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
+            float: left;
+        }
+    }
+
+.footer-content {
+    padding-top: 50px;
+}
+
+.footer-phone-info .biolife-icon {
+    color: #666666;
+    font-size: 40px;
+    line-height: 1;
+    display: inline-block;
+    float: left;
+    width: 40px;
+    padding-top: 9px;
+}
+
+.biolife-icon {
+    font-family: 'biolife', sans-serif !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@media (min-width: 1200px) {
+    .col-lg-6 {
+        width: 50%;
+    }
+}
+
+    @media (min-width: 1200px) {
+        .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
+            float: left;
+        }
+    }
+
+.contact-info-block.footer-layout ul li+li {
+    margin-top: 10px;
+}
+
+.contact-info-block.footer-layout ul li {
+    display: block;
+    list-style: none;
+}

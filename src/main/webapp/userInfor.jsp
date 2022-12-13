@@ -1,9 +1,13 @@
+<%@include file="common/tablig.jsp"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Trang cá nhân</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+<%--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>--%>
+    <c:import url="common/header.jsp"></c:import>
+<!--    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">-->
 
 </head>
 <style>
@@ -337,7 +341,7 @@
         padding: 0px;
     }
 
-    .eQckrx .label {
+    .eQckrx .label-sex {
         font-size: 13px;
         line-height: 20px;
         display: flex;
@@ -528,9 +532,11 @@
          transform: scale(0);
          transition: transform 0.3s ease 0s;
      }
+
 </style>
 
 <body>
+<jsp:include page="component/header.jsp"></jsp:include>
 <div id="content" class=" ">
     <div class="g1180">
         <div id="profilePage">
@@ -770,15 +776,15 @@
                                                                                                   name="gender"
                                                                                                   value="male"
                                                                                                   checked=""><span
-                                            class="radio-fake"></span><span class="label">Nam</span></label><label
+                                            class="radio-fake"></span><span class="label-sex">Nam</span></label><label
                                             class="Radio__StyledRadio-sc-1tpsfw1-0 eQckrx"><input type="radio"
                                                                                                   name="gender"
                                                                                                   value="female"><span
-                                            class="radio-fake"></span><span class="label">Nữ</span></label><label
+                                            class="radio-fake"></span><span class="label-sex">Nữ</span></label><label
                                             class="Radio__StyledRadio-sc-1tpsfw1-0 eQckrx"><input type="radio"
                                                                                                   name="gender"
                                                                                                   value="other"><span
-                                            class="radio-fake"></span><span class="label">Khác</span></label></div>
+                                            class="radio-fake"></span><span class="label-sex">Khác</span></label></div>
                                     <div class="form-control"><label class="input-label">Quốc tịch</label>
                                         <div>
                                             <div class="styles__StyledInput-sc-s5c7xj-5 hisWEc">
@@ -831,6 +837,12 @@
     </div>
 
 </div>
+<jsp:include page="component/footer.jsp"></jsp:include>
+
+
+
+
+
 
 </body>
 </html>
