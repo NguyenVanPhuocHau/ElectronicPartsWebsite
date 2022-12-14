@@ -402,10 +402,10 @@
         </div>
     </div>
 </div>
-<!-- Footer ================================================================== -->
-<c:import url="component/footer.jsp"></c:import>
-<!-- Placed at the end of the document so the pages load faster ============================================= -->
-<c:import url="common/js.jsp"></c:import>
+<%--<!-- Footer ================================================================== -->--%>
+<%--<c:import url="component/footer.jsp"></c:import>--%>
+<%--<!-- Placed at the end of the document so the pages load faster ============================================= -->--%>
+<%--<c:import url="common/js.jsp"></c:import>--%>
 
 </div>
 </div>
