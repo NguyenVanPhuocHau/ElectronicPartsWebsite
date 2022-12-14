@@ -402,6 +402,13 @@
         </div>
     </div>
 </div>
+<%--<<<<<<< HEAD--%>
+<%--=======--%>
+<%--<!-- Footer ================================================================== -->--%>
+<%--<jsp:include page="component/footer.jsp"></jsp:include>--%>
+<%--<!-- Placed at the end of the document so the pages load faster ============================================= -->--%>
+<%--<c:import url="common/js.jsp"></c:import>--%>
+<%-->>>>>>> main--%>
 
 
 <%--</div>--%>
