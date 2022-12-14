@@ -11,6 +11,7 @@ public class UserDao {
     static Connection conn;
     static PreparedStatement pre;
     static ResultSet rs;
+
     int count=0;
 
     public UserDao() {

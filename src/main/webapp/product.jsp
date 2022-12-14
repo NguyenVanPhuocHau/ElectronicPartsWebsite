@@ -5,7 +5,7 @@
   Time: 5:32 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@include file="common/tablig.jsp"%>
+<%@include file="common/tablig.jsp" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -18,7 +18,7 @@
     <div class="container">
         <div class="row">
             <!-- Sidebar ================================================== -->
-            <c:import url="component/sidebar.jsp"></c:import>
+            <c:import url="/categories"></c:import>
             <!-- Sidebar end=============================================== -->
             <div class="span9">
                 <ul class="breadcrumb">
@@ -45,261 +45,71 @@
                 </form>
 
                 <div id="myTab" class="pull-right">
-                    <a href="#listView" data-toggle="tab"><span class="btn btn-large"><i class="icon-list"></i></span></a>
-                    <a href="#blockView" data-toggle="tab"><span class="btn btn-large btn-primary"><i class="icon-th-large"></i></span></a>
+                    <a href="#listView" data-toggle="tab"><span class="btn btn-large"><i
+                            class="icon-list"></i></span></a>
+                    <a href="#blockView" data-toggle="tab"><span class="btn btn-large btn-primary"><i
+                            class="icon-th-large"></i></span></a>
                 </div>
                 <br class="clr"/>
                 <div class="tab-content">
                     <div class="tab-pane" id="listView">
-                        <div class="row">
-                            <div class="span2">
-                                <img src="themes/images/products/3.jpg" alt=""/>
-                            </div>
-                            <div class="span4">
-                                <h3>New | Available</h3>
-                                <hr class="soft"/>
-                                <h5>Product Name </h5>
-                                <p>
-                                    Nowadays the lingerie industry is one of the most successful business spheres.We always stay in touch with the latest fashion tendencies -
-                                    that is why our goods are so popular..
-                                </p>
-                                <a class="btn btn-small pull-right" href="product_details.html">View Details</a>
-                                <br class="clr"/>
-                            </div>
-                            <div class="span3 alignR">
-                                <form class="form-horizontal qtyFrm">
-                                    <h3> $140.00</h3>
-                                    <label class="checkbox">
-                                        <input type="checkbox">  Adds product to compair
-                                    </label><br/>
+                        <%--                        <jsp:useBean id="listProducts" scope="request" type="java.util.List"/>--%>
+                        <%--                        <c:set target="listProducts" var="list" scope="request"/>--%>
+                        <c:forEach items="${requestScope.listProduct}" var="product">
 
-                                    <a href="product_details.html" class="btn btn-large btn-primary"> Add to <i class=" icon-shopping-cart"></i></a>
-                                    <a href="product_details.html" class="btn btn-large"><i class="icon-zoom-in"></i></a>
+                            <div class="row">
+                                <div class="span2">
+                                    <img src="${product.img_url}" alt=""/>
+                                </div>
+                                <div class="span4">
+                                    <h3>New | Available</h3>
+                                    <hr class="soft"/>
+                                    <h5>${product.product_name}</h5>
+                                    <p>
+                                        ${product.product_des}
+                                    </p>
+                                    <a class="btn btn-small pull-right" href="product_details.html">View Details</a>
+                                    <br class="clr"/>
+                                </div>
+                                <div class="span3 alignR">
+                                    <form class="form-horizontal qtyFrm">
+                                        <h3> ${product.product_price} VNĐ</h3>
+                                        <label class="checkbox">
+                                            <input type="checkbox"> Adds product to compair
+                                        </label><br/>
 
-                                </form>
-                            </div>
-                        </div>
-                        <hr class="soft"/>
-                        <div class="row">
-                            <div class="span2">
-                                <img src="themes/images/products/1.jpg" alt=""/>
-                            </div>
-                            <div class="span4">
-                                <h3>New | Available</h3>
-                                <hr class="soft"/>
-                                <h5>Product Name </h5>
-                                <p>
-                                    Nowadays the lingerie industry is one of the most successful business spheres.We always stay in touch with the latest fashion tendencies -
-                                    that is why our goods are so popular..
-                                </p>
-                                <a class="btn btn-small pull-right" href="product_details.html">View Details</a>
-                                <br class="clr"/>
-                            </div>
-                            <div class="span3 alignR">
-                                <form class="form-horizontal qtyFrm">
-                                    <h3> $140.00</h3>
-                                    <label class="checkbox">
-                                        <input type="checkbox">  Adds product to compair
-                                    </label><br/>
+                                        <a href="product_details.html" class="btn btn-large btn-primary"> Add to <i
+                                                class=" icon-shopping-cart"></i></a>
+                                        <a href="product_details.html" class="btn btn-large"><i
+                                                class="icon-zoom-in"></i></a>
 
-                                    <a href="product_details.html" class="btn btn-large btn-primary"> Add to <i class=" icon-shopping-cart"></i></a>
-                                    <a href="product_details.html" class="btn btn-large"><i class="icon-zoom-in"></i></a>
-
-                                </form>
+                                    </form>
+                                </div>
                             </div>
-                        </div>
-                        <hr class="soft"/>
-                        <div class="row">
-                            <div class="span2">
-                                <img src="themes/images/products/3.jpg" alt=""/>
-                            </div>
-                            <div class="span4">
-                                <h3>New | Available</h3>
-                                <hr class="soft"/>
-                                <h5>Product Name </h5>
-                                <p>
-                                    Nowadays the lingerie industry is one of the most successful business spheres.We always stay in touch with the latest fashion tendencies -
-                                    that is why our goods are so popular..
-                                </p>
-                                <a class="btn btn-small pull-right" href="product_details.html">View Details</a>
-                                <br class="clr"/>
-                            </div>
-                            <div class="span3 alignR">
-                                <form class="form-horizontal qtyFrm">
-                                    <h3> $140.00</h3>
-                                    <label class="checkbox">
-                                        <input type="checkbox">  Adds product to compair
-                                    </label><br/>
-
-                                    <a href="product_details.html" class="btn btn-large btn-primary"> Add to <i class=" icon-shopping-cart"></i></a>
-                                    <a href="product_details.html" class="btn btn-large"><i class="icon-zoom-in"></i></a>
-
-                                </form>
-                            </div>
-                        </div>
-                        <hr class="soft"/>
-                        <div class="row">
-                            <div class="span2">
-                                <img src="themes/images/products/3.jpg" alt=""/>
-                            </div>
-                            <div class="span4">
-                                <h3>New | Available</h3>
-                                <hr class="soft"/>
-                                <h5>Product Name </h5>
-                                <p>
-                                    Nowadays the lingerie industry is one of the most successful business spheres.We always stay in touch with the latest fashion tendencies -
-                                    that is why our goods are so popular..
-                                </p>
-                                <a class="btn btn-small pull-right" href="product_details.html">View Details</a>
-                                <br class="clr"/>
-                            </div>
-                            <div class="span3 alignR">
-                                <form class="form-horizontal qtyFrm">
-                                    <h3> $140.00</h3>
-                                    <label class="checkbox">
-                                        <input type="checkbox">  Adds product to compair
-                                    </label><br/>
-
-                                    <a href="product_details.html" class="btn btn-large btn-primary"> Add to <i class=" icon-shopping-cart"></i></a>
-                                    <a href="product_details.html" class="btn btn-large"><i class="icon-zoom-in"></i></a>
-
-                                </form>
-                            </div>
-                        </div>
-
-                        <hr class="soft"/>
-                        <div class="row">
-                            <div class="span2">
-                                <img src="themes/images/products/3.jpg" alt=""/>
-                            </div>
-                            <div class="span4">
-                                <h3>New | Available</h3>
-                                <hr class="soft"/>
-                                <h5>Product Name </h5>
-                                <p>
-                                    Nowadays the lingerie industry is one of the most successful business spheres.We always stay in touch with the latest fashion tendencies -
-                                    that is why our goods are so popular..
-                                </p>
-                                <a class="btn btn-small pull-right" href="product_details.html">View Details</a>
-                                <br class="clr"/>
-                            </div>
-                            <div class="span3 alignR">
-                                <form class="form-horizontal qtyFrm">
-                                    <h3> $140.00</h3>
-                                    <label class="checkbox">
-                                        <input type="checkbox">  Adds product to compair
-                                    </label><br/>
-                                    <a href="product_details.html" class="btn btn-large btn-primary"> Add to <i class=" icon-shopping-cart"></i></a>
-                                    <a href="product_details.html" class="btn btn-large"><i class="icon-zoom-in"></i></a>
-                                </form>
-                            </div>
-                        </div>
-                        <hr class="soft"/>
-                        <div class="row">
-                            <div class="span2">
-                                <img src="themes/images/products/3.jpg" alt=""/>
-                            </div>
-                            <div class="span4">
-                                <h3>New | Available</h3>
-                                <hr class="soft"/>
-                                <h5>Product Name </h5>
-                                <p>
-                                    Nowadays the lingerie industry is one of the most successful business spheres.We always stay in touch with the latest fashion tendencies -
-                                    that is why our goods are so popular..
-                                </p>
-                                <a class="btn btn-small pull-right" href="product_details.html">View Details</a>
-                                <br class="clr"/>
-                            </div>
-                            <div class="span3 alignR">
-                                <form class="form-horizontal qtyFrm">
-                                    <h3> $140.00</h3>
-                                    <label class="checkbox">
-                                        <input type="checkbox">  Adds product to compair
-                                    </label><br/>
-
-                                    <a href="product_details.html" class="btn btn-large btn-primary"> Add to <i class=" icon-shopping-cart"></i></a>
-                                    <a href="product_details.html" class="btn btn-large"><i class="icon-zoom-in"></i></a>
-
-                                </form>
-                            </div>
-                        </div>
-                        <hr class="soft"/>
+                            <hr class="soft"/>
+                        </c:forEach>
                     </div>
 
                     <div class="tab-pane  active" id="blockView">
                         <ul class="thumbnails">
-                            <li class="span3">
-                                <div class="thumbnail">
-                                    <a href="product_details.html"><img src="themes/images/products/3.jpg" alt=""/></a>
-                                    <div class="caption">
-                                        <h5>Manicure &amp; Pedicure</h5>
-                                        <p>
-                                            I'm a paragraph. Click here
-                                        </p>
-                                        <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">&euro;222.00</a></h4>
+                            <c:forEach items="${requestScope.listProduct}" var="product">
+                                <li class="span3">
+                                    <div class="thumbnail">
+                                        <a href="product_details.html"><img src="${product.img_url}" alt=""/></a>
+                                        <div class="caption">
+                                            <h5>${product.product_name}</h5>
+                                            <p>
+                                                I'm a paragraph. Click here
+                                            </p>
+                                            <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i
+                                                    class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i
+                                                    class="icon-shopping-cart"></i></a> <a class="btn btn-primary"
+                                                                                           href="#">${product.product_price}</a>
+                                            </h4>
+                                        </div>
                                     </div>
-                                </div>
-                            </li>
-                            <li class="span3">
-                                <div class="thumbnail">
-                                    <a href="product_details.html"><img src="themes/images/products/3.jpg" alt=""/></a>
-                                    <div class="caption">
-                                        <h5>Manicure &amp; Pedicure</h5>
-                                        <p>
-                                            I'm a paragraph. Click here
-                                        </p>
-                                        <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">&euro;222.00</a></h4>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="span3">
-                                <div class="thumbnail">
-                                    <a href="product_details.html"><img src="themes/images/products/3.jpg" alt=""/></a>
-                                    <div class="caption">
-                                        <h5>Manicure &amp; Pedicure</h5>
-                                        <p>
-                                            I'm a paragraph. Click here
-                                        </p>
-                                        <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">&euro;222.00</a></h4>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="span3">
-                                <div class="thumbnail">
-                                    <a href="product_details.html"><img src="themes/images/products/3.jpg" alt=""/></a>
-                                    <div class="caption">
-                                        <h5>Manicure &amp; Pedicure</h5>
-                                        <p>
-                                            I'm a paragraph. Click here
-                                        </p>
-                                        <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">&euro;222.00</a></h4>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="span3">
-                                <div class="thumbnail">
-                                    <a href="product_details.html"><img src="themes/images/products/3.jpg" alt=""/></a>
-                                    <div class="caption">
-                                        <h5>Manicure &amp; Pedicure</h5>
-                                        <p>
-                                            I'm a paragraph. Click here
-                                        </p>
-                                        <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">&euro;222.00</a></h4>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="span3">
-                                <div class="thumbnail">
-                                    <a href="product_details.html"><img src="themes/images/products/3.jpg" alt=""/></a>
-                                    <div class="caption">
-                                        <h5>Manicure &amp; Pedicure</h5>
-                                        <p>
-                                            I'm a paragraph. Click here
-                                        </p>
-                                        <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">&euro;222.00</a></h4>
-                                    </div>
-                                </div>
-                            </li>
+                                </li>
+                            </c:forEach>
                         </ul>
                         <hr class="soft"/>
                     </div>
@@ -324,46 +134,9 @@
 </div>
 <!-- MainBody End ============================= -->
 <!-- Footer ================================================================== -->
-<div  id="footerSection">
-    <div class="container">
-        <div class="row">
-            <div class="span3">
-                <h5>ACCOUNT</h5>
-                <a href="login.html">YOUR ACCOUNT</a>
-                <a href="login.html">PERSONAL INFORMATION</a>
-                <a href="login.html">ADDRESSES</a>
-                <a href="login.html">DISCOUNT</a>
-                <a href="login.html">ORDER HISTORY</a>
-            </div>
-            <div class="span3">
-                <h5>INFORMATION</h5>
-                <a href="contact.html">CONTACT</a>
-                <a href="register.html">REGISTRATION</a>
-                <a href="legal_notice.html">LEGAL NOTICE</a>
-                <a href="tac.html">TERMS AND CONDITIONS</a>
-                <a href="faq.html">FAQ</a>
-            </div>
-            <div class="span3">
-                <h5>OUR OFFERS</h5>
-                <a href="#">NEW PRODUCTS</a>
-                <a href="#">TOP SELLERS</a>
-                <a href="special_offer.html">SPECIAL OFFERS</a>
-                <a href="#">MANUFACTURERS</a>
-                <a href="#">SUPPLIERS</a>
-            </div>
-            <div id="socialMedia" class="span3 pull-right">
-                <h5>SOCIAL MEDIA </h5>
-                <a href="#"><img width="60" height="60" src="assets/themes/images/facebook.png" title="facebook" alt="facebook"/></a>
-                <a href="#"><img width="60" height="60" src="assets/themes/images/twitter.png" title="twitter" alt="twitter"/></a>
-                <a href="#"><img width="60" height="60" src="assets/themes/images/youtube.png" title="youtube" alt="youtube"/></a>
-            </div>
-        </div>
-        <p class="pull-right">&copy; Bootshop</p>
-    </div><!-- Container End -->
-</div>
+<c:import url="component/footer.jsp"></c:import>
 <!-- Placed at the end of the document so the pages load faster ============================================= -->
 <c:import url="common/js.jsp"></c:import>
-
 
 
 </body>

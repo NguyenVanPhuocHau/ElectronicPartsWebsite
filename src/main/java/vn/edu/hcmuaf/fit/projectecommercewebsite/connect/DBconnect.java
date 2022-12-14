@@ -32,6 +32,7 @@ public class DBconnect {
     public Statement get(){
         try{
             connect();
+            System.out.println("Success");
             return  connection.createStatement();
 
 
