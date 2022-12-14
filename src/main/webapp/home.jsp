@@ -5,11 +5,11 @@
   Time: 5:59 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@include file="common/tablig.jsp"%>
+<%@include file="common/tablig.jsp" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-   <c:import url="common/header.jsp"></c:import>
+    <c:import url="common/header.jsp"></c:import>
 </head>
 <body>
 <jsp:include page="component/header.jsp"></jsp:include>
@@ -402,13 +402,17 @@
         </div>
     </div>
 </div>
-<!-- Footer ================================================================== -->
-<jsp:include page="component/footer.jsp"></jsp:include>
-<!-- Placed at the end of the document so the pages load faster ============================================= -->
-<c:import url="common/js.jsp"></c:import>
+<%--<<<<<<< HEAD--%>
+<%--=======--%>
+<%--<!-- Footer ================================================================== -->--%>
+<%--<jsp:include page="component/footer.jsp"></jsp:include>--%>
+<%--<!-- Placed at the end of the document so the pages load faster ============================================= -->--%>
+<%--<c:import url="common/js.jsp"></c:import>--%>
+<%-->>>>>>> main--%>
 
-</div>
-</div>
+
+<%--</div>--%>
+<%--</div>--%>
 
 </body>
 </html>

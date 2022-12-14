@@ -1,4 +1,6 @@
-<%--
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="vn.edu.hcmuaf.fit.projectecommercewebsite.beans.Category" %>
+<%@ page import="vn.edu.hcmuaf.fit.projectecommercewebsite.Service.CategoryService" %><%--
   Created by IntelliJ IDEA.
   User: HP
   Date: 11/21/2022
@@ -12,97 +14,20 @@
             src="assets/themes/images/ico-cart.png" alt="cart">3 Items in your cart <span
             class="badge badge-warning pull-right">$155.00</span></a></div>
     <ul id="sideManu" class="nav nav-tabs nav-stacked">
-        <li class="subMenu open"><a href="#">IPHONE [230]</a>
-            <ul>
-                <li><a class="active" href="products.html"><i class="icon-chevron-right"></i>Dây nút nguồn
-                    (100) </a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Pin (30)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Khung sườn (80)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Camera (15)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Màn hình (15)</a></li>
+        <c:forEach items="${requestScope.listParent}" var="parent">
+            <li class="subMenu"><a href="#">${parent.name_category} []</a>
+                <ul style="display:none">
+                    <c:set var="texts" scope="request" value="${parent.id_category}"/>
 
-            </ul>
-        </li>
-        <li class="subMenu"><a href="#"> SAMSUNG [840] </a>
-            <ul style="display:none">
-                <li><a class="active" href="products.html"><i class="icon-chevron-right"></i>Dây nút nguồn
-                    (100) </a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Pin (30)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Khung sườn (80)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Camera (15)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Màn hình (15)</a></li>
-            </ul>
-        </li>
-        <li class="subMenu"><a href="#">XIAOMI [1000]</a>
-            <ul style="display:none">
-                <li><a class="active" href="products.html"><i class="icon-chevron-right"></i>Dây nút nguồn
-                    (100) </a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Pin (30)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Khung sườn (80)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Camera (15)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Màn hình (15)</a></li>
-            </ul>
-        </li>
-        <li class="subMenu"><a href="products.html">HUAWEI [18]</a>
-            <ul style="display:none">
-                <li><a class="active" href="products.html"><i class="icon-chevron-right"></i>Dây nút nguồn
-                    (100) </a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Pin (30)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Khung sườn (80)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Camera (15)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Màn hình (15)</a></li>
-            </ul>
-        </li>
-        <li class="subMenu"><a href="products.html">OPPO [58]</a>
-            <ul style="display:none">
-                <li><a class="active" href="products.html"><i class="icon-chevron-right"></i>Dây nút nguồn
-                    (100) </a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Pin (30)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Khung sườn (80)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Camera (15)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Màn hình (15)</a></li>
-            </ul>
-        </li>
-        <li class="subMenu"><a href="products.html">LENOVO [14]</a>
-            <ul style="display:none">
-                <li><a class="active" href="products.html"><i class="icon-chevron-right"></i>Dây nút nguồn
-                    (100) </a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Pin (30)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Khung sườn (80)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Camera (15)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Màn hình (15)</a></li>
-            </ul>
-        </li>
-        <li class="subMenu"><a href="products.html">VIVO [14]</a>
-            <ul style="display:none">
-                <li><a class="active" href="products.html"><i class="icon-chevron-right"></i>Dây nút nguồn
-                    (100) </a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Pin (30)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Khung sườn (80)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Camera (15)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Màn hình (15)</a></li>
-            </ul>
-        </li>
-        <li class="subMenu"><a href="products.html">LENOVO [14]</a>
-            <ul style="display:none">
-                <li><a class="active" href="products.html"><i class="icon-chevron-right"></i>Dây nút nguồn
-                    (100) </a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Pin (30)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Khung sườn (80)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Camera (15)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Màn hình (15)</a></li>
-            </ul>
-        </li>
-        <li class="subMenu"><a href="products.html">REALME [14]</a>
-            <ul style="display:none">
-                <li><a class="active" href="products.html"><i class="icon-chevron-right"></i>Dây nút nguồn
-                    (100) </a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Pin (30)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Khung sườn (80)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Camera (15)</a></li>
-                <li><a href="products.html"><i class="icon-chevron-right"></i>Màn hình (15)</a></li>
-            </ul>
-        </li>
+                    <%
+                        for (Category category : CategoryService.getInstance().getCategory(request.getAttribute("texts").toString())) {
+                    %>
+                    <li><a href="${pageContext.request.contextPath}/products?id_category=<%=category.getId_category()%>"><i class="icon-chevron-right"></i><%=category.getName_category()%> (30)</a>
+
+                                <%}%>
+                </ul>
+            </li>
+        </c:forEach>
 
 
     </ul>

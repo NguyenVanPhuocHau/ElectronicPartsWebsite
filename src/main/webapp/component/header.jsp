@@ -45,9 +45,9 @@
                     <button type="submit" id="submitButton" class="btn btn-primary">Go</button>
                 </form>
                 <ul id="topMenu" class="nav pull-right">
-                    <li class=""><a href="special_offer.html">Specials Offer</a></li>
+                    <li class=""><a href="${pageContext.request.contextPath}/products">Sản phẩm</a></li>
                     <li class=""><a href="normal.html">Tra cứu đơn hàng</a></li>
-                    <li class=""><a href="contact.html">Liên hệ</a></li>
+                    <li class=""><a href="contact.jsp">Liên hệ</a></li>
                     <li class="">
                         <a href="login.jsp"  ><span class="btn btn-large btn-success">Đăng nhập</span></a>
 
