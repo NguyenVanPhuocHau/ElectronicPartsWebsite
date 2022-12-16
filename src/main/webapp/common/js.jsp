@@ -5,6 +5,7 @@
   Time: 5:31 PM
   To change this template use File | Settings | File Templates.
 --%>
+<script src="assets/js/jquery/jquery-2.2.4.min.js"></script>
 <script src="assets/themes/js/jquery.js" type="text/javascript"></script>
 <script src="assets/themes/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="assets/themes/js/google-code-prettify/prettify.js"></script>

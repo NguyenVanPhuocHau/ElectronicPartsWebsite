@@ -64,13 +64,14 @@
                             <tr class="table-body-row" id="row${p.product_id}">
                                 <td class="product-remove"><a
                                         id="${p.product_id}"
-                                        onclick=""><i class="fa fa-trash"></i></a></td>
+                                        onclick="clickPin(this)"><i class="fa fa-trash"></i></a></td>
                                 <td class="product-image"><img src="${p.img_url[0]}" alt=""></td>
                                 <td class="product-name">${p.product_name}
                                 </td>
-                                <td class="product-price">${p.product_price}</td>
-                                <td class="product-quantity"><input type="number" placeholder="1" value="${item.amount_bought}"></td>
-                                <td class="product-total">${item.getVnPrice()} đ</td>
+                                <td class="product-price">${p.getVnProductPrice()}đ</td>
+                                <td class="product-quantity"><input type="number" placeholder="1"
+                                                                    value="${item.amount_bought}"></td>
+                                <td class="product-total">${item.getVnPrice()}đ</td>
                             </tr>
                         </c:forEach>
                         </tbody>
@@ -91,11 +92,11 @@
                             <tbody>
                             <tr class="total-data">
                                 <td><strong>Tạm tính: </strong></td>
-                                <td>${cart.getVnTotalMoneyCart()} đ</td>
+                                <td>${cart.getVnTotalMoneyCart()}đ</td>
                             </tr>
                             <tr class="total-data">
                                 <td><strong>Tiền ship: </strong></td>
-                                <td>${cart.getVnFeeShip() } đ</td>
+                                <td>${cart.getVnFeeShip() }đ</td>
                             </tr>
                             <tr class="total-data">
                                 <td><strong>Khuyến mải: </strong></td>
@@ -103,7 +104,7 @@
                             </tr>
                             <tr class="total-data">
                                 <td><strong>Tất cả: </strong></td>
-                                <td>${cart.getVnFinalMoneyCart()} đ</td>
+                                <td>${cart.getVnFinalMoneyCart()}đ</td>
                             </tr>
                             </tbody>
                         </table>
@@ -133,68 +134,51 @@
 <!-- ##### Footer Area End ##### -->
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
-
-<%--<script>--%>
-<%--    &lt;%&ndash;var num = "<%=cart.getNumberProductInCart()%>";&ndash;%&gt;--%>
-
-<%--    function removeThisProduct(idProduct) {--%>
-<%--        var id = idProduct.id;--%>
-<%--        $.ajax({--%>
-<%--            url: '/project_LTW_war/removeProductFromCart',--%>
-<%--            type: 'post',--%>
-<%--            data: {--%>
-<%--                id: id--%>
-<%--            },--%>
-<%--            success: function (data) {--%>
-<%--                $("#listCart").html(data);--%>
-<%--                num----%>
-<%--                $("#numberProductCartHeader").html(num);--%>
-<%--                $("#numberProductCart").html(num);--%>
-<%--            },--%>
-<%--            error: function (xhr) {--%>
-
-<%--            }--%>
-<%--        })--%>
-
-<%--        var id= "#row"+ idProduct.id;--%>
-<%--        $(id).remove();--%>
-<%--        $.ajax({--%>
-<%--            url: '/project_LTW_war/delProductFromMainCart',--%>
-<%--            type: 'post',--%>
-<%--            data: {--%>
-<%--                id: id--%>
-<%--            },--%>
-<%--            success: function (data) {--%>
-<%--                $("#tableTotal").html(data);--%>
-<%--            },--%>
-<%--            error: function (xhr) {--%>
-
-<%--            }--%>
-<%--        })--%>
-<%--    }--%>
-
-<%--    function clickPin(idProduct) {--%>
-<%--        removeThisProduct(idProduct);--%>
-<%--        var id= "#row"+ idProduct.id;--%>
-<%--        $(id).remove();--%>
-<%--        var id = idProduct.id;--%>
-<%--        $.ajax({--%>
-<%--            url: '/project_LTW_war/delProductFromMainCart',--%>
-<%--            type: 'post',--%>
-<%--            data: {--%>
-<%--                id: id--%>
-<%--            },--%>
-<%--            success: function (data) {--%>
-<%--                $("#tableTotal").html(data);--%>
-<%--            },--%>
-<%--            error: function (xhr) {--%>
-
-<%--            }--%>
-<%--        })--%>
+<script>
 
 
-<%--    }--%>
-<%--</script>--%>
+
+
+    function clickPin(idProduct) {
+        var idRow= "#row"+ idProduct.id;
+        $(idRow).remove();
+        var id = idProduct.id;
+        $.ajax({
+            url: '/ProjectEcommerceWebsite_war/delProductFromMainCart',
+            type: 'post',
+            data: {
+                id: id
+            },
+            success: function (data) {
+                $("#tableTotal").html(data);
+                updateCart()
+            },
+            error: function (xhr) {
+
+            }
+        })
+
+
+    }
+
+    function updateCart() {
+        $.ajax({
+            url: '/ProjectEcommerceWebsite_war/updateNumberCart',
+            type: 'get',
+            data:{
+                location: "header"
+            },
+            success: function (data) {
+                $("#numberItemsCart").html(data);
+            },
+            error: function (xhr) {
+
+            }
+        })
+    }
+</script>
+<c:import url="common/js.jsp"></c:import>
+
 
 
 </body>

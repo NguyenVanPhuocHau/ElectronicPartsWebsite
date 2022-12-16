@@ -1,8 +1,10 @@
 package vn.edu.hcmuaf.fit.projectecommercewebsite.beans;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class ProductCart {
     private String product_id;
@@ -97,6 +99,12 @@ public class ProductCart {
 
     public void setCreateAt(Date createAt) {
         this.createAt = createAt;
+    }
+
+    public String getVnProductPrice(){
+        Locale localeVN = new Locale("vi", "VN");
+        NumberFormat vn = NumberFormat.getInstance(localeVN);
+        return  vn.format(getProduct_price());
     }
 
     @Override
