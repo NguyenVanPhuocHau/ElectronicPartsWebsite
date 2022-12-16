@@ -18,22 +18,16 @@
 
 </head>
 
-<%--<% List<Product> danhSachSanPham = (List<Product>) request.getAttribute("listProductCart");%>--%>
-<%--<% Cart giohang = (Cart) request.getAttribute("giohang");%>--%>
 
 <body>
 <!-- ##### Header Area Start ##### -->
 <jsp:include page="component/header.jsp"></jsp:include>
 <!-- ##### Header Area End ##### -->
 
-<!-- ##### Right Side Cart Area ##### -->
+
 <div class="cart-bg-overlay"></div>
 
-
-<%--<%@include file="cartArea.jsp" %>--%>
-<!-- ##### Right Side Cart End ##### -->
-
-<!-- ##### Breadcumb Area Start ##### -->
+!-- ##### Breadcumb Area Start ##### -->
 <%--<div class="breadcumb_area breadcumb-style-two bg-img" style="background-image: url(assets/img/bg-img/breadcumb2.jpg);">--%>
 <%--    <div class="container h-100">--%>
 <%--        <div class="row h-100 align-items-center">--%>
@@ -49,7 +43,8 @@
 <!-- cart -->
 <div class="cart-section mt-150 mb-150">
     <div class="container">
-        <div class="row" style="display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; margin-right: -15px; margin-left: -15px">
+        <div class="row"
+             style="display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; margin-right: -15px; margin-left: -15px">
             <div class="product-infor col-md-12">
                 <div class="cart-table-wrap">
                     <table class="cart-table">
@@ -64,20 +59,20 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <%--                        <%for (Product p : danhSachSanPham) {%>--%>
-                        <%--                        <tr class="table-body-row" id="row<%=p.getId_product()%><%=p.getSize()%><%=p.getColor()%>">--%>
-                        <%--                            <td class="product-remove"><a--%>
-                        <%--                                                          id="<%=p.getId_product()%><%=p.getSize()%><%=p.getColor()%>"--%>
-                        <%--                                                          onclick="clickPin(this)"><i class="fa fa-trash"></i></a></td>--%>
-                        <%--                            <td class="product-image"><img src="<%=p.getImg_url()%>" alt=""></td>--%>
-                        <%--                            <td class="product-name"><%=p.getProduct_name()%><br> Màu: <%=p.getColor()%> <br>--%>
-                        <%--                                Size: <%=p.getSize()%>--%>
-                        <%--                            </td>--%>
-                        <%--                            <td class="product-price"><%=p.getPrice()%> ₫</td>--%>
-                        <%--                            <td class="product-quantity"><input type="number" placeholder="1"></td>--%>
-                        <%--                            <td class="product-total"><%=p.totalPriceSold()%> ₫</td>--%>
-                        <%--                        </tr>--%>
-                        <%--                        <%}%>--%>
+                        <c:forEach var="item" items="${cart.getListCartItems()}">
+                            <c:set var="p" value="${item.getProduct()}"/>
+                            <tr class="table-body-row" id="${item.get}">
+                                <td class="product-remove"><a
+                                        id="${p.product_id}"
+                                        onclick=""><i class="fa fa-trash"></i></a></td>
+                                <td class="product-image"><img src="${p.img_url}" alt=""></td>
+                                <td class="product-name">${p.product_name}
+                                </td>
+                                <td class="product-price">${p.product_price}</td>
+                                <td class="product-quantity"><input type="number" placeholder="1" value="${item.amount_bought}"></td>
+                                <td class="product-total">${item.getPrice()}</td>
+                            </tr>
+                        </c:forEach>
                         </tbody>
                     </table>
                 </div>

@@ -9,8 +9,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Cart implements Serializable {
-    private static  final  long serialVersionUID = 1L;
-    private final Map<String,Product> productList;
+    private static final long serialVersionUID = 1L;
+    private final Map<String, CartItem> listItems;
 
     private double feeShip;
 
@@ -19,97 +19,103 @@ public class Cart implements Serializable {
     private String iduser;
 
     public Cart() {
-        this.productList = new HashMap<>();
+        this.listItems = new HashMap<>();
     }
 
-    public Cart(String iduser){
-        this.productList = CartDao.getInstance().getCart(iduser);
+    public Cart(String iduser) {
+        this.listItems = CartDao.getInstance().getCart(iduser);
         this.iduser = iduser;
 
     }
 
-    public Cart(Cart cart){
-        this.productList = cart.getCart();
+    public Cart(Cart cart) {
+        this.listItems = cart.getListItems();
+        this.iduser = cart.getIduser();
+
     }
 
-    public static  Cart getInstance(){
+    public static Cart getInstance() {
         return new Cart();
     }
 
 
+    public void put(Product product) {
+        String key = product.getProduct_id();
 
-    public void  put(Product product){
-//        String key = product.getId_product()+product.getSize()+product.getColor();
-        String key = "";
-        if (productList.containsKey(key)){
-//            productList.get(key).upOneQuantitySold();
+        if (listItems.containsKey(key)) {
+            listItems.get(key).upOneQuantitySold();
 //            CartDao.getInstance().updatecart(this.iduser,product.getId_product(),product.getColor(),product.getSize(),productList.get(key).getQuantitySold());
-        }
-        else {
-//            productList.put(key,product);
-//            productList.get(key).upOneQuantitySold();
+        } else {
+            listItems.put(key,new CartItem(product,1));
+//            listItems.get(key).upOneQuantitySold();
 //            CartDao.getInstance().insertCart(this.iduser,product.getId_product(),product.getColor(),product.getSize(),1);
         }
 
-
     }
 
-    public Map<String,Product> getCart(){
-        return this.productList;
+    public void puts(Product product,int num) {
+        String key = product.getProduct_id();
+
+        if (listItems.containsKey(key)) {
+            listItems.get(key).upMoreQuantitySold(num);
+//            CartDao.getInstance().updatecart(this.iduser,product.getId_product(),product.getColor(),product.getSize(),productList.get(key).getQuantitySold());
+        } else {
+            listItems.put(key, new CartItem(product, num));
+//            CartDao.getInstance().insertCart(this.iduser,product.getId_product(),product.getColor(),product.getSize(),1);
+        }
     }
 
 
 
-    public Product getProduct(String id){
-        return productList.get(id);
+
+    public CartItem getCartItem(String id) {
+        return listItems.get(id);
     }
 
-//    public Product remove(String id){
+    public CartItem remove(String id){
 //        CartDao.getInstance().romvecart(this.iduser,productList.get(id).getId_product(),productList.get(id).getColor(),productList.get(id).getSize());
-//        return  productList.remove(id);
+        return  listItems.remove(id);
 
 
-//    }
+    }
 
-    public double getTotalMoneyCart(){
+    public double getTotalMoneyCart() {
         double totalPirce = 0;
-        for (Product product: productList.values()){
-//            totalPirce += product.totalPriceSold();
+        for (CartItem item : listItems.values()) {
+           totalPirce += item.getPrice();
         }
         return totalPirce;
     }
 
-    public double getFinalMoneyCart(){
-        return getTotalMoneyCart() + getFeeShip() - (((getTotalMoneyCart()+getFeeShip())*getFeePromotion())/100);
+    public double getFinalMoneyCart() {
+        return getTotalMoneyCart() + getFeeShip() - (((getTotalMoneyCart() + getFeeShip()) * getFeePromotion()) / 100);
     }
 
-    public int getNumberProductInCart(){
+    public int getNumberProductInCart() {
         int result = 0;
-        for (Product product: productList.values()){
-//            result += product.getQuantitySold();
+        for (CartItem item : listItems.values()) {
+           result += item.getAmount_bought();
         }
         return result;
     }
 
-    public Collection<Product> getProductList(){
-        return  productList.values();
+    public Collection<CartItem> getListCartItems() {
+        return listItems.values();
     }
 
-    public double getFeeShip(){
-        if (getTotalMoneyCart()>=2000000){
+    public double getFeeShip() {
+        if (getTotalMoneyCart() >= 2000000) {
             return 0;
-        }
-        else {
-            return 22000*getNumberProductInCart();
+        } else {
+            return 22000 * getNumberProductInCart();
         }
 
     }
 
-    public int getFeePromotion(){
-        if (getNumberProductInCart()>=3){
-           return getNumberProductInCart()/3;
-        }
-        else {
+    public int getFeePromotion() {
+        if (getNumberProductInCart() >= 3) {
+            return getNumberProductInCart() / 3;
+        } else {
             return 0;
 
         }
@@ -119,14 +125,30 @@ public class Cart implements Serializable {
 //        CartDao.getInstance().romveAllcart(this.iduser);
 //    }
 
+    public Map<String, CartItem> getListItems() {
+        return listItems;
+    }
+
+    public void setFeeShip(double feeShip) {
+        this.feeShip = feeShip;
+    }
+
+    public void setFeePromotion(double feePromotion) {
+        this.feePromotion = feePromotion;
+    }
+
+    public String getIduser() {
+        return iduser;
+    }
+
+    public void setIduser(String iduser) {
+        this.iduser = iduser;
+    }
 
 
 //    public static void main(String[] args) {
 //        System.out.println(getInstance().getFinalMoneyCart());
 //    }
-
-
-
 
 
 }

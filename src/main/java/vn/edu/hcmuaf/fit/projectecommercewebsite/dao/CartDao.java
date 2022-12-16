@@ -84,7 +84,8 @@ public class CartDao {
         try {
             rs = statement.executeQuery(sql);
             while (rs.next()) {
-                listProduct.add(new CartItem(rs.getString(1),rs.getString(2),rs.getInt(3)));
+//                Product p = ProductDao.getInstance().getProductById(rs.getString(2));
+//                listProduct.add(new CartItem(p,rs.getInt(3)));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -95,13 +96,11 @@ public class CartDao {
 
     }
 
-    public Map<String, Product> getCart(String idUser){
-        Map<String,Product> re = new HashMap<>();
+    public Map<String, CartItem> getCart(String idUser){
+        Map<String,CartItem> re = new HashMap<>();
         List<CartItem> list = getListCartItemById(idUser);
-        for (CartItem c:list) {
-            Product pd = ProductDao.getInstance().getProductById(c.getProduct_id());
-//            pd.set(c.getC_amount_bought());
-//            re.put(c.getProduct_id()+c.getSize()+c.getColor(),pd);
+        for (CartItem cartItem:list) {
+            re.put(cartItem.getProduct().getProduct_id(),cartItem);
         }
         return re;
     }
