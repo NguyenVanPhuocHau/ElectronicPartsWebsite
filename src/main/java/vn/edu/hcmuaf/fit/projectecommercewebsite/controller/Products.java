@@ -35,7 +35,7 @@ public class Products extends HttpServlet {
             request.setAttribute("aaa", "hello");
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/product.jsp");
             rd.forward(request, response);
-            System.out.println(listProduct.size());
+//            System.out.println(listProduct.size());
 //        }
         }
     }

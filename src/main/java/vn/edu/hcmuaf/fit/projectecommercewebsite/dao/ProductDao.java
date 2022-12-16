@@ -11,7 +11,6 @@ public class ProductDao {
     private static ProductDao instance;
     static Connection conn;
     static PreparedStatement pre;
-    static ResultSet rs;
     int count = 0;
 
     public ProductDao() {
@@ -29,6 +28,44 @@ public class ProductDao {
         Statement statement = DBconnect.getInstance().get();
         if (statement == null) return null;
         String sql = "select * from product";
+        ResultSet rs = null;
+        try {
+            rs = statement.executeQuery(sql);
+            while (rs.next()) {
+                listProduct.add(new Product(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getString(7), rs.getString(6), getImageUrl(rs.getString(1)), rs.getDate(8)));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+
+        return listProduct;
+
+    }
+    public ArrayList<Product> getProductNew() {
+        ArrayList<Product> listProduct = new ArrayList<>();
+        Statement statement = DBconnect.getInstance().get();
+        if (statement == null) return null;
+        String sql = "SELECT * from laptrinhweb.product where createAt between (curdate()-7) and curdate()";
+        ResultSet rs = null;
+        try {
+            rs = statement.executeQuery(sql);
+            while (rs.next()) {
+                listProduct.add(new Product(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getString(7), rs.getString(6), getImageUrl(rs.getString(1)), rs.getDate(8)));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+
+        return listProduct;
+
+    }
+    public ArrayList<Product> getProductLast() {
+        ArrayList<Product> listProduct = new ArrayList<>();
+        Statement statement = DBconnect.getInstance().get();
+        if (statement == null) return null;
+        String sql = "SELECT * from laptrinhweb.product where createAt between (curdate()-30) and (curdate()-15)";
         ResultSet rs = null;
         try {
             rs = statement.executeQuery(sql);
@@ -92,6 +129,7 @@ public class ProductDao {
         if (statement == null) return null;
         String sql = "Select image.image_url FROM image WHERE product_id=?";
         conn = Connect.getConnect();
+        ResultSet rs=null;
         try {
             pre = conn.prepareStatement(sql);
             pre.setString(1, id_product);
@@ -124,7 +162,7 @@ public class ProductDao {
 //            e.printStackTrace();
 //        }
         ProductDao pr = new ProductDao();
-        ArrayList<Product> ps= pr.filterProduct("CA09");
+        ArrayList<Product> ps= pr.getProductLast();
 //        String imageUrl= pr.getImageUrl("PR03");
 //        System.out.println(imageUrl);
 
