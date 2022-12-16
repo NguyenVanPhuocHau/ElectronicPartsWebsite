@@ -110,7 +110,8 @@
                                                     <div class="caption">
                                                         <h5>${prnew.product_name}</h5>
                                                         <h4><a class="btn" href="product_details.html">VIEW</a> <span
-                                                                class="pull-right">${prnew.product_price} VNĐ</span></h4>
+                                                                class="pull-right">${prnew.product_price} VNĐ</span>
+                                                        </h4>
                                                     </div>
                                                 </div>
                                             </li>
@@ -129,7 +130,8 @@
                                                     <div class="caption">
                                                         <h5>${prnew.product_name}</h5>
                                                         <h4><a class="btn" href="product_details.html">VIEW</a> <span
-                                                                class="pull-right">${prnew.product_price} VNĐ</span></h4>
+                                                                class="pull-right">${prnew.product_price} VNĐ</span>
+                                                        </h4>
                                                     </div>
                                                 </div>
                                             </li>
@@ -146,7 +148,7 @@
                 </div>
                 <h4>Latest Products </h4>
                 <ul class="thumbnails">
-                    <c:forEach items="${requestScope.listProductLast}"  var="prlast">
+                    <c:forEach items="${requestScope.listProductLast}" var="prlast">
 
                         <li class="span3">
                             <div class="thumbnail">
@@ -155,13 +157,14 @@
                                 <div class="caption">
                                     <h5>${prlast.product_name}</h5>
                                     <p>
-                                        ${prlast.product_des}
+                                            ${prlast.product_des}
                                     </p>
 
                                     <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i
-                                            class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i
+                                            class="icon-zoom-in"></i></a> <a class="btn " onclick=addToCart("${prlast.product_id}")>Thêm vào <i
                                             class="icon-shopping-cart"></i></a> <a class="btn btn-primary"
-                                                                                   href="#">${prlast.product_price} VNĐ</a></h4>
+                                                                                   href="#">${prlast.product_price}
+                                        VNĐ</a></h4>
                                 </div>
                             </div>
                         </li>
@@ -178,6 +181,45 @@
 <!-- Footer ================================================================== -->
 <c:import url="component/footer.jsp"></c:import>
 <!-- Placed at the end of the document so the pages load faster ============================================= -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script>
+
+       function addToCart(product_id) {
+           $.ajax({
+               url: '/ProjectEcommerceWebsite_war/AddProductToCart',
+               type: 'post',
+               data: {
+                   product_id: product_id
+               },
+               success: function (data) {
+                   $("#numberItemsCart").html(data);
+                   updateCart()
+               },
+               error: function (xhr) {
+
+               }
+           })
+
+       }
+
+       function updateCart() {
+           $.ajax({
+               url: '/ProjectEcommerceWebsite_war/updateNumberCart',
+               type: 'get',
+               data:{
+                   location: "body"
+               },
+               success: function (data) {
+                   $("#myCart").html(data);
+               },
+               error: function (xhr) {
+
+               }
+           })
+       }
+
+</script>
+
 <c:import url="common/js.jsp"></c:import>
 
 </body>
