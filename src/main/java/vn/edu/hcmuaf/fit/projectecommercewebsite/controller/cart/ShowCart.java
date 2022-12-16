@@ -1,6 +1,8 @@
 package vn.edu.hcmuaf.fit.projectecommercewebsite.controller.cart;
 
 import vn.edu.hcmuaf.fit.projectecommercewebsite.beans.Cart;
+import vn.edu.hcmuaf.fit.projectecommercewebsite.beans.ProductCart;
+import vn.edu.hcmuaf.fit.projectecommercewebsite.dao.ProductDao;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -16,7 +18,8 @@ public class ShowCart extends HttpServlet {
         if (cart == null){
             cart = Cart.getInstance();
         }
-        
+        ProductCart p = ProductDao.getInstance().getProductById("PR01");
+        cart.put(p);
         session.setAttribute("cart",cart);
         request.getRequestDispatcher("cart.jsp").forward(request,response);
 
