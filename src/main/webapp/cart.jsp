@@ -27,7 +27,7 @@
 
 <div class="cart-bg-overlay"></div>
 
-!-- ##### Breadcumb Area Start ##### -->
+
 <%--<div class="breadcumb_area breadcumb-style-two bg-img" style="background-image: url(assets/img/bg-img/breadcumb2.jpg);">--%>
 <%--    <div class="container h-100">--%>
 <%--        <div class="row h-100 align-items-center">--%>
@@ -60,17 +60,17 @@
                         </thead>
                         <tbody>
                         <c:forEach var="item" items="${cart.getListCartItems()}">
-                            <c:set var="p" value="${item.getProduct()}"/>
-                            <tr class="table-body-row" id="${item.get}">
+                            <c:set var="p" value="${item.product}"/>
+                            <tr class="table-body-row" id="row${p.product_id}">
                                 <td class="product-remove"><a
                                         id="${p.product_id}"
                                         onclick=""><i class="fa fa-trash"></i></a></td>
-                                <td class="product-image"><img src="${p.img_url}" alt=""></td>
+                                <td class="product-image"><img src="${p.img_url[0]}" alt=""></td>
                                 <td class="product-name">${p.product_name}
                                 </td>
                                 <td class="product-price">${p.product_price}</td>
                                 <td class="product-quantity"><input type="number" placeholder="1" value="${item.amount_bought}"></td>
-                                <td class="product-total">${item.getPrice()}</td>
+                                <td class="product-total">${item.getVnPrice()} đ</td>
                             </tr>
                         </c:forEach>
                         </tbody>
@@ -91,19 +91,19 @@
                             <tbody>
                             <tr class="total-data">
                                 <td><strong>Tạm tính: </strong></td>
-                                <td>1000 đ</td>
+                                <td>${cart.getVnTotalMoneyCart()} đ</td>
                             </tr>
                             <tr class="total-data">
                                 <td><strong>Tiền ship: </strong></td>
-                                <td>1000 đ</td>
+                                <td>${cart.getVnFeeShip() } đ</td>
                             </tr>
                             <tr class="total-data">
                                 <td><strong>Khuyến mải: </strong></td>
-                                <td>-10%</td>
+                                <td>-${cart.getVnFeePromotion()}%</td>
                             </tr>
                             <tr class="total-data">
                                 <td><strong>Tất cả: </strong></td>
-                                <td>1000 đ</td>
+                                <td>${cart.getVnFinalMoneyCart()} đ</td>
                             </tr>
                             </tbody>
                         </table>
@@ -114,10 +114,10 @@
                     </div>
                 </div>
                 <div class="coupon-section">
-                    <h3>Apply Coupon</h3>
+                    <h3>Sử dụng mã giảm giá</h3>
                     <div class="coupon-form-wrap">
                         <form action="index.html">
-                            <p><input type="text" placeholder="Coupon"></p>
+                            <p><input type="text" placeholder="Mã giảm giá"></p>
                             <p><input type="submit" value="Apply"></p>
                         </form>
                     </div>

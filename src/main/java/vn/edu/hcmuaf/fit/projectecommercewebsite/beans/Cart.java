@@ -4,8 +4,10 @@ package vn.edu.hcmuaf.fit.projectecommercewebsite.beans;
 import vn.edu.hcmuaf.fit.projectecommercewebsite.dao.CartDao;
 
 import java.io.Serializable;
+import java.text.NumberFormat;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class Cart implements Serializable {
@@ -17,6 +19,9 @@ public class Cart implements Serializable {
     private double feePromotion;
 
     private String iduser;
+
+    Locale localeVN = new Locale("vi", "VN");
+    NumberFormat vn = NumberFormat.getInstance(localeVN);
 
     public Cart() {
         this.listItems = new HashMap<>();
@@ -39,7 +44,7 @@ public class Cart implements Serializable {
     }
 
 
-    public void put(Product product) {
+    public void put(ProductCart product) {
         String key = product.getProduct_id();
 
         if (listItems.containsKey(key)) {
@@ -53,7 +58,7 @@ public class Cart implements Serializable {
 
     }
 
-    public void puts(Product product,int num) {
+    public void puts(ProductCart product,int num) {
         String key = product.getProduct_id();
 
         if (listItems.containsKey(key)) {
@@ -119,8 +124,25 @@ public class Cart implements Serializable {
             return 0;
 
         }
-
     }
+
+    public String getVnTotalMoneyCart(){
+        return  vn.format(getTotalMoneyCart());
+    }
+
+    public String getVnFinalMoneyCart(){
+        return vn.format(getFinalMoneyCart());
+    }
+
+    public String getVnFeePromotion(){
+        return vn.format(getFeePromotion());
+    }
+
+    public String getVnFeeShip(){
+        return vn.format(getFeeShip());
+    }
+
+
 //    public void checkOut(){
 //        CartDao.getInstance().romveAllcart(this.iduser);
 //    }

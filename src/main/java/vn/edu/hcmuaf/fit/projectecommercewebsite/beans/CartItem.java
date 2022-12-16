@@ -1,7 +1,10 @@
 package vn.edu.hcmuaf.fit.projectecommercewebsite.beans;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 public class CartItem {
-    private Product product;
+    private ProductCart product;
 
 
     private int amount_bought;
@@ -10,16 +13,16 @@ public class CartItem {
 
     }
 
-    public CartItem(Product product, int amount_bought) {
+    public CartItem(ProductCart product, int amount_bought) {
         this.product = product;
         this.amount_bought = amount_bought;
     }
 
-    public Product getProduct() {
+    public ProductCart getProduct() {
         return product;
     }
 
-    public void setProduct(Product product) {
+    public void setProduct(ProductCart product) {
         this.product = product;
     }
 
@@ -32,7 +35,17 @@ public class CartItem {
     }
 
     public double getPrice(){
+
+
         return product.getProduct_price()*amount_bought;
+    }
+
+    public String getVnPrice(){
+        Locale localeVN = new Locale("vi", "VN");
+        NumberFormat vn = NumberFormat.getInstance(localeVN);
+        double price = product.getProduct_price()*amount_bought;
+        String result = vn.format(price);
+        return result;
     }
 
 
