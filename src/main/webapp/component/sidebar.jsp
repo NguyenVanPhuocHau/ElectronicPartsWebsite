@@ -22,7 +22,9 @@
                     <%
                         for (Category category : CategoryService.getInstance().getCategory(request.getAttribute("texts").toString())) {
                     %>
-                    <li><a href="${pageContext.request.contextPath}/products?id_category=<%=category.getId_category()%>"><i class="icon-chevron-right"></i><%=category.getName_category()%> (30)</a>
+                    <li>
+                        <a href="${pageContext.request.contextPath}/products?id_category=<%=category.getId_category()%>"><i
+                                class="icon-chevron-right"></i><%=category.getName_category()%> (30)</a>
 
                                 <%}%>
                 </ul>

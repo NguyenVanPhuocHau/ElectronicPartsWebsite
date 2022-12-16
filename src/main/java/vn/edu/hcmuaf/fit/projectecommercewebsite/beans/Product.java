@@ -66,6 +66,7 @@ public class Product {
     }
 
     public int getProduct_price() {
+
         return product_price;
     }
 
@@ -111,4 +112,19 @@ public class Product {
                 ", createAt=" + createAt +
                 '}';
     }
+
+    public static void main(String[] args) {
+        String text="1234567";
+        String[] words =text.split("");//tach chuoi dua tren khoang trang
+        //su dung vong lap foreach de in cac element cua mang chuoi thu duoc
+        for (int i=0;i<words.length;i++) {
+            if(i%3==0&& i!=0){
+//                words[i+1]
+                words[i]=".";
+
+            }
+            System.out.println(words[i]);
+        }
+    }
+
 }
