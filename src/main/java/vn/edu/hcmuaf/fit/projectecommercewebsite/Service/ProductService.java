@@ -22,10 +22,16 @@ public class ProductService {
     public ArrayList<Product> filterProduct(String category){
         return new ProductDao().filterProduct(category);
     }
+    public ArrayList<Product> getProductNew(){
+        return new ProductDao().getProductNew();
+    }
+    public ArrayList<Product> getProductLast(){
+        return new ProductDao().getProductLast();
+    }
 
     public static void main(String[] args) {
         ProductService pr = new ProductService();
-        for( Product p :pr.getProduct()){
+        for( Product p :pr.getProductNew()){
             System.out.println(p.toString());
         }
     }

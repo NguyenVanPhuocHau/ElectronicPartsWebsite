@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-9">
                     <section class="footer-item">
-                        <a href="TrangChu" class="logo footer-logo"><img src="/ProjectEcommerceWebsite_war/assets/img/logo_linhkien.png" alt="biolife logo" width="135" height="34"></a>
+                        <a href="TrangChu" class="logo footer-logo"><img src="assets/img/logo_linhkien.png" alt="biolife logo" width="135" height="34"></a>
                         <div class="footer-phone-info">
                             <i class="fa fa-light fa-headphones" style="font-size: 40px; float: left; padding-top: 9px"></i>
 
@@ -99,11 +99,11 @@
                 <div class="col-lg-6 col-sm-6 col-xs-12">
                     <div class="payment-methods">
                         <ul>
-                            <li><a href="#" class="payment-link"><img src="/ProjectEcommerceWebsite_war/assets/img/card1.jpg" width="51" height="36" alt=""></a></li>
-                            <li><a href="#" class="payment-link"><img src="/ProjectEcommerceWebsite_war/assets/img/card2.jpg" width="51" height="36" alt=""></a></li>
-                            <li><a href="#" class="payment-link"><img src="/ProjectEcommerceWebsite_war/assets/img/card3.jpg" width="51" height="36" alt=""></a></li>
-                            <li><a href="#" class="payment-link"><img src="/ProjectEcommerceWebsite_war/assets/img/card4.jpg" width="51" height="36" alt=""></a></li>
-                            <li><a href="#" class="payment-link"><img src="/ProjectEcommerceWebsite_war/assets/img/card5.jpg" width="51" height="36" alt=""></a></li>
+                            <li><a href="#" class="payment-link"><img src="assets/img/card1.jpg" width="51" height="36" alt=""></a></li>
+                            <li><a href="#" class="payment-link"><img src="assets/img/card2.jpg" width="51" height="36" alt=""></a></li>
+                            <li><a href="#" class="payment-link"><img src="assets/img/card3.jpg" width="51" height="36" alt=""></a></li>
+                            <li><a href="#" class="payment-link"><img src="assets/img/card4.jpg" width="51" height="36" alt=""></a></li>
+                            <li><a href="#" class="payment-link"><img src="assets/img/card5.jpg" width="51" height="36" alt=""></a></li>
                         </ul>
                     </div>
                 </div>

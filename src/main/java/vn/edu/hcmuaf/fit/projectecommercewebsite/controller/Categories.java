@@ -14,12 +14,6 @@ public class Categories extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ArrayList<Category> listParent = new CategoryService().getParent();
-//        for(Category category:listParent){
-//            String text= (String) request.getAttribute("texts");
-//            ArrayList<Category> listCategory = new CategoryService().getCategory(text);
-//            request.setAttribute("listCategory", listCategory);
-//        }
-
         request.setAttribute("listParent", listParent);
         RequestDispatcher rd = getServletContext().getRequestDispatcher("/component/sidebar.jsp");
         rd.forward(request, response);

@@ -213,3 +213,6 @@ a {
 #register{
     color: #04c!important;
 }
+#mainBody{
+    background-color: red !important;
+}
