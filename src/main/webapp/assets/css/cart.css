@@ -412,7 +412,7 @@ p:last-child {
 a.boxed-btn {
   font-family: 'Poppins', sans-serif;
   display: inline-block;
-  background-color: #F28123;
+  background-color: #006dcc;
   color: #fff;
   padding: 10px 20px;
 }
@@ -421,7 +421,7 @@ a.bordered-btn {
   font-family: 'Poppins', sans-serif;
   display: inline-block;
   color: #fff;
-  border: 2px solid #F28123;
+  border: 2px solid #006dcc;
   padding: 7px 20px;
 }
 
@@ -1011,8 +1011,8 @@ a.boxed-btn {
 }
 
 a.boxed-btn:hover {
-  background-color: #051922;
-  color: #F28123;
+  background-color: #04c;
+  color: #ffffff;
 }
 
 a.bordered-btn {
@@ -1174,8 +1174,8 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  background-color: #051922;
-  color: #F28123;
+  background-color: #04c;
+  color: #ffffff;
 }
 
 div.owl-controls, .owl-controls div {
@@ -1448,8 +1448,8 @@ html, body {
 }
 
 input[type="submit"] {
-  background-color: #F28123;
-  color: #051922;
+  background-color: #006dcc;
+  color: #ffffff;
   font-weight: 700;
   text-transform: uppercase;
   font-size: 15px;
@@ -2393,7 +2393,7 @@ input[type="number"] {
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 10px;
-  width: 100px;
+  width: 40px;
   margin-bottom: 15px;
 }
 
@@ -2452,7 +2452,7 @@ tr.table-head-row th:last-child {
 }
 
 td.product-image img {
-  max-width: 50px;
+  max-width: 100px;
   -webkit-box-shadow: none;
   box-shadow: none;
   margin-bottom: 0;

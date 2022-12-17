@@ -10,16 +10,25 @@
 <div id="header">
     <div class="container">
         <div id="welcomeLine" class="row">
-            <div class="span6">Welcome!<strong> User</strong></div>
+            <c:choose>
+                <c:when test="${user!=null}">
+                    <div class="span6">XIN CHÀO!<a href="/ProjectEcommerceWebsite_war/userProfile"><strong> ${user.username}</strong></a></div>
+                </c:when>
+                <c:otherwise>
+                    <div class="span6">XIN CHÀO!<a href=""><strong> QÚY KHÁCH</strong></a></div>
+                </c:otherwise>
+            </c:choose>
+
             <div class="span6">
                 <div class="pull-right">
-<%--                    <a href="product_summary.html"><span class="">Fr</span></a>--%>
-<%--                    <a href="product_summary.html"><span class="">Es</span></a>--%>
-<%--                    <span class="btn btn-mini">VNĐ</span>--%>
-<%--                    <a href="product_summary.html"><span>&pound;</span></a>--%>
-                    <span class="btn btn-mini">155.00 VNĐ</span>
-<%--                    <a href="product_summary.html"><span class="">$</span></a>--%>
-                    <a href="product_summary.html"><span class="btn btn-mini btn-primary"><i class="icon-shopping-cart icon-white"></i> [ 3 ] Sản phẩm trong giỏ hàng </span> </a>
+                    <a href="product_summary.html"><span class="">Fr</span></a>
+                    <a href="product_summary.html"><span class="">Es</span></a>
+                    <span class="btn btn-mini">En</span>
+                    <a href="product_summary.html"><span>&pound;</span></a>
+                    <span class="btn btn-mini">$155.00</span>
+                    <a href="product_summary.html"><span class="">$</span></a>
+
+                    <a href="ShowCart"><span  class="btn btn-mini btn-primary"><i class="icon-shopping-cart icon-white"></i><span id="numberItemsCart">[ ${cart.getNumberProductInCart()} ] sản phẩm trong giỏ hàng</span></span> </a>
                 </div>
             </div>
         </div>
