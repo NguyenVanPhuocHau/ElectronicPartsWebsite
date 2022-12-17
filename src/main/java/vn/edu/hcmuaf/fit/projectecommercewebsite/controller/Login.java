@@ -1,6 +1,7 @@
 package vn.edu.hcmuaf.fit.projectecommercewebsite.controller;
 
 import vn.edu.hcmuaf.fit.projectecommercewebsite.Service.UserService;
+import vn.edu.hcmuaf.fit.projectecommercewebsite.beans.Cart;
 import vn.edu.hcmuaf.fit.projectecommercewebsite.beans.UserBean;
 import vn.edu.hcmuaf.fit.projectecommercewebsite.dao.UserDao;
 
@@ -38,6 +39,9 @@ public class Login extends HttpServlet {
             HttpSession session = request.getSession();
             UserBean userBean = UserDao.getInstance().getUserLogin(getUsername,getPass);
             session.setAttribute("user", userBean);
+            Cart currentCart = (Cart) session.getAttribute("cart");
+            Cart cart = new Cart(userBean.getUser_id(),currentCart);
+            session.setAttribute("cart",cart);
             response.sendRedirect("home.jsp");
 
         } else {

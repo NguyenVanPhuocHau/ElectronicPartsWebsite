@@ -40,7 +40,7 @@
                 <span class="icon-bar"></span>
             </a>
             <div class="navbar-inner">
-                <a class="brand" href="${pageContext.request.contextPath}/homes"><img src="assets/themes/images/logo.png" alt="AccessoriesShop"/></a>
+                <a class="brand" href="${pageContext.request.contextPath}/home"><img src="assets/themes/images/logo.png" alt="AccessoriesShop"/></a>
                 <form class="form-inline navbar-search" method="post" action="products.html" >
                     <input id="srchFld" class="srchTxt" type="text" />
 <%--                    <select class="srchTxt">--%>

@@ -18,8 +18,6 @@ public class ShowCart extends HttpServlet {
         if (cart == null){
             cart = Cart.getInstance();
         }
-        ProductCart p = ProductDao.getInstance().getProductById("PR01");
-        cart.put(p);
         session.setAttribute("cart",cart);
         request.getRequestDispatcher("cart.jsp").forward(request,response);
 
