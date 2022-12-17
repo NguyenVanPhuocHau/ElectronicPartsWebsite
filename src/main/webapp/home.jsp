@@ -105,11 +105,11 @@
                                             <li class="span3">
                                                 <div class="thumbnail">
                                                     <i class="tag"></i>
-                                                    <a href="product_details.html"><img
+                                                    <a href="${pageContext.request.contextPath}/detail?id_product=${prnew.product_id}"><img
                                                             src="${prnew.img_url}" alt=""></a>
                                                     <div class="caption">
                                                         <h5>${prnew.product_name}</h5>
-                                                        <h4><a class="btn" href="product_details.html">VIEW</a> <span
+                                                        <h4><a class="btn" href="${pageContext.request.contextPath}/detail?id_product=${prnew.product_id}">VIEW</a> <span
                                                                 class="pull-right">${prnew.product_price} VNĐ</span></h4>
                                                     </div>
                                                 </div>
@@ -124,11 +124,11 @@
                                             <li class="span3">
                                                 <div class="thumbnail">
                                                     <i class="tag"></i>
-                                                    <a href="product_details.html"><img
+                                                    <a href="${pageContext.request.contextPath}/detail?id_product=${prnew.product_id}"><img
                                                             src="${prnew.img_url}" alt=""></a>
                                                     <div class="caption">
                                                         <h5>${prnew.product_name}</h5>
-                                                        <h4><a class="btn" href="product_details.html">VIEW</a> <span
+                                                        <h4><a class="btn" href="${pageContext.request.contextPath}/detail?id_product=${prnew.product_id}">VIEW</a> <span
                                                                 class="pull-right">${prnew.product_price} VNĐ</span></h4>
                                                     </div>
                                                 </div>
@@ -150,7 +150,7 @@
 
                         <li class="span3">
                             <div class="thumbnail">
-                                <a href="product_details.html"><img src="${prlast.img_url}"
+                                <a href="${pageContext.request.contextPath}/detail?id_product=${prlast.product_id}"><img src="${prlast.img_url}"
                                                                     alt=""/></a>
                                 <div class="caption">
                                     <h5>${prlast.product_name}</h5>
@@ -158,7 +158,7 @@
                                         ${prlast.product_des}
                                     </p>
 
-                                    <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i
+                                    <h4 style="text-align:center"><a class="btn" href="${pageContext.request.contextPath}/detail?id_product=${prlast.product_id}"> <i
                                             class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i
                                             class="icon-shopping-cart"></i></a> <a class="btn btn-primary"
                                                                                    href="#">${prlast.product_price} VNĐ</a></h4>

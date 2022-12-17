@@ -1,2 +1,2 @@
 <%@include file="common/tablig.jsp"%>
-<c:redirect url="/home"/>
+<c:redirect url="/homes"/>

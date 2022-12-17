@@ -9,19 +9,15 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@WebServlet(name = "Homes", value = "/homes")
-public class Homes extends HttpServlet {
+@WebServlet(name = "DetailProduct", value = "/detail")
+public class DetailProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ArrayList<Product> listProductNew = new ProductService().getProductNew();
-        request.setAttribute("listProductNew", listProductNew);
-        ArrayList<Product> listProductLast = new ProductService().getProductLast();
-        request.setAttribute("listProductLast", listProductLast);
-        RequestDispatcher rd = getServletContext().getRequestDispatcher("/home.jsp");
+        Product product = new ProductService().getDetailProduct(request.getParameter("id_product"));
+        System.out.println(request.getParameter("id_product")+"product");
+        request.setAttribute("detailProduct", product);
+        RequestDispatcher rd = getServletContext().getRequestDispatcher("/detail_product.jsp");
         rd.forward(request, response);
-//        response.sendRedirect( "/home.jsp");
-
-
     }
 
     @Override

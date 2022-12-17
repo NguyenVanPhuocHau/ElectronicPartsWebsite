@@ -28,7 +28,9 @@ public class ProductService {
     public ArrayList<Product> getProductLast(){
         return new ProductDao().getProductLast();
     }
-
+    public Product getDetailProduct(String id_product){
+        return new ProductDao().getDetailProduct(id_product);
+    }
     public static void main(String[] args) {
         ProductService pr = new ProductService();
         for( Product p :pr.getProductNew()){

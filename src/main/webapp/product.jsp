@@ -53,8 +53,6 @@
                 <br class="clr"/>
                 <div class="tab-content">
                     <div class="tab-pane" id="listView">
-                        <%--                        <jsp:useBean id="listProducts" scope="request" type="java.util.List"/>--%>
-                        <%--                        <c:set target="listProducts" var="list" scope="request"/>--%>
                         <c:forEach items="${requestScope.listProduct}" var="product">
 
                             <div class="row">
@@ -66,9 +64,11 @@
                                     <hr class="soft"/>
                                     <h5>${product.product_name}</h5>
                                     <p>
-                                        ${product.product_des}
+                                            ${product.product_des}
                                     </p>
-                                    <a class="btn btn-small pull-right" href="product_details.html">View Details</a>
+                                    <a class="btn btn-small pull-right"
+                                       href="${pageContext.request.contextPath}/detail?id_product=${product.product_id}">View
+                                        Details</a>
                                     <br class="clr"/>
                                 </div>
                                 <div class="span3 alignR">
@@ -95,14 +95,16 @@
                             <c:forEach items="${requestScope.listProduct}" var="product">
                                 <li class="span3">
                                     <div class="thumbnail">
-                                        <a href="product_details.html"><img src="${product.img_url}" alt=""/></a>
+                                        <a href="${pageContext.request.contextPath}/detail?id_product=${product.product_id}"><img src="${product.img_url}" alt=""/></a>
                                         <div class="caption">
                                             <h5>${product.product_name}</h5>
                                             <p>
                                                 I'm a paragraph. Click here
                                             </p>
-                                            <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i
-                                                    class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i
+                                            <h4 style="text-align:center"><a class="btn"
+                                                                             href="${pageContext.request.contextPath}/detail?id_product=${product.product_id}">
+                                                <i
+                                                        class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i
                                                     class="icon-shopping-cart"></i></a> <a class="btn btn-primary"
                                                                                            href="#">${product.product_price}</a>
                                             </h4>

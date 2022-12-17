@@ -146,6 +146,29 @@ public class ProductDao {
         return result;
 
     }
+    public Product getDetailProduct(String id_product) {
+        Product result = null;
+        Statement statement = DBconnect.getInstance().get();
+        if (statement == null) return null;
+        String sql = "Select * FROM product WHERE product_id=?";
+        conn = Connect.getConnect();
+        ResultSet rs=null;
+        try {
+            pre = conn.prepareStatement(sql);
+            pre.setString(1, id_product);
+            rs = pre.executeQuery();
+            while (rs.next()) {
+                result = new Product(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getString(7), rs.getString(6), getImageUrl(rs.getString(1)), rs.getDate(8));
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+
+        return result;
+
+    }
 
 
     public static void main(String[] args) {
@@ -167,9 +190,9 @@ public class ProductDao {
 //        System.out.println(imageUrl);
 
         for(Product p : ps){
-            System.out.println(p.toString());
+//            System.out.println(p.toString());
         }
-        System.out.println(pr.getImageUrl("PR01"));
+        System.out.println(pr.getDetailProduct("PR01").toString());
 
 
 //        ArrayList<Product> listProduct = new ArrayList<>();

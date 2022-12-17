@@ -10,9 +10,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../common/tablig.jsp" %>
 <div id="sidebar" class="span3">
-    <div class="well well-small"><a id="myCart" href="product_summary.html"><img
-            src="assets/themes/images/ico-cart.png" alt="cart">3 Items in your cart <span
-            class="badge badge-warning pull-right">$155.00</span></a></div>
+    <div class="well well-small"><a id="myCart" href="/cart.jsp"><img
+            src="assets/themes/images/ico-cart.png" alt="cart">3 Sản phẩm <span
+            class="badge badge-warning pull-right">155.00 VNĐ</span></a></div>
     <ul id="sideManu" class="nav nav-tabs nav-stacked">
         <c:forEach items="${requestScope.listParent}" var="parent">
             <li class="subMenu"><a href="#">${parent.name_category} []</a>
