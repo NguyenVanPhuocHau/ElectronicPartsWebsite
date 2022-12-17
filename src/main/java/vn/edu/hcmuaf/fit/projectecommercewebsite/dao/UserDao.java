@@ -1,8 +1,11 @@
 package vn.edu.hcmuaf.fit.projectecommercewebsite.dao;
 
+import vn.edu.hcmuaf.fit.projectecommercewebsite.beans.ProductCart;
 import vn.edu.hcmuaf.fit.projectecommercewebsite.beans.User;
+import vn.edu.hcmuaf.fit.projectecommercewebsite.beans.UserBean;
 import vn.edu.hcmuaf.fit.projectecommercewebsite.connect.Connect;
 import vn.edu.hcmuaf.fit.projectecommercewebsite.connect.DBconnect;
+import vn.edu.hcmuaf.fit.projectecommercewebsite.connect.GetConnection;
 
 import java.sql.*;
 
@@ -87,4 +90,62 @@ public class UserDao {
             return false;
         }
     }
+
+    public UserBean getUserLogin(String username, String password) {
+        try {
+            UserBean result = null;
+            Connection con = GetConnection.getCon();
+            String sql="SELECT * FROM user WHERE user_username=? AND user_password=?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1,username);
+            ps.setString(2,password);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                result = new UserBean(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getDate(9));
+            }
+            rs.close();
+            ps.close();
+            return result;
+        } catch (SQLException e) {
+            //some error when execute query
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            //can't find the name to get COnnection down database
+            e.printStackTrace();
+        }
+        return null;
+
+    }
+
+    public UserBean getUserById(String user_id) {
+        try {
+            UserBean result = null;
+            Connection con = GetConnection.getCon();
+            String sql = "SELECT * FROM user WHERE user_id=?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1,user_id);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+                result = new UserBean(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getDate(9));
+            }
+            rs.close();
+            ps.close();
+            return result;
+        } catch (SQLException e) {
+            //some error when execute query
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            //can't find the name to get COnnection down database
+            e.printStackTrace();
+        }
+        return null;
+
+    }
+    public static void main(String[] args) {
+        UserBean userBean = getInstance().getUserById("US02");
+        System.out.println(userBean.toString());
+    }
 }
+
+

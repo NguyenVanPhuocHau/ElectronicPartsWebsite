@@ -540,33 +540,7 @@
 <div id="content" class=" ">
     <div class="g1180">
         <div id="profilePage">
-            <div id="pfMenu">
-                <ul>
-                    <li>
-                        <a style="padding-left: 9px" rel="nofollow" href="/profile/changepassword" class="si">
-                            <i class="fa fa-solid fa-user" style=" margin-right: 12px;color: #f04e23;"></i>
-                            Thông tin tài khoản </a></li>
-                    <li class="active">
-                        <a style="padding-left: 9px" rel="nofollow" href="/profile/changepassword" class="si">
-                            <i class="fa fa-unlock-alt" style=" margin-right: 12px;color: #f04e23;"></i>
-                            Đổi mật khẩu </a></li>
-                    <li>
-                        <a style="padding-left: 8px" rel="nofollow" href="/order" class="si">
-                            <i class="fa fa-list-alt" style=" margin-right: 10px;color: #f04e23;"></i>
-                            Quản lý đơn hàng </a></li>
-                    <li>
-                        <a style="padding-left: 9px" rel="nofollow" href="/profile/changepassword" class="si">
-                            <i class="fa fa-solid fa-heart" style=" margin-right: 12px;color: #f04e23;"></i>
-                            Danh sách yêu thích </a></li>
-                    <li>
-                        <a style="padding-left: 9px" rel="nofollow" href="/profile/changepassword" class="si">
-                            <i class="fa fa-unlock-alt" style=" margin-right: 12px;color: #f04e23;"></i>
-                            Địa chỉ nhận hàng </a></li>
-                    <li><a style="padding-left: 9px" rel="nofollow" href="/profile/changepassword" class="si">
-                        <i class="fa fa-solid fa-power-off" style=" margin-right: 12px;color: #f04e23;"></i>
-                        Thoát </a></li>
-                </ul>
-            </div>
+            <jsp:include page="component/menu_profile.jsp"></jsp:include>
             <div id="pfContent">
                 <div id="pfView" class="dfHeIP">
                     <div class="info">
@@ -582,7 +556,7 @@
                                                     <div class="styles__StyledInput-sc-s5c7xj-5 hisWEc"><input
                                                             class="input " type="search" name="fullName"
                                                             maxlength="128" placeholder="Thêm họ tên"
-                                                            value="Nguyễn Văn Phước Hậu"></div>
+                                                            value="${user.name}"></div>
                                                 </div>
                                             </div>
                                             <div class="form-control"><label class="input-label">Nickname</label>
@@ -590,7 +564,7 @@
                                                     <div class="styles__StyledInput-sc-s5c7xj-5 hisWEc"><input
                                                             class="input " name="userName" maxlength="128"
                                                             placeholder="Thêm nickname" type="search"
-                                                            value="phuochau09072001"></div>
+                                                            value="${user.username}"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -598,7 +572,14 @@
                                     <div class="form-control"><label class="input-label">Ngày sinh</label>
                                         <div class="style__StyledBirthdayPicker-sc-1325vtm-0 bvIJNZ"><select
                                                 name="day">
-                                            <option value="0">Ngày</option>
+                                            <c:choose>
+                                                <c:when test="${profile.birthDay!=null}">
+                                                    <option value="0">${profile.getDayOfBirth()}</option>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <option value="0">Ngày</option>
+                                                </c:otherwise>
+                                            </c:choose>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
@@ -631,7 +612,14 @@
                                             <option value="30">30</option>
                                             <option value="31">31</option>
                                         </select><select name="month">
-                                            <option value="0">Tháng</option>
+                                            <c:choose>
+                                                <c:when test="${profile.birthDay!=null}">
+                                                    <option value="0">${profile.getMonthOfBirth()}</option>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <option value="0">Tháng</option>
+                                                </c:otherwise>
+                                            </c:choose>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
@@ -645,7 +633,14 @@
                                             <option value="11">11</option>
                                             <option value="12">12</option>
                                         </select><select name="year">
-                                            <option value="0">Năm</option>
+                                            <c:choose>
+                                                <c:when test="${profile.birthDay!=null}">
+                                                    <option value="0">${profile.getYearOfBirth()}</option>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <option value="0">Năm</option>
+                                                </c:otherwise>
+                                            </c:choose>
                                             <option value="2022">2022</option>
                                             <option value="2021">2021</option>
                                             <option value="2020">2020</option>
@@ -771,20 +766,68 @@
                                             <option value="1900">1900</option>
                                         </select></div>
                                     </div>
-                                    <div class="form-control"><label class="input-label">Giới tính</label><label
-                                            class="Radio__StyledRadio-sc-1tpsfw1-0 eQckrx"><input type="radio"
-                                                                                                  name="gender"
-                                                                                                  value="male"
-                                                                                                  checked=""><span
-                                            class="radio-fake"></span><span class="label-sex">Nam</span></label><label
-                                            class="Radio__StyledRadio-sc-1tpsfw1-0 eQckrx"><input type="radio"
-                                                                                                  name="gender"
-                                                                                                  value="female"><span
-                                            class="radio-fake"></span><span class="label-sex">Nữ</span></label><label
-                                            class="Radio__StyledRadio-sc-1tpsfw1-0 eQckrx"><input type="radio"
-                                                                                                  name="gender"
-                                                                                                  value="other"><span
-                                            class="radio-fake"></span><span class="label-sex">Khác</span></label></div>
+                                    <div class="form-control"><label class="input-label">Giới tính</label>
+                                        <c:choose>
+                                            <c:when test="${profile.gender==null || profile.gender == 'Nam'}">
+                                                <label
+                                                        class="Radio__StyledRadio-sc-1tpsfw1-0 eQckrx"><input
+                                                        type="radio"
+                                                        name="gender"
+                                                        value="male" checked=""><span
+                                                        class="radio-fake"></span><span
+                                                        class="label-sex">Nam</span></label>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <label
+                                                        class="Radio__StyledRadio-sc-1tpsfw1-0 eQckrx"><input
+                                                        type="radio"
+                                                        name="gender"
+                                                        value="male" checked=""><span
+                                                        class="radio-fake"></span><span
+                                                        class="label-sex">Nam</span></label>
+                                            </c:otherwise>
+                                        </c:choose>
+                                        <c:choose>
+                                            <c:when test="${profile.gender == 'Nữ'}">
+                                                <label
+                                                        class="Radio__StyledRadio-sc-1tpsfw1-0 eQckrx"><input
+                                                        type="radio"
+                                                        name="gender"
+                                                        value="female" checked=""><span
+                                                        class="radio-fake"></span><span
+                                                        class="label-sex">Nữ</span></label>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <label
+                                                        class="Radio__StyledRadio-sc-1tpsfw1-0 eQckrx"><input
+                                                        type="radio"
+                                                        name="gender"
+                                                        value="female"><span
+                                                        class="radio-fake"></span><span
+                                                        class="label-sex">Nữ</span></label>
+                                            </c:otherwise>
+                                        </c:choose>
+                                        <c:choose>
+                                            <c:when test="${profile.gender == 'Khác'}">
+                                                <label
+                                                        class="Radio__StyledRadio-sc-1tpsfw1-0 eQckrx"><input
+                                                        type="radio"
+                                                        name="gender"
+                                                        value="other" checked=""><span
+                                                        class="radio-fake"></span><span
+                                                        class="label-sex">Khác</span></label>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <label
+                                                        class="Radio__StyledRadio-sc-1tpsfw1-0 eQckrx"><input
+                                                        type="radio"
+                                                        name="gender"
+                                                        value="other"><span
+                                                        class="radio-fake"></span><span
+                                                        class="label-sex">Khác</span></label>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </div>
                                     <div class="form-control"><label class="input-label">Quốc tịch</label>
                                         <div>
                                             <div class="styles__StyledInput-sc-s5c7xj-5 hisWEc">
@@ -809,7 +852,7 @@
                                     <div class="info"><img
                                             src="https://frontend.tikicdn.com/_desktop-next/static/img/account/phone.png"
                                             class="icon" alt="">
-                                        <div class="detail"><span>Số điện thoại</span><span>0824831867</span></div>
+                                        <div class="detail"><span>Số điện thoại</span><span>${user.phone}</span></div>
                                     </div>
                                     <div class="status"><span></span>
                                         <button class="button active">Cập nhật</button>
@@ -819,7 +862,7 @@
                                     <div class="info"><img
                                             src="https://frontend.tikicdn.com/_desktop-next/static/img/account/email.png"
                                             class="icon" alt="">
-                                        <div class="detail"><span>Địa chỉ email</span><span class="span hint">Thêm địa chỉ email</span>
+                                        <div class="detail"><span>Địa chỉ email</span><span>${user.email}</span>
                                         </div>
                                     </div>
                                     <div class="status"><span></span>

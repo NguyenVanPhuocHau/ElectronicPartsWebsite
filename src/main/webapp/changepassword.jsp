@@ -254,33 +254,7 @@
 <div id="content" class=" ">
     <div class="g1180">
         <div id="profilePage">
-            <div id="pfMenu">
-                <ul>
-                    <li>
-                        <a style="padding-left: 9px" rel="nofollow" href="/profile/changepassword" class="si">
-                            <i class="fa fa-solid fa-user" style=" margin-right: 12px;color: #f04e23;"></i>
-                            Thông tin tài khoản </a></li>
-                    <li class="active">
-                        <a style="padding-left: 9px" rel="nofollow" href="/profile/changepassword" class="si">
-                            <i class="fa fa-unlock-alt" style=" margin-right: 12px;color: #f04e23;"></i>
-                            Đổi mật khẩu </a></li>
-                    <li>
-                        <a style="padding-left: 8px" rel="nofollow" href="/order" class="si">
-                            <i class="fa fa-list-alt" style=" margin-right: 10px;color: #f04e23;"></i>
-                            Quản lý đơn hàng </a></li>
-                    <li>
-                        <a style="padding-left: 9px" rel="nofollow" href="/profile/changepassword" class="si">
-                            <i class="fa fa-solid fa-heart" style=" margin-right: 12px;color: #f04e23;"></i>
-                            Danh sách yêu thích </a></li>
-                    <li>
-                        <a style="padding-left: 9px" rel="nofollow" href="/profile/changepassword" class="si">
-                            <i class="fa fa-unlock-alt" style=" margin-right: 12px;color: #f04e23;"></i>
-                            Địa chỉ nhận hàng </a></li>
-                    <li><a style="padding-left: 9px" rel="nofollow" href="/profile/changepassword" class="si">
-                        <i class="fa fa-solid fa-power-off" style=" margin-right: 12px;color: #f04e23;"></i>
-                        Thoát </a></li>
-                </ul>
-            </div>
+            <jsp:include page="component/menu_profile.jsp"></jsp:include>
             <div id="pfContent">
                 <div id="pfView" class="cBVmpr">
                     <form class="form">
