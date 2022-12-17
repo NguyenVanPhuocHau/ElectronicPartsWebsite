@@ -10,7 +10,15 @@
 <div id="header">
     <div class="container">
         <div id="welcomeLine" class="row">
-            <div class="span6">Welcome!<strong> User</strong></div>
+            <c:choose>
+                <c:when test="${user!=null}">
+                    <div class="span6">XIN CHÀO!<a href="/ProjectEcommerceWebsite_war/userProfile"><strong> ${user.username}</strong></a></div>
+                </c:when>
+                <c:otherwise>
+                    <div class="span6">XIN CHÀO!<a href=""><strong> QÚY KHÁCH</strong></a></div>
+                </c:otherwise>
+            </c:choose>
+
             <div class="span6">
                 <div class="pull-right">
                     <a href="product_summary.html"><span class="">Fr</span></a>

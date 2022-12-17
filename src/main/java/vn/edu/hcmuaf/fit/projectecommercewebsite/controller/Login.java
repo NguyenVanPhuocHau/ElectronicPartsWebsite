@@ -1,6 +1,9 @@
 package vn.edu.hcmuaf.fit.projectecommercewebsite.controller;
 
 import vn.edu.hcmuaf.fit.projectecommercewebsite.Service.UserService;
+import vn.edu.hcmuaf.fit.projectecommercewebsite.beans.UserBean;
+import vn.edu.hcmuaf.fit.projectecommercewebsite.dao.UserDao;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -32,7 +35,10 @@ public class Login extends HttpServlet {
 
 
         if (UserService.getInstance().checkLogin(getUsername, getPass)) {
-                response.sendRedirect("home.jsp");
+            HttpSession session = request.getSession();
+            UserBean userBean = UserDao.getInstance().getUserLogin(getUsername,getPass);
+            session.setAttribute("user", userBean);
+            response.sendRedirect("home.jsp");
 
         } else {
             request.getRequestDispatcher("login.jsp").forward(request, response);
