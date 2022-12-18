@@ -546,7 +546,7 @@
                     <div class="info">
                         <div class="info-left"><span class="info-title">Thông tin cá nhân</span>
                             <div class="styles__StyledAccountInfo-sc-s5c7xj-2 khBVOu">
-                                <form>
+                                <form action="UpdateUserProfile" method="post">
                                     <div class="form-info">
 
                                         <div class="form-name">
@@ -782,7 +782,7 @@
                                                         class="Radio__StyledRadio-sc-1tpsfw1-0 eQckrx"><input
                                                         type="radio"
                                                         name="gender"
-                                                        value="male" checked=""><span
+                                                        value="Nam" checked=""><span
                                                         class="radio-fake"></span><span
                                                         class="label-sex">Nam</span></label>
                                             </c:otherwise>
@@ -793,7 +793,7 @@
                                                         class="Radio__StyledRadio-sc-1tpsfw1-0 eQckrx"><input
                                                         type="radio"
                                                         name="gender"
-                                                        value="female" checked=""><span
+                                                        value="Nữ" checked=""><span
                                                         class="radio-fake"></span><span
                                                         class="label-sex">Nữ</span></label>
                                             </c:when>
@@ -801,7 +801,7 @@
                                                 <label
                                                         class="Radio__StyledRadio-sc-1tpsfw1-0 eQckrx"><input
                                                         type="radio"
-                                                        name="gender"
+                                                        name="Khác"
                                                         value="female"><span
                                                         class="radio-fake"></span><span
                                                         class="label-sex">Nữ</span></label>
@@ -837,7 +837,7 @@
                                         </div>
                                     </div>
                                     <div class="form-control"><label class="input-label">&nbsp;</label>
-                                        <button type="submit"
+                                        <button id="changeInfor" type="submit"
                                                 class="styles__StyledBtnSubmit-sc-s5c7xj-3 cqEaiM btn-submit">Lưu
                                             thay đổi
                                         </button>
@@ -881,7 +881,31 @@
 
 </div>
 <jsp:include page="component/footer.jsp"></jsp:include>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script>
+// $("#changeInfor").click(function (){
+//     $.ajax({
+//         url: '/ProjectEcommerceWebsite_war/UpdateUserProfile',
+//         type: 'post',
+//         data: {
+//             id: id
+//         },
+//         success: function (data) {
+//             $("#tableTotal").html(data);
+//             updateCart()
+//         },
+//         error: function (xhr) {
+//
+//         }
+//     })
+// })
 
+
+
+
+
+</script>
+<c:import url="common/js.jsp"></c:import>
 
 
 
