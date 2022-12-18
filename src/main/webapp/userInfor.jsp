@@ -556,7 +556,7 @@
                                                     <div class="styles__StyledInput-sc-s5c7xj-5 hisWEc"><input
                                                             class="input " type="search" name="fullName"
                                                             maxlength="128" placeholder="Thêm họ tên"
-                                                            value="${user.name}"></div>
+                                                            value="${user.name}" required></div>
                                                 </div>
                                             </div>
                                             <div class="form-control"><label class="input-label">Nickname</label>
@@ -564,7 +564,7 @@
                                                     <div class="styles__StyledInput-sc-s5c7xj-5 hisWEc"><input
                                                             class="input " name="userName" maxlength="128"
                                                             placeholder="Thêm nickname" type="search"
-                                                            value="${user.username}"></div>
+                                                            value="${user.username}" required></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -574,7 +574,7 @@
                                                 name="day">
                                             <c:choose>
                                                 <c:when test="${profile.birthDay!=null}">
-                                                    <option value="0">${profile.getDayOfBirth()}</option>
+                                                    <option value="${profile.getDayOfBirth()}">${profile.getDayOfBirth()}</option>
                                                 </c:when>
                                                 <c:otherwise>
                                                     <option value="0">Ngày</option>
@@ -614,7 +614,7 @@
                                         </select><select name="month">
                                             <c:choose>
                                                 <c:when test="${profile.birthDay!=null}">
-                                                    <option value="0">${profile.getMonthOfBirth()}</option>
+                                                    <option value="${profile.getMonthOfBirth()}">${profile.getMonthOfBirth()}</option>
                                                 </c:when>
                                                 <c:otherwise>
                                                     <option value="0">Tháng</option>
@@ -635,7 +635,7 @@
                                         </select><select name="year">
                                             <c:choose>
                                                 <c:when test="${profile.birthDay!=null}">
-                                                    <option value="0">${profile.getYearOfBirth()}</option>
+                                                    <option value="${profile.getYearOfBirth()}">${profile.getYearOfBirth()}</option>
                                                 </c:when>
                                                 <c:otherwise>
                                                     <option value="0">Năm</option>
@@ -773,7 +773,7 @@
                                                         class="Radio__StyledRadio-sc-1tpsfw1-0 eQckrx"><input
                                                         type="radio"
                                                         name="gender"
-                                                        value="male" checked=""><span
+                                                        value="Nam" checked=""><span
                                                         class="radio-fake"></span><span
                                                         class="label-sex">Nam</span></label>
                                             </c:when>
@@ -801,8 +801,8 @@
                                                 <label
                                                         class="Radio__StyledRadio-sc-1tpsfw1-0 eQckrx"><input
                                                         type="radio"
-                                                        name="Khác"
-                                                        value="female"><span
+                                                        name="gender"
+                                                        value="Nữ"><span
                                                         class="radio-fake"></span><span
                                                         class="label-sex">Nữ</span></label>
                                             </c:otherwise>
@@ -813,7 +813,7 @@
                                                         class="Radio__StyledRadio-sc-1tpsfw1-0 eQckrx"><input
                                                         type="radio"
                                                         name="gender"
-                                                        value="other" checked=""><span
+                                                        value="Khác" checked=""><span
                                                         class="radio-fake"></span><span
                                                         class="label-sex">Khác</span></label>
                                             </c:when>
@@ -822,7 +822,7 @@
                                                         class="Radio__StyledRadio-sc-1tpsfw1-0 eQckrx"><input
                                                         type="radio"
                                                         name="gender"
-                                                        value="other"><span
+                                                        value="Khác"><span
                                                         class="radio-fake"></span><span
                                                         class="label-sex">Khác</span></label>
                                             </c:otherwise>
@@ -831,7 +831,7 @@
                                     <div class="form-control"><label class="input-label">Quốc tịch</label>
                                         <div>
                                             <div class="styles__StyledInput-sc-s5c7xj-5 hisWEc">
-                                                <input type="text" value="Việt Nam" name="country">
+                                                <input type="text" value="${profile.nationality}" name="country" required  placeholder="Quốc gia">
 
                                             </div>
                                         </div>

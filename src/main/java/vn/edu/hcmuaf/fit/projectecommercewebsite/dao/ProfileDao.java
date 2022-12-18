@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Calendar;
-import java.util.Date;
+import java.sql.*;
 
 public class ProfileDao {
     private static ProfileDao instance;
@@ -49,15 +49,34 @@ public class ProfileDao {
 
     }
 
-    public static void main(String[] args) {
-        UserProfileBean userProfile = getInstance().getProfileById("US02");
-//        System.out.println(userProfile.toString());
-//        System.out.println(userProfile.getYearOfBirth());
+    public boolean updateProfile(String user_id, java.sql.Date  birthday, String gender, String nationality) {
+        try {
+            Connection con = GetConnection.getCon();
+            //insert infor
+            String sql = "update user_profile set birthday = ?, gender = ?, nationality = ? where user_id=?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setDate(1, birthday);
+            ps.setString(2, gender);
+            ps.setString(3, nationality);
+            ps.setString(4, user_id);
+            int result = ps.executeUpdate();
+            if (result == 1)
+                return true;
+            else
+                return false;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(userProfile.getBirthDay());
-        int month = cal.get(Calendar.YEAR);
-        System.out.println(month);
+
+    public static void main(String[] args) {
+        java.sql.Date date  = new Date(0000-00-00);
+        getInstance().updateProfile("US02",date.valueOf("2001-8-12"),"Nữ","China");
+
     }
 
 }
