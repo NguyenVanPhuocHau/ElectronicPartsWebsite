@@ -10,6 +10,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../common/tablig.jsp" %>
 <div id="sidebar" class="span3">
+
     <div class="well well-small"><a  href="/ShowCart" id="myCart"><img
             src="assets/themes/images/ico-cart.png" alt="cart"><span>có ${cart.getNumberProductInCart()} sản phẩm</span><span
             class="badge badge-warning pull-right">${cart.getVnFinalMoneyCart()}đ</span></a></div>
