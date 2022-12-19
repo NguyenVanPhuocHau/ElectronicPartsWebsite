@@ -1,5 +1,7 @@
 package vn.edu.hcmuaf.fit.projectecommercewebsite.beans;
 
+import java.util.Date;
+
 public class Order {
     private String id_order;
     private String id_user;
@@ -13,9 +15,24 @@ public class Order {
     private double  total_money;
     private String date_time;
     private String note;
+    private Date date;
+
+
 
     public Order(){
 
+    }
+
+    public Order(String id_order, String id_user, String hoten, String address, String phone, String email, String state, double total_money, Date date_time) {
+        this.id_order = id_order;
+        this.id_user = id_user;
+        this.hoten = hoten;
+        this.address = address;
+        this.phone = phone;
+        this.email = email;
+        this.state = state;
+        this.total_money = total_money;
+        this.date = date_time;
     }
 
     public String getId_order() {
@@ -113,7 +130,13 @@ public class Order {
     public void setNote(String note) {
         this.note = note;
     }
+    public Date getDate() {
+        return date;
+    }
 
+    public void setDate(Date date) {
+        this.date = date;
+    }
     @Override
     public String toString() {
         return "Order{" +
