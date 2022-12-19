@@ -34,15 +34,15 @@
                     cả nước.
                 </p>
                 <hr class="soft"/>
-                <form class="form-horizontal span6">
-                    <div class="control-group">
-                        <label class="control-label alignL">Sort By </label>
-                        <select>
-                            <option name="price_up">Sắp xếp theo giá A - Z</option>
-                            <option name="price_down">Sắp xếp theo giá Z - A</option>
-                        </select>
-                    </div>
-                </form>
+<%--                <form class="form-horizontal span6">--%>
+<%--                    <div class="control-group">--%>
+<%--                        <label class="control-label alignL">Sort By </label>--%>
+<%--                        <select>--%>
+<%--                            <option name="price_up">Sắp xếp theo giá A - Z</option>--%>
+<%--                            <option name="price_down">Sắp xếp theo giá Z - A</option>--%>
+<%--                        </select>--%>
+<%--                    </div>--%>
+<%--                </form>--%>
 
                 <div id="myTab" class="pull-right">
                     <a href="#listView" data-toggle="tab"><span class="btn btn-large"><i
