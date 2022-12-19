@@ -9,11 +9,7 @@
     <c:import url="common/header.jsp"></c:import>
 </head>
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        font-size: 13px;
-        color: #333;
-    }
+
 
     body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, select, p, blockquote, th, td {
         margin: 0;
@@ -243,11 +239,7 @@
         cursor: pointer;
     }
 
-    @import 'https://fonts.googleapis.com/css?family=Montserrat:400,700|Raleway:300,400';
-    /* colors */
-    /* tab setting */
-    /* breakpoints */
-    /* selectors relative to radio inputs */
+
     html {
         width: 100%;
         height: 100%;
@@ -256,7 +248,7 @@
     body {
         background: #ffffff;
         color: #333;
-        font-family: "Raleway";
+
         height: 100%;
     }
 
@@ -289,7 +281,7 @@
 
     .tabs .content section h2,
     .tabs ul li label {
-        font-family: "Montserrat";
+
         font-weight: bold;
         font-size: 15px;
         color: #428BFF;
@@ -559,7 +551,7 @@
     .ekuyi {
         background: rgb(255, 255, 255);
         border-radius: 4px;
-        font-size: 13px;
+        font-size: 16px;
         margin-bottom: 20px;
         padding: 16px;
     }
@@ -828,48 +820,55 @@
                         </div>
                         <div class="content">
                             <section>
-                                <div class="react-swipe-container carousel"
-                                     style="overflow: hidden; visibility: visible; position: relative;">
-                                    <div style="overflow: hidden; position: relative;">
-                                        <div data-index="0"
-                                             style="float: left; width: 100%; position: relative; transition-property: transform; left: 0px; transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
-                                            <div>
-                                                <div class="infinite-scroll-component "
-                                                     style="height: auto; overflow: auto; display: flex; flex-direction: column;">
-                                                    <div class="styles__StyledOrder-sc-1vf2n1c-0 ekuyi">
-                                                        <div color="#808089"
-                                                             class="styles__OrderHeader-sc-1vf2n1c-1 hBsvqt"><span
-                                                                class="main-status">Giao hàng thành công</span></div>
-                                                        <div class="styles__StyledOrderInfo-sc-1upbws9-0 hBZYMQ">
-                                                            <div>
-                                                                <c:forEach var="orderItem" items="${myOrder.getListOrderItems()}">
-                                                                    <c:set var="p" value="${orderItem.product}"/>
-                                                                    <div class="product">
-                                                                    <div class="detail">
-                                                                        <div class="product-img"
-                                                                             style="background-image: url(${p.img_url[0]})"
-                                                                        >
-                                                                            <span class="quantity">x${orderItem.quantity}</span></div>
-                                                                        <div class="product-info"><p
-                                                                                class="product-name">${p.product_name}</p>
-                                                                            <div class="store"><span>Linh kiện Store</span>
+                                <c:forEach var="order" items="${myOrder}">
+                                    <%--                                <c:set var="p" value="${order.product}"/>--%>
+                                    <div class="react-swipe-container carousel"
+                                         style="overflow: hidden; visibility: visible; position: relative;">
+                                        <div style="overflow: hidden; position: relative;">
+                                            <div data-index="0"
+                                                 style="float: left; width: 100%; position: relative; transition-property: transform; left: 0px; transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
+                                                <div>
+                                                    <div class="infinite-scroll-component "
+                                                         style="height: auto; overflow: auto; display: flex; flex-direction: column;">
+                                                        <div class="styles__StyledOrder-sc-1vf2n1c-0 ekuyi">
+                                                            <div color="#808089"
+                                                                 class="styles__OrderHeader-sc-1vf2n1c-1 hBsvqt"><span
+                                                                    class="main-status">${order.getStatusOrder()}</span>
+                                                            </div>
+                                                            <div class="styles__StyledOrderInfo-sc-1upbws9-0 hBZYMQ">
+                                                                <div>
+                                                                    <c:forEach var="items" items="${order.getListOrderItems()}">
+                                                                        <c:set var="p" value="${items.product}"/>
+                                                                        <div class="product">
+                                                                            <div class="detail">
+                                                                                <div class="product-img"
+                                                                                     style="background-image: url(${p.img_url[0]})"
+                                                                                >
+                                                                                    <span class="quantity">x${items.quantity}</span>
+                                                                                </div>
+                                                                                <div class="product-info"><p
+                                                                                        class="product-name">${p.product_name}</p>
+                                                                                    <div class="store"><span>Linh kiện Store</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="price">
+                                                                                <span>${items.getVnMoney()}đ</span>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="price"><span>${orderItem.getVnMoney()}đ</span></div>
+                                                                    </c:forEach>
                                                                 </div>
-                                                                </c:forEach>
+                                                                    <%--                                                            <div class="btn-more"><p>Xem thêm 1 sản phẩm</p></div>--%>
                                                             </div>
-<%--                                                            <div class="btn-more"><p>Xem thêm 1 sản phẩm</p></div>--%>
-                                                        </div>
-                                                        <div class="styles__OrderFooter-sc-1vf2n1c-2 hBVEFq">
-                                                            <div class="total-money">
-                                                                <div class="title">Tổng tiền:</div>
-                                                                <div class="total">${myOrder.getVnTotalMoney()}đ</div>
-                                                            </div>
-                                                            <div class="button-group">
-                                                                <div>Mua lại</div>
-                                                                <div>Xem chi tiết</div>
+                                                            <div class="styles__OrderFooter-sc-1vf2n1c-2 hBVEFq">
+                                                                <div class="total-money">
+                                                                    <div class="title">Tổng tiền:</div>
+                                                                    <div class="total">${order.getVnTotalMoney()}đ</div>
+                                                                </div>
+                                                                <div class="button-group">
+                                                                    <div>Mua lại</div>
+                                                                    <div>Xem chi tiết</div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -877,25 +876,187 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </c:forEach>
                             </section>
                             <section>
-                                <h2>Delivery Contents</h2>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem quas adipisci a
-                                accusantium eius ut voluptatibus ad impedit nulla, ipsa qui. Quasi temporibus eos
-                                commodi aliquid impedit amet, similique nulla.
+
+                                <c:forEach var="order" items="${boxOrder}">
+                                    <%--                                <c:set var="p" value="${order.product}"/>--%>
+                                    <div class="react-swipe-container carousel"
+                                         style="overflow: hidden; visibility: visible; position: relative;">
+                                        <div style="overflow: hidden; position: relative;">
+                                            <div data-index="0"
+                                                 style="float: left; width: 100%; position: relative; transition-property: transform; left: 0px; transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
+                                                <div>
+                                                    <div class="infinite-scroll-component "
+                                                         style="height: auto; overflow: auto; display: flex; flex-direction: column;">
+                                                        <div class="styles__StyledOrder-sc-1vf2n1c-0 ekuyi">
+                                                            <div color="#808089"
+                                                                 class="styles__OrderHeader-sc-1vf2n1c-1 hBsvqt"><span
+                                                                    class="main-status">${order.getStatusOrder()}</span>
+                                                            </div>
+                                                            <div class="styles__StyledOrderInfo-sc-1upbws9-0 hBZYMQ">
+                                                                <div>
+                                                                    <c:forEach var="items" items="${order.getListOrderItems()}">
+                                                                        <c:set var="p" value="${items.product}"/>
+                                                                        <div class="product">
+                                                                            <div class="detail">
+                                                                                <div class="product-img"
+                                                                                     style="background-image: url(${p.img_url[0]})"
+                                                                                >
+                                                                                    <span class="quantity">x${items.quantity}</span>
+                                                                                </div>
+                                                                                <div class="product-info"><p
+                                                                                        class="product-name">${p.product_name}</p>
+                                                                                    <div class="store"><span>Linh kiện Store</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="price">
+                                                                                <span>${items.getVnMoney()}đ</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </c:forEach>
+                                                                </div>
+                                                                    <%--                                                            <div class="btn-more"><p>Xem thêm 1 sản phẩm</p></div>--%>
+                                                            </div>
+                                                            <div class="styles__OrderFooter-sc-1vf2n1c-2 hBVEFq">
+                                                                <div class="total-money">
+                                                                    <div class="title">Tổng tiền:</div>
+                                                                    <div class="total">${order.getVnTotalMoney()}đ</div>
+                                                                </div>
+                                                                <div class="button-group">
+                                                                    <div>Mua lại</div>
+                                                                    <div>Xem chi tiết</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </c:forEach>
                             </section>
                             <section>
-                                <h2>Shipping</h2>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam nemo ducimus eius,
-                                magnam error quisquam sunt voluptate labore, excepturi numquam! Alias libero optio
-                                sed harum debitis! Veniam, quia in eum.
+
+                                <c:forEach var="order" items="${deliverOrder}">
+                                    <%--                                <c:set var="p" value="${order.product}"/>--%>
+                                    <div class="react-swipe-container carousel"
+                                         style="overflow: hidden; visibility: visible; position: relative;">
+                                        <div style="overflow: hidden; position: relative;">
+                                            <div data-index="0"
+                                                 style="float: left; width: 100%; position: relative; transition-property: transform; left: 0px; transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
+                                                <div>
+                                                    <div class="infinite-scroll-component "
+                                                         style="height: auto; overflow: auto; display: flex; flex-direction: column;">
+                                                        <div class="styles__StyledOrder-sc-1vf2n1c-0 ekuyi">
+                                                            <div color="#808089"
+                                                                 class="styles__OrderHeader-sc-1vf2n1c-1 hBsvqt"><span
+                                                                    class="main-status">${order.getStatusOrder()}</span>
+                                                            </div>
+                                                            <div class="styles__StyledOrderInfo-sc-1upbws9-0 hBZYMQ">
+                                                                <div>
+                                                                    <c:forEach var="items" items="${order.getListOrderItems()}">
+                                                                        <c:set var="p" value="${items.product}"/>
+                                                                        <div class="product">
+                                                                            <div class="detail">
+                                                                                <div class="product-img"
+                                                                                     style="background-image: url(${p.img_url[0]})"
+                                                                                >
+                                                                                    <span class="quantity">x${items.quantity}</span>
+                                                                                </div>
+                                                                                <div class="product-info"><p
+                                                                                        class="product-name">${p.product_name}</p>
+                                                                                    <div class="store"><span>Linh kiện Store</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="price">
+                                                                                <span>${items.getVnMoney()}đ</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </c:forEach>
+                                                                </div>
+                                                                    <%--                                                            <div class="btn-more"><p>Xem thêm 1 sản phẩm</p></div>--%>
+                                                            </div>
+                                                            <div class="styles__OrderFooter-sc-1vf2n1c-2 hBVEFq">
+                                                                <div class="total-money">
+                                                                    <div class="title">Tổng tiền:</div>
+                                                                    <div class="total">${order.getVnTotalMoney()}đ</div>
+                                                                </div>
+                                                                <div class="button-group">
+                                                                    <div>Mua lại</div>
+                                                                    <div>Xem chi tiết</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </c:forEach>
                             </section>
                             <section>
-                                <h2>Returns</h2>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa dicta vero rerum?
-                                Eaque repudiandae architecto libero reprehenderit aliquam magnam ratione quidem?
-                                Nobis doloribus molestiae enim deserunt necessitatibus eaque quidem incidunt.
+
+                                <c:forEach var="order" items="${successOrder}">
+                                    <%--                                <c:set var="p" value="${order.product}"/>--%>
+                                    <div class="react-swipe-container carousel"
+                                         style="overflow: hidden; visibility: visible; position: relative;">
+                                        <div style="overflow: hidden; position: relative;">
+                                            <div data-index="0"
+                                                 style="float: left; width: 100%; position: relative; transition-property: transform; left: 0px; transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
+                                                <div>
+                                                    <div class="infinite-scroll-component "
+                                                         style="height: auto; overflow: auto; display: flex; flex-direction: column;">
+                                                        <div class="styles__StyledOrder-sc-1vf2n1c-0 ekuyi">
+                                                            <div color="#808089"
+                                                                 class="styles__OrderHeader-sc-1vf2n1c-1 hBsvqt"><span
+                                                                    class="main-status">${order.getStatusOrder()}</span>
+                                                            </div>
+                                                            <div class="styles__StyledOrderInfo-sc-1upbws9-0 hBZYMQ">
+                                                                <div>
+                                                                    <c:forEach var="items" items="${order.getListOrderItems()}">
+                                                                        <c:set var="p" value="${items.product}"/>
+                                                                        <div class="product">
+                                                                            <div class="detail">
+                                                                                <div class="product-img"
+                                                                                     style="background-image: url(${p.img_url[0]})"
+                                                                                >
+                                                                                    <span class="quantity">x${items.quantity}</span>
+                                                                                </div>
+                                                                                <div class="product-info"><p
+                                                                                        class="product-name">${p.product_name}</p>
+                                                                                    <div class="store"><span>Linh kiện Store</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="price">
+                                                                                <span>${items.getVnMoney()}đ</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </c:forEach>
+                                                                </div>
+                                                                    <%--                                                            <div class="btn-more"><p>Xem thêm 1 sản phẩm</p></div>--%>
+                                                            </div>
+                                                            <div class="styles__OrderFooter-sc-1vf2n1c-2 hBVEFq">
+                                                                <div class="total-money">
+                                                                    <div class="title">Tổng tiền:</div>
+                                                                    <div class="total">${order.getVnTotalMoney()}đ</div>
+                                                                </div>
+                                                                <div class="button-group">
+                                                                    <div>Mua lại</div>
+                                                                    <div>Xem chi tiết</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </c:forEach>
                             </section>
                         </div>
                     </div>
