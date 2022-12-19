@@ -11,7 +11,6 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <!-- Bootstrap style -->
-
 <link id="callCss" rel="stylesheet"
       href="${pageContext.request.contextPath}/assets/themes/bootstrap/bootstrap.min.css" media="screen"/>
 <link href="${pageContext.request.contextPath}/assets/themes/css/base.css" rel="stylesheet" media="screen"/>
