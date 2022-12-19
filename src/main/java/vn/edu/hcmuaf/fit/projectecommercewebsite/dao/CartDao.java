@@ -64,6 +64,26 @@ public class CartDao {
         return false;
     }
 
+    public boolean removeAllCart(String user_id) {
+        try {
+            Connection con = GetConnection.getCon();
+            //insert infor
+            String sql = "delete from cart where user_id=?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, user_id);
+            int result = ps.executeUpdate();
+            if (result == 1)
+                return true;
+            else
+                return false;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
 
     public List<CartItem> getListCartItemByUserId(String id) {
         List<CartItem> result = new ArrayList<>();
@@ -147,11 +167,7 @@ public class CartDao {
     }
 
     public static void main(String[] args) {
-        Map<String, CartItem> list = getInstance().getCart("US02");
-        for (CartItem i: list.values()
-             ) {
-            System.out.println(i.getProduct().toString());
-        }
+            getInstance().removeAllCart("US02");
 //        ProductCart productCart = ProductDao.getInstance().getProductById("PR01");
 //        ProductCart productCart2 = ProductDao.getInstance().getProductById("PR03");
 //        CartItem cartItem = new CartItem(productCart,1);

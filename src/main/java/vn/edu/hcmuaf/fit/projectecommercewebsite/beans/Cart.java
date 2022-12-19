@@ -190,6 +190,11 @@ public class Cart implements Serializable {
         this.iduser = iduser;
     }
 
+    public void emtyCart(String iduser){
+        this.listItems.clear();
+        CartDao.getInstance().removeAllCart(iduser);
+    }
+
 
 //    public static void main(String[] args) {
 //        System.out.println(getInstance().getFinalMoneyCart());

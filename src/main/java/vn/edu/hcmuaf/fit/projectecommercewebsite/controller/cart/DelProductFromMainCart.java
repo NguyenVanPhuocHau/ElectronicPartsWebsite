@@ -58,8 +58,8 @@ public class DelProductFromMainCart extends HttpServlet {
                 "                            </tbody>\n" +
                 "                        </table>\n" +
                 "                        <div class=\"cart-buttons\">\n" +
-                "                            <a href=\"/project_LTW_war/Shop\" class=\"boxed-btn\">Tiếp tục mua</a>\n" +
-                "                            <a href=\"/project_LTW_war/showOrder\" class=\"boxed-btn black\">Đặt hàng</a>\n" +
+                "                            <a href=\"/ProjectEcommerceWebsite_war/\" class=\"boxed-btn\">Tiếp tục mua</a>\n" +
+                "                            <a href=\"/ProjectEcommerceWebsite_war/order\" class=\"boxed-btn black\">Đặt hàng</a>\n" +
                 "                        </div>");
 
 

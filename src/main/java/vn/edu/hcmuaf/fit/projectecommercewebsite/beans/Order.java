@@ -1,5 +1,7 @@
 package vn.edu.hcmuaf.fit.projectecommercewebsite.beans;
 
+import vn.edu.hcmuaf.fit.projectecommercewebsite.dao.OrderDao;
+
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -142,6 +144,10 @@ public class Order {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public String getStatusOrder(){
+        return OrderDao.getInstance().getStatusOrder(this.status_id);
     }
 
     @Override
