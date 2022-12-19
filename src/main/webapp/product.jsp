@@ -22,10 +22,10 @@
             <!-- Sidebar end=============================================== -->
             <div class="span9">
                 <ul class="breadcrumb">
-                    <li><a href="index.html">Home</a> <span class="divider">/</span></li>
+                    <li><a href="${pageContext.request.contextPath}/homes">Home</a> <span class="divider">/</span></li>
                     <li class="active">Products Name</li>
                 </ul>
-                <h3> Products Name <small class="pull-right"> 40 products are available </small></h3>
+                <h3> Products Name <small class="pull-right"> <c:out value="${requestScope.numberProduct}"/> sản phẩm có sẵn</small></h3>
                 <hr class="soft"/>
                 <p>
                     Ngày nay, thiết bị di động là một trong những lĩnh vực kinh doanh thành công nhất.
@@ -38,8 +38,8 @@
                     <div class="control-group">
                         <label class="control-label alignL">Sort By </label>
                         <select>
-                            <option>Sắp xếp theo giá A - Z</option>
-                            <option>Sắp xếp theo giá Z - A</option>
+                            <option name="price_up">Sắp xếp theo giá A - Z</option>
+                            <option name="price_down">Sắp xếp theo giá Z - A</option>
                         </select>
                     </div>
                 </form>
@@ -74,10 +74,6 @@
                                 <div class="span3 alignR">
                                     <form class="form-horizontal qtyFrm">
                                         <h3> ${product.product_price} VNĐ</h3>
-                                        <label class="checkbox">
-                                            <input type="checkbox"> Adds product to compair
-                                        </label><br/>
-
                                         <a href="product_details.html" class="btn btn-large btn-primary"> Add to <i
                                                 class=" icon-shopping-cart"></i></a>
                                         <a href="product_details.html" class="btn btn-large"><i
@@ -95,18 +91,17 @@
                             <c:forEach items="${requestScope.listProduct}" var="product">
                                 <li class="span3">
                                     <div class="thumbnail">
-                                        <a href="${pageContext.request.contextPath}/detail?id_product=${product.product_id}"><img src="${product.img_url}" alt=""/></a>
+                                        <a href="${pageContext.request.contextPath}/detail?id_product=${product.product_id}">
+                                            <img style="height: 200px" src="${product.img_url}" alt=""/></a>
                                         <div class="caption">
                                             <h5>${product.product_name}</h5>
-                                            <p>
-                                                I'm a paragraph. Click here
-                                            </p>
+
                                             <h4 style="text-align:center"><a class="btn"
                                                                              href="${pageContext.request.contextPath}/detail?id_product=${product.product_id}">
                                                 <i
                                                         class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i
                                                     class="icon-shopping-cart"></i></a> <a class="btn btn-primary"
-                                                                                           href="#">${product.product_price}</a>
+                                                                                           href="#">${product.product_price} VNĐ</a>
                                             </h4>
                                         </div>
                                     </div>
@@ -117,7 +112,6 @@
                     </div>
                 </div>
 
-                <a href="compair.html" class="btn btn-large pull-right">Compair Product</a>
                 <div class="pagination">
                     <ul>
                         <li><a href="#">&lsaquo;</a></li>

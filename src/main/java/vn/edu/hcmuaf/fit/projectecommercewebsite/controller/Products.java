@@ -17,13 +17,15 @@ public class Products extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
 
-        System.out.println(session.getAttribute("iphone") + "iphone");
-        System.out.println(session.getServletContext() + "");
-        System.out.println(request.getParameter("id_category") + "aaaaaaa");
+//        System.out.println(session.getAttribute("iphone") + "iphone");
+//        System.out.println(session.getServletContext() + "");
+//        System.out.println(request.getParameter("id_category") + "aaaaaaa");
         String id_category = request.getParameter("id_category");
+
 
         if (id_category!=null) {
             ArrayList<Product> listProduct = new ProductService().filterProduct(id_category);
+            request.setAttribute("numberProduct",listProduct.size());
             request.setAttribute("listProduct", listProduct);
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/product.jsp");
             rd.forward(request, response);
@@ -31,6 +33,7 @@ public class Products extends HttpServlet {
 
         } else {
             ArrayList<Product> listProduct = new ProductService().getProduct();
+            request.setAttribute("numberProduct",listProduct.size());
             request.setAttribute("listProduct", listProduct);
             request.setAttribute("aaa", "hello");
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/product.jsp");

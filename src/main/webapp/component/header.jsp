@@ -55,10 +55,10 @@
                 </form>
                 <ul id="topMenu" class="nav pull-right">
                     <li class=""><a href="${pageContext.request.contextPath}/products">Sản phẩm</a></li>
-                    <li class=""><a href="normal.html">Tra cứu đơn hàng</a></li>
+                    <li class=""><a href="searchOrder.jsp">Tra cứu đơn hàng</a></li>
                     <li class=""><a href="contact.jsp">Liên hệ</a></li>
                     <li class="">
-                        <a href="login.jsp"  ><span class="btn btn-large btn-success">Đăng nhập</span></a>
+                        <a href="login.jsp"  ><span class="btn btn-large btn-success"><c:out value="${sessionScope.logOut}" default="Đăng nhập"/></span></a>
 
                     </li>
                 </ul>
