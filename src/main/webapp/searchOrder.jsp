@@ -30,7 +30,7 @@
                 <div class="show_order">
                     <div class="line_1">
                         <p class="infomation_order">Đơn hàng: ${o.id_order} được tạo ngày ${o.date}</p>
-                        <p class="status">${o.state}</p>
+                        <p class="status">${o.status_id}</p>
                         <c:set var="id_order" scope="request" value="${o.id_order}"/>
 
                     </div>
@@ -52,7 +52,7 @@
                     </div>
                     <%}%>
                     <hr>
-                    <p class="sum_price">Tiền thanh toán:${o.total_money} VNĐ</p>
+                    <p class="sum_price">Tiền thanh toán:${o.order_total} VNĐ</p>
 
                 </div>
             </c:forEach>
