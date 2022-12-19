@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: HP
@@ -25,14 +26,14 @@
                 <div class="group">
                     <label for="user_sign" class="label">Tên</label>
                     <input id="user_sign" type="text" class="input" name="username" value="">
-                    <p class="offShow"><%=request.getAttribute("errolNameNull")%>
+                    <p class="offShow"><c:out value="${requestScope.errolNameNull}"/>
                     </p>
 
                 </div>
                 <div class="group">
                     <label for="pass_sign" class="label">Mật khẩu</label>
                     <input id="pass_sign" type="password" class="input" name="password" data-type="password">
-                    <p class="offShow"><%=request.getAttribute("errolPassNull")%>
+                    <p class="offShow"><c:out value="${requestScope.errolPassNull}"/>
                     </p>
 
                 </div>

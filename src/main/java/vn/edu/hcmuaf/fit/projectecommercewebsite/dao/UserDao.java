@@ -15,7 +15,7 @@ public class UserDao {
     static PreparedStatement pre;
     static ResultSet rs;
 
-    int count=0;
+    int count = 0;
 
     public UserDao() {
     }
@@ -47,7 +47,7 @@ public class UserDao {
         }
 
 
-        String sql = "INSERT INTO user (user_id,user_username,user_password,user_email,user_phone,user_createAt) VALUES ('TK" + getCount + "','" + username + "','" + password + "','" + addressEmail + "','" + numberPhone + "','" + date + "');";
+        String sql = "INSERT INTO user (user_id,role_id,user_username,user_password,user_email,user_phone,user_createAt) VALUES ('US" + getCount + "','RO01','" + username + "','" + password + "','" + addressEmail + "','" + numberPhone + "','" + date + "');";
         statement.executeUpdate(sql);
     }
 
@@ -70,13 +70,13 @@ public class UserDao {
         Statement statement = DBconnect.getInstance().get();
 
         if (statement == null) return false;
-        String sql="SELECT * FROM user WHERE user_username=? AND user_password=?";
-        conn= Connect.getConnect();
+        String sql = "SELECT * FROM user WHERE user_username=? AND user_password=?";
+        conn = Connect.getConnect();
         try {
-            pre=conn.prepareStatement(sql);
-            pre.setString(1,username);
-            pre.setString(2,password);
-            rs=pre.executeQuery();
+            pre = conn.prepareStatement(sql);
+            pre.setString(1, username);
+            pre.setString(2, password);
+            rs = pre.executeQuery();
             User user = null;
             if (rs.next()) {
                 user = new User();
@@ -90,18 +90,54 @@ public class UserDao {
             return false;
         }
     }
+    public boolean checkAdmin(String username, String password) {
+        Statement statement = DBconnect.getInstance().get();
+        boolean result = true;
+
+        if (statement == null) return false;
+        String sql = "SELECT * FROM user WHERE user_username=? AND user_password=?";
+        conn = Connect.getConnect();
+        ResultSet rs=null;
+        try {
+            pre = conn.prepareStatement(sql);
+            pre.setString(1, username);
+            pre.setString(2, password);
+            rs = pre.executeQuery();
+
+            if (rs.next()) {
+                String value = rs.getString(2);
+                System.out.println(value);
+//                System.out.println(value);
+                if (value.equals("RO01")) {
+                    result = false;
+                } else if(value.equals("RO02")) {
+                    result = true;
+                }
+
+            }
+            return result;
+        } catch (SQLException e) {
+            return false;
+        }
+    }
+
+
+
+
+
+
 
     public UserBean getUserLogin(String username, String password) {
         try {
             UserBean result = null;
             Connection con = GetConnection.getCon();
-            String sql="SELECT * FROM user WHERE user_username=? AND user_password=?";
+            String sql = "SELECT * FROM user WHERE user_username=? AND user_password=?";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1,username);
-            ps.setString(2,password);
+            ps.setString(1, username);
+            ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
-            while(rs.next()){
-                result = new UserBean(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getDate(9));
+            while (rs.next()) {
+                result = new UserBean(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getDate(9));
             }
             rs.close();
             ps.close();
@@ -123,11 +159,11 @@ public class UserDao {
             Connection con = GetConnection.getCon();
             String sql = "SELECT * FROM user WHERE user_id=?";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1,user_id);
+            ps.setString(1, user_id);
             ResultSet rs = ps.executeQuery();
 
-            while(rs.next()){
-                result = new UserBean(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getDate(9));
+            while (rs.next()) {
+                result = new UserBean(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getDate(9));
             }
             rs.close();
             ps.close();
@@ -164,9 +200,14 @@ public class UserDao {
         }
         return false;
     }
+
+
+
     public static void main(String[] args) {
         UserBean userBean = getInstance().getUserById("US02");
         System.out.println(userBean.toString());
+//        UserDao us = new UserDao();
+//        System.out.println(us.checkAdmin("admin", "21232f297a57a5a743894a0e4a801fc3"));
     }
 }
 

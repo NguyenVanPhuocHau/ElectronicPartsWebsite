@@ -22,10 +22,10 @@
             <!-- Sidebar end=============================================== -->
             <div class="span9">
                 <ul class="breadcrumb">
-                    <li><a href="index.html">Home</a> <span class="divider">/</span></li>
+                    <li><a href="${pageContext.request.contextPath}/homes">Home</a> <span class="divider">/</span></li>
                     <li class="active">Products Name</li>
                 </ul>
-                <h3> Products Name <small class="pull-right"> 40 products are available </small></h3>
+                <h3> Products Name <small class="pull-right"> <c:out value="${requestScope.numberProduct}"/> sản phẩm có sẵn</small></h3>
                 <hr class="soft"/>
                 <p>
                     Ngày nay, thiết bị di động là một trong những lĩnh vực kinh doanh thành công nhất.
@@ -38,8 +38,8 @@
                     <div class="control-group">
                         <label class="control-label alignL">Sort By </label>
                         <select>
-                            <option>Sắp xếp theo giá A - Z</option>
-                            <option>Sắp xếp theo giá Z - A</option>
+                            <option name="price_up">Sắp xếp theo giá A - Z</option>
+                            <option name="price_down">Sắp xếp theo giá Z - A</option>
                         </select>
                     </div>
                 </form>
@@ -91,12 +91,11 @@
                             <c:forEach items="${requestScope.listProduct}" var="product">
                                 <li class="span3">
                                     <div class="thumbnail">
-                                        <a href="${pageContext.request.contextPath}/detail?id_product=${product.product_id}"><img style="height: 300px" src="${product.img_url}" alt=""/></a>
+                                        <a href="${pageContext.request.contextPath}/detail?id_product=${product.product_id}">
+                                            <img style="height: 200px" src="${product.img_url}" alt=""/></a>
                                         <div class="caption">
                                             <h5>${product.product_name}</h5>
-                                            <p>
-                                                I'm a paragraph. Click here
-                                            </p>
+
                                             <h4 style="text-align:center"><a class="btn"
                                                                              href="${pageContext.request.contextPath}/detail?id_product=${product.product_id}">
                                                 <i

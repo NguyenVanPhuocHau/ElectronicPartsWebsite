@@ -7,19 +7,27 @@ import java.util.ArrayList;
 
 public class CategoryService {
     private static CategoryService instance;
-    public CategoryService(){
+
+    public CategoryService() {
 
     }
-    public static CategoryService getInstance(){
-        if(instance==null){
-            instance=new CategoryService();
+
+    public static CategoryService getInstance() {
+        if (instance == null) {
+            instance = new CategoryService();
         }
         return instance;
     }
-    public ArrayList<Category> getParent(){
+
+    public ArrayList<Category> getParent() {
         return new CategoryDao().getCategoryParent();
     }
-    public ArrayList<Category> getCategory(String id_parent){
+
+    public ArrayList<Category> getCategory(String id_parent) {
         return new CategoryDao().getCategory(id_parent);
+    }
+
+    public int countProduct(String id_parent) {
+        return  new CategoryDao().countProduct(id_parent);
     }
 }

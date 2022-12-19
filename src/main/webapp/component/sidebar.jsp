@@ -11,21 +11,23 @@
 <%@include file="../common/tablig.jsp" %>
 <div id="sidebar" class="span3">
 
-    <div class="well well-small"><a  href="/ShowCart" id="myCart"><img
+    <div class="well well-small"><a href="${pageContext.request.contextPath}/ShowCart" id="myCart"><img
             src="assets/themes/images/ico-cart.png" alt="cart"><span>có ${cart.getNumberProductInCart()} sản phẩm</span><span
             class="badge badge-warning pull-right">${cart.getVnFinalMoneyCart()}đ</span></a></div>
     <ul id="sideManu" class="nav nav-tabs nav-stacked">
         <c:forEach items="${requestScope.listParent}" var="parent">
-            <li class="subMenu"><a href="#">${parent.name_category} []</a>
+            <li class="subMenu"><a href="#">${parent.name_category}</a>
                 <ul style="display:none">
                     <c:set var="texts" scope="request" value="${parent.id_category}"/>
 
                     <%
-                        for (Category category : CategoryService.getInstance().getCategory(request.getAttribute("texts").toString())) {
+                        String id_parent = request.getAttribute("texts").toString();
+                        CategoryService caService = new CategoryService();
+                        for (Category category : CategoryService.getInstance().getCategory(id_parent)) {
                     %>
                     <li>
                         <a href="${pageContext.request.contextPath}/products?id_category=<%=category.getId_category()%>"><i
-                                class="icon-chevron-right"></i><%=category.getName_category()%> (30)</a>
+                                class="icon-chevron-right"></i><%=category.getName_category()%> (<%=caService.countProduct(category.getId_category())%>)</a>
 
                                 <%}%>
                 </ul>
