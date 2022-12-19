@@ -24,7 +24,8 @@
             <div class="container">
                 <div class="row">
                     <div id="manager">
-                        <div id="manager_flight"><a href="admin_flight">Quản lý sản phẩm</a></div>
+
+                        <div id="manager_flight"><a href="manager">Quản lý sản phẩm</a></div>
                         <div id="manager_ticket"><a href="admin_ticket">Quản lý đơn hàng</a></div>
                         <div id="manager_user"><a>Quản lý người dùng</a></div>
 
