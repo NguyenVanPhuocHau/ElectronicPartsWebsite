@@ -35,10 +35,10 @@ public class ChangePassword extends HttpServlet {
         UserBean userBean = (UserBean) session.getAttribute("user");
         boolean checkOld = false, checkNew = false, checkConf = false;
         if (oldPass != null){
-            if (!userBean.getPassword().equals(oldPass)){
+            if (!userBean.checkPass(oldPass)){
                 request.setAttribute("hasErrorOldPass","has-error");
                 request.setAttribute("WrongPassMess","Mật khẩu không đúng");
-                request.setAttribute("hau","dau");
+
             }
             else {
                 checkOld = true;
@@ -68,9 +68,13 @@ public class ChangePassword extends HttpServlet {
             UserDao.getInstance().changePassword(userBean.getUser_id(),newPass);
             session.removeAttribute("user");
             session.removeAttribute("cart");
+            session.removeAttribute("logOut");
             response.sendRedirect("/ProjectEcommerceWebsite_war/");
         }
+        else{
+            request.getRequestDispatcher("changepassword.jsp").forward(request,response);
+        }
 
-        request.getRequestDispatcher("changepassword.jsp").forward(request,response);
+
     }
 }

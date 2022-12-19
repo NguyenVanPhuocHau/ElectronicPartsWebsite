@@ -9,7 +9,7 @@ public class GetConnection {
     private static Connection con;
     private GetConnection() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        String url = "jdbc:mysql://localhost:3306/laptrinhweb";
+        String url = "jdbc:mysql://localhost:3306/laptrinhweb1";
         String username = "root";
         String password = "";
         con = DriverManager.getConnection(url,username,password);

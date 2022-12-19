@@ -1,5 +1,8 @@
 package vn.edu.hcmuaf.fit.projectecommercewebsite.beans;
 
+import javax.xml.bind.DatatypeConverter;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 
 public class UserBean {
@@ -96,6 +99,29 @@ public class UserBean {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String MD5(String password){
+        MessageDigest md = null;
+        String myHash="";
+
+        try {
+            md = MessageDigest.getInstance("MD5");
+            md.update(password.getBytes());
+            byte[] digest = md.digest();
+            myHash = DatatypeConverter
+                    .printHexBinary(digest).toUpperCase();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return myHash;
+
+
+
+    }
+
+    public  boolean checkPass(String pass){
+        return getPassword().equals(MD5(pass));
     }
 
     @Override
