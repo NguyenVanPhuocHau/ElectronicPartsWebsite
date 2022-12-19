@@ -1,38 +1,53 @@
 package vn.edu.hcmuaf.fit.projectecommercewebsite.beans;
 
+import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+
 
 public class Order {
     private String id_order;
     private String id_user;
-    private String hoten;
-    private String thanhpho;
-    private String huyen;
+    private String name;
     private String address;
     private String phone;
     private String email;
-    private String state;
-    private double  total_money;
-    private String date_time;
-    private String note;
+    private String status_id;
+    private Double order_total;
+    private Date createAt;
+    private List<OrderItem> ListOrderItems = new ArrayList<>();
     private Date date;
 
-
-
-    public Order(){
+    public Order() {
 
     }
 
-    public Order(String id_order, String id_user, String hoten, String address, String phone, String email, String state, double total_money, Date date_time) {
+
+
+    public Order(String id_order, String id_user, String name, String address, String phone, String email, String state, double total_money, Date date_time) {
         this.id_order = id_order;
         this.id_user = id_user;
-        this.hoten = hoten;
+        this.name = name;
         this.address = address;
         this.phone = phone;
         this.email = email;
-        this.state = state;
-        this.total_money = total_money;
+        this.status_id = state;
+        this.order_total = total_money;
         this.date = date_time;
+    }
+
+    public Order(String id_order, String id_user, String name, String address, String phone, String email, String status_id, Double order_total, Date createAt) {
+        this.id_order = id_order;
+        this.id_user = id_user;
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
+        this.email = email;
+        this.status_id = status_id;
+        this.order_total = order_total;
+        this.createAt = createAt;
     }
 
     public String getId_order() {
@@ -51,28 +66,12 @@ public class Order {
         this.id_user = id_user;
     }
 
-    public String getHoten() {
-        return hoten;
+    public String getName() {
+        return name;
     }
 
-    public void setHoten(String hoten) {
-        this.hoten = hoten;
-    }
-
-    public String getThanhpho() {
-        return thanhpho;
-    }
-
-    public void setThanhpho(String thanhpho) {
-        this.thanhpho = thanhpho;
-    }
-
-    public String getHuyen() {
-        return huyen;
-    }
-
-    public void setHuyen(String huyen) {
-        this.huyen = huyen;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getAddress() {
@@ -99,37 +98,44 @@ public class Order {
         this.email = email;
     }
 
-    public String getState() {
-        return state;
+    public String getStatus_id() {
+        return status_id;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public void setStatus_id(String status_id) {
+        this.status_id = status_id;
     }
 
-    public double getTotal_money() {
-        return total_money;
+    public Double getOrder_total() {
+        return order_total;
     }
 
-    public void setTotal_money(double total_money) {
-        this.total_money = total_money;
+    public void setOrder_total(Double order_total) {
+        this.order_total = order_total;
     }
 
-    public String getDate_time() {
-        return date_time;
+    public Date getCreateAt() {
+        return createAt;
     }
 
-    public void setDate_time(String date_time) {
-        this.date_time = date_time;
+    public void setCreateAt(Date createAt) {
+        this.createAt = createAt;
     }
 
-    public String getNote() {
-        return note;
+    public List<OrderItem> getListOrderItems() {
+        return ListOrderItems;
     }
 
-    public void setNote(String note) {
-        this.note = note;
+    public void setListOrderItems(List<OrderItem> listOrderItems) {
+        ListOrderItems = listOrderItems;
     }
+
+    public String getVnTotalMoney() {
+        Locale localeVN = new Locale("vi", "VN");
+        NumberFormat vn = NumberFormat.getInstance(localeVN);
+        return vn.format(this.order_total);
+    }
+
     public Date getDate() {
         return date;
     }
@@ -137,21 +143,20 @@ public class Order {
     public void setDate(Date date) {
         this.date = date;
     }
+
     @Override
     public String toString() {
         return "Order{" +
                 "id_order='" + id_order + '\'' +
                 ", id_user='" + id_user + '\'' +
-                ", hoten='" + hoten + '\'' +
-                ", thanhpho='" + thanhpho + '\'' +
-                ", huyen='" + huyen + '\'' +
+                ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
-                ", state='" + state + '\'' +
-                ", total_money=" + total_money +
-                ", date_time='" + date_time + '\'' +
-                ", note='" + note + '\'' +
+                ", status_id='" + status_id + '\'' +
+                ", order_total=" + order_total +
+                ", createAt=" + createAt +
+                ", ListOrderItems=" + ListOrderItems +
                 '}';
     }
 }

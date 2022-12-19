@@ -222,7 +222,7 @@
                             <div class="row">
                                 <div class="col-md-3 mb-3">
                                     <label for="first_name">Tên <span>*</span></label>
-                                    <input type="text" class="form-control" id="first_name" value="${user.name}"
+                                    <input type="text" class="form-control" id="first_name" name="nameOrder" value="${user.name}"
                                            required>
                                 </div>
 
@@ -230,17 +230,17 @@
                                 <div class="col-12 mb-3">
                                     <label for="street_address">Địa Chỉ <span>*</span></label>
                                     <input type="text" class="form-control mb-3" id="street_address"
-                                           value="${user.address}" required>
+                                           value="${user.address}" name="address" required>
                                     <!--<input type="text" class="form-control" id="street_address2" value="">-->
                                 </div>
                                 <div class="col-12 mb-3">
                                     <label for="phone_number">Số điện thoại <span>*</span></label>
-                                    <input type="number" class="form-control" id="phone_number" min="0"
+                                    <input type="number" class="form-control" id="phone_number" min="0" name="phone"
                                            value="${user.phone}" required>
                                 </div>
                                 <div class="col-12 mb-4">
                                     <label for="email_address">Email <span>*</span></label>
-                                    <input type="email" class="form-control" id="email_address" value="${user.email}" required>
+                                    <input type="email" class="form-control" id="email_address" name="email" value="${user.email}" required>
                                 </div>
                             </div>
 
