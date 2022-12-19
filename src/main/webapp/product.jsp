@@ -74,10 +74,6 @@
                                 <div class="span3 alignR">
                                     <form class="form-horizontal qtyFrm">
                                         <h3> ${product.product_price} VNĐ</h3>
-                                        <label class="checkbox">
-                                            <input type="checkbox"> Adds product to compair
-                                        </label><br/>
-
                                         <a href="product_details.html" class="btn btn-large btn-primary"> Add to <i
                                                 class=" icon-shopping-cart"></i></a>
                                         <a href="product_details.html" class="btn btn-large"><i
@@ -95,7 +91,7 @@
                             <c:forEach items="${requestScope.listProduct}" var="product">
                                 <li class="span3">
                                     <div class="thumbnail">
-                                        <a href="${pageContext.request.contextPath}/detail?id_product=${product.product_id}"><img src="${product.img_url}" alt=""/></a>
+                                        <a href="${pageContext.request.contextPath}/detail?id_product=${product.product_id}"><img style="height: 300px" src="${product.img_url}" alt=""/></a>
                                         <div class="caption">
                                             <h5>${product.product_name}</h5>
                                             <p>
@@ -106,7 +102,7 @@
                                                 <i
                                                         class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i
                                                     class="icon-shopping-cart"></i></a> <a class="btn btn-primary"
-                                                                                           href="#">${product.product_price}</a>
+                                                                                           href="#">${product.product_price} VNĐ</a>
                                             </h4>
                                         </div>
                                     </div>
@@ -117,7 +113,6 @@
                     </div>
                 </div>
 
-                <a href="compair.html" class="btn btn-large pull-right">Compair Product</a>
                 <div class="pagination">
                     <ul>
                         <li><a href="#">&lsaquo;</a></li>

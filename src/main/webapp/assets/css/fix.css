@@ -6,8 +6,14 @@
 .pull-right{
     font-size: 15px;
 }
-.thumbnail .caption p{
+.thumbnail .caption p {
     width: 100%;
-    height: 20px ;
-    overflow: hidden ;
+    height: 20px;
+    overflow: hidden;
 }
+/*.thumbnail a {*/
+/*    height: 300px !important;*/
+/*}*/
+/*.thumbnail img {*/
+/*    height: 300px !important;*/
+/*}*/
