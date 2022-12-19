@@ -8,6 +8,7 @@ import vn.edu.hcmuaf.fit.projectecommercewebsite.connect.DBconnect;
 import vn.edu.hcmuaf.fit.projectecommercewebsite.connect.GetConnection;
 
 import java.sql.*;
+import java.util.Random;
 
 public class UserDao {
     private static UserDao instance;
@@ -186,7 +187,9 @@ public class UserDao {
         return false;
     }
     public static void main(String[] args) {
-        UserBean userBean = getInstance().getUserLogin("admin","admin");
+//        UserBean userBean = getInstance().getUserLogin("admin","admin");
+        Random generator = new Random();
+        System.out.println(generator.nextInt(9999)+1000);
 
     }
 }

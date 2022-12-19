@@ -842,45 +842,30 @@
                                                                 class="main-status">Giao hàng thành công</span></div>
                                                         <div class="styles__StyledOrderInfo-sc-1upbws9-0 hBZYMQ">
                                                             <div>
-                                                                <div class="product">
+                                                                <c:forEach var="orderItem" items="${myOrder.getListOrderItems()}">
+                                                                    <c:set var="p" value="${orderItem.product}"/>
+                                                                    <div class="product">
                                                                     <div class="detail">
                                                                         <div class="product-img"
-                                                                             style="background-image: url(https://bizweb.dktcdn.net/100/177/105/articles/tam-quan-trong-linh-kien-dien-tu.png?v=1532272955247)"
+                                                                             style="background-image: url(${p.img_url[0]})"
                                                                         >
-                                                                            <span class="quantity">x1</span></div>
+                                                                            <span class="quantity">x${orderItem.quantity}</span></div>
                                                                         <div class="product-info"><p
-                                                                                class="product-name">Thùng 30 Gói Mì
-                                                                            Không Chiên Nissin 365 - Hương Vị Tôm Chua
-                                                                            Cay (68g / Gói)</p>
-                                                                            <div class="store"><span>Tiki Trading</span>
+                                                                                class="product-name">${p.product_name}</p>
+                                                                            <div class="store"><span>Linh kiện Store</span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="price"><span>98.000 ₫</span></div>
+                                                                    <div class="price"><span>${orderItem.getVnMoney()}đ</span></div>
                                                                 </div>
-                                                                <div class="product">
-                                                                    <div class="detail">
-                                                                        <div class="product-img"
-                                                                             style="background-image: url(https://bizweb.dktcdn.net/100/177/105/articles/tam-quan-trong-linh-kien-dien-tu.png?v=1532272955247)"
-                                                                        >
-                                                                            <span class="quantity">x1</span></div>
-                                                                        <div class="product-info"><p
-                                                                                class="product-name">Thùng 30 Gói Mì
-                                                                            Không Chiên Nissin 365 - Hương Vị Xí Quách
-                                                                            Thịt Bằm (64g / Gói)</p>
-                                                                            <div class="store"><span>Tiki Trading</span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="price"><span>103.000 ₫</span></div>
-                                                                </div>
+                                                                </c:forEach>
                                                             </div>
-                                                            <div class="btn-more"><p>Xem thêm 1 sản phẩm</p></div>
+<%--                                                            <div class="btn-more"><p>Xem thêm 1 sản phẩm</p></div>--%>
                                                         </div>
                                                         <div class="styles__OrderFooter-sc-1vf2n1c-2 hBVEFq">
                                                             <div class="total-money">
                                                                 <div class="title">Tổng tiền:</div>
-                                                                <div class="total">320.000 ₫</div>
+                                                                <div class="total">${myOrder.getVnTotalMoney()}đ</div>
                                                             </div>
                                                             <div class="button-group">
                                                                 <div>Mua lại</div>
