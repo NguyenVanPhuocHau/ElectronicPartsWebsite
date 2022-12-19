@@ -21,7 +21,7 @@
     }
 
     html {
-        font-family: Roboto,Helvetica,Arial,sans-serif;
+        font-family: Roboto, Helvetica, Arial, sans-serif;
         font-size: 14px;
         background-color: #efefef;
     }
@@ -195,6 +195,7 @@
 
     .hisWEc input.with-icon-right {
         padding-right: 35px;
+        margin: 0;
     }
 
     .hisWEc input {
@@ -211,9 +212,10 @@
     .hisWEc .icon-right {
         position: absolute;
         right: 10px;
-        top: 50%;
+        top: 40%;
         transform: translateY(-50%);
         width: 24px;
+        height: 24px;
     }
 
     .cqEaiM:disabled {
@@ -246,6 +248,16 @@
         margin: 0px;
     }
 
+    .hisWEc input.has-error {
+        border-color: rgb(255, 66, 79);
+    }
+
+    .cBVmpr .form-control .error-message {
+        color: rgb(255, 66, 78);
+        font-size: 11px;
+        margin-top: 4px;
+    }
+
 
 </style>
 
@@ -257,40 +269,52 @@
             <jsp:include page="component/menu_profile.jsp"></jsp:include>
             <div id="pfContent">
                 <div id="pfView" class="cBVmpr">
-                    <form class="form">
+                    <form class="form" method="post" action="changePassword">
                         <div class="form-control"><label class="input-label">Mật khẩu hiện tại</label>
-                            <div class="styles__StyledInput-sc-s5c7xj-5 hisWEc oldPass"><input name="oldPassword"
+                            <div class="styles__StyledInput-sc-s5c7xj-5 hisWEc oldPass"><input id="oldPass"
+                                                                                               name="oldPassword"
                                                                                                maxlength="32"
                                                                                                placeholder="Nhập mật khẩu hiện tại"
                                                                                                type="password"
-                                                                                               class="input with-icon-right "
-                                                                                               value=""><img
+                                                                                               class="input with-icon-right ${hasErrorOldPass}"
+                                                                                               value="${hau}"
+                                                                                               oninput="checkfor()"><img
                                     src="https://frontend.tikicdn.com/_desktop-next/static/img/account/eye.png"
-                                    class="icon-right eye-icon-oldPass"></div>
+                                    class="icon-right eye-icon-oldPass">
+                            </div>
+                            <c:if test="${WrongPassMess != null}">
+                                <div class="error-message">Mật khẩu không đúng</div>
+                            </c:if>
                         </div>
                         <div class="form-control"><label class="input-label">Mật khẩu mới</label>
-                            <div class="styles__StyledInput-sc-s5c7xj-5 hisWEc newPass"><input name="password"
+                            <div class="styles__StyledInput-sc-s5c7xj-5 hisWEc newPass"><input id="newPass"
+                                                                                               name="newPassword"
                                                                                                maxlength="32"
                                                                                                placeholder="Nhập mật khẩu mới"
                                                                                                type="password"
-                                                                                               class="input with-icon-right "
-                                                                                               value=""><img
+                                                                                               class="input with-icon-right ${hasErrorNewPass}"
+                                                                                               oninput="checkfor()"><img
                                     src="https://frontend.tikicdn.com/_desktop-next/static/img/account/eye.png"
                                     class="icon-right eye-icon-newPass"></div>
+                            ${errorNewPass}
                             <div class="hint-message"> Mật khẩu phải dài từ 8 đến 32 ký tự, bao gồm chữ và số</div>
                         </div>
                         <div class="form-control"><label class="input-label">Nhập lại mật khẩu mới</label>
                             <div class="styles__StyledInput-sc-s5c7xj-5 hisWEc confirmPass"><input
+                                    id="confPass"
                                     name="confirmPassword"
                                     maxlength="32"
                                     placeholder="Nhập lại mật khẩu mới"
                                     type="password"
-                                    class="input with-icon-right "
-                                    value=""><img
+                                    class="input with-icon-right ${hasErrorConfPass}"
+                                    value="" oninput="checkfor()"><img
                                     src="https://frontend.tikicdn.com/_desktop-next/static/img/account/eye.png"
                                     class="icon-right eye-icon-confirmPass"></div>
+                            ${errorConfPass}
                         </div>
-                        <button type="submit" disabled="" class="styles__StyledBtnSubmit-sc-s5c7xj-3 cqEaiM">Lưu thay
+
+                        <button id="changePass" type="submit" disabled
+                                class="styles__StyledBtnSubmit-sc-s5c7xj-3 cqEaiM">Lưu thay
                             đổi
                         </button>
                     </form>
@@ -302,7 +326,9 @@
 
 </div>
 <jsp:include page="component/footer.jsp"></jsp:include>
+
 </body>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
 <script>
     const passwordIconOld = document.querySelector('.eye-icon-oldPass');
     const passwordIconNew = document.querySelector('.eye-icon-newPass');
@@ -366,6 +392,23 @@
         }
         passwordConfirm = !passwordConfirm;
     });
+
+
+    function checkfor() {
+        var oldPass = $("#oldPass").val().trim()
+        var newPass = $("#newPass").val().trim()
+        var confPass = $("#confPass").val().trim()
+
+        if (oldPass != "" && newPass != "" && confPass != "") {
+            $("#changePass").removeAttr("disabled")
+        }
+
+        if (oldPass == "" || newPass == "" || confPass == "") {
+            $("#changePass").attr("disabled", true)
+        }
+
+
+    }
 
 
 </script>

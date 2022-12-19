@@ -142,6 +142,28 @@ public class UserDao {
         return null;
 
     }
+
+    public boolean updateNameAndNickName(String user_id, String name, String nickName) {
+        try {
+            Connection con = GetConnection.getCon();
+            //insert infor
+            String sql = "update user set user_username = ?, user_name = ? where user_id=?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, nickName);
+            ps.setString(2, name);
+            ps.setString(3, user_id);
+            int result = ps.executeUpdate();
+            if (result == 1)
+                return true;
+            else
+                return false;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
     public static void main(String[] args) {
         UserBean userBean = getInstance().getUserById("US02");
         System.out.println(userBean.toString());

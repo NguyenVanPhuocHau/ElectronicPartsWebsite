@@ -18,7 +18,7 @@ public class Cart implements Serializable {
 
     private double feePromotion;
 
-    private String iduser;
+    private String iduser = null;
 
     Locale localeVN = new Locale("vi", "VN");
     NumberFormat vn = NumberFormat.getInstance(localeVN);
@@ -27,10 +27,24 @@ public class Cart implements Serializable {
         this.listItems = new HashMap<>();
     }
 
-    public Cart(String iduser) {
-        this.listItems = CartDao.getInstance().getCart(iduser);
-        this.iduser = iduser;
+    public Cart(String iduser,Cart cartSession) {
+        Map<String, CartItem> listCartSession = cartSession.getListItems();
+        Map<String,CartItem> cartItemsInDataBase = CartDao.getInstance().getCart(iduser);
+        for (CartItem item: listCartSession.values()) {
+            String key = item.getProduct().getProduct_id();
+            if(cartItemsInDataBase.containsKey(key)){
+                int num = item.getAmount_bought();
+                cartItemsInDataBase.get(key).upMoreQuantitySold(num);
+                CartDao.getInstance().updateQuantityCartItem(iduser,key,cartItemsInDataBase.get(key).getAmount_bought());
+            }
+            else {
+                cartItemsInDataBase.put(key,item);
+                CartDao.getInstance().insertCartItem(iduser,key,1);
+            }
 
+        }
+        this.listItems = cartItemsInDataBase;
+        this.iduser = iduser;
     }
 
     public Cart(Cart cart) {
@@ -49,11 +63,15 @@ public class Cart implements Serializable {
 
         if (listItems.containsKey(key)) {
             listItems.get(key).upOneQuantitySold();
-//            CartDao.getInstance().updatecart(this.iduser,product.getId_product(),product.getColor(),product.getSize(),productList.get(key).getQuantitySold());
+            if (this.iduser != null) {
+                int newQuatity = listItems.get(key).getAmount_bought();
+                CartDao.getInstance().updateQuantityCartItem(this.iduser, key, newQuatity);
+            }
         } else {
             listItems.put(key,new CartItem(product,1));
-//            listItems.get(key).upOneQuantitySold();
-//            CartDao.getInstance().insertCart(this.iduser,product.getId_product(),product.getColor(),product.getSize(),1);
+            if (this.iduser != null){
+                CartDao.getInstance().insertCartItem(this.iduser,key,1);
+            }
         }
 
     }
@@ -73,13 +91,18 @@ public class Cart implements Serializable {
 
 
 
+
+
     public CartItem getCartItem(String id) {
         return listItems.get(id);
     }
 
-    public CartItem remove(String id){
-//        CartDao.getInstance().romvecart(this.iduser,productList.get(id).getId_product(),productList.get(id).getColor(),productList.get(id).getSize());
-        return  listItems.remove(id);
+    public CartItem remove(String product_id){
+        if (this.iduser != null){
+            CartDao.getInstance().removeProductCart(this.iduser,product_id);
+
+        }
+        return  listItems.remove(product_id);
 
 
     }
