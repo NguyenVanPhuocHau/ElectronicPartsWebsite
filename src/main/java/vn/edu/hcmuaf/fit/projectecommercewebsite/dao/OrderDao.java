@@ -1,6 +1,8 @@
 package vn.edu.hcmuaf.fit.projectecommercewebsite.dao;
 
+import com.sun.org.apache.xpath.internal.operations.Or;
 import vn.edu.hcmuaf.fit.projectecommercewebsite.beans.Order;
+import vn.edu.hcmuaf.fit.projectecommercewebsite.beans.OrderItem;
 import vn.edu.hcmuaf.fit.projectecommercewebsite.beans.User;
 import vn.edu.hcmuaf.fit.projectecommercewebsite.beans.UserBean;
 import vn.edu.hcmuaf.fit.projectecommercewebsite.connect.Connect;
@@ -60,8 +62,9 @@ public class OrderDao {
         return false;
     }
 
-    public Order getOrderById(String user_id) {
+    public List<Order> getOrderById(String user_id) {
         try {
+            List<Order> result = new ArrayList<>();
             Connection con = GetConnection.getCon();
             Order order = null;
             String sql = "SELECT * FROM order_user WHERE user_id=?";
@@ -71,10 +74,66 @@ public class OrderDao {
             while(rs.next()){
                 order = new Order(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getDouble(8),rs.getDate(9));
                 order.setListOrderItems(OrderDetail.getInstance().getListOrderItems(rs.getString(1)));
+                result.add(order);
             }
             rs.close();
             ps.close();
-            return order;
+            return result;
+        } catch (SQLException e) {
+            //some error when execute query
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            //can't find the name to get COnnection down database
+            e.printStackTrace();
+        }
+        return null;
+
+    }
+
+    public List<Order> getOrderStatus(String user_id,String status_id) {
+        try {
+            List<Order> result = new ArrayList<>();
+            Connection con = GetConnection.getCon();
+            Order order = null;
+            String sql = "SELECT * FROM order_user WHERE user_id=? AND status_id=?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1,user_id);
+            ps.setString(2,status_id);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                order = new Order(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getDouble(8),rs.getDate(9));
+                order.setListOrderItems(OrderDetail.getInstance().getListOrderItems(rs.getString(1)));
+                result.add(order);
+            }
+            rs.close();
+            ps.close();
+            return result;
+        } catch (SQLException e) {
+            //some error when execute query
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            //can't find the name to get COnnection down database
+            e.printStackTrace();
+        }
+        return null;
+
+    }
+
+    public String getStatusOrder(String status_id) {
+        try {
+            String result = "";
+            Connection con = GetConnection.getCon();
+            Order order = null;
+            String sql = "SELECT * FROM order_status WHERE status_id=?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1,status_id);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                result = rs.getString(2);
+            }
+            rs.close();
+            ps.close();
+            return result;
         } catch (SQLException e) {
             //some error when execute query
             e.printStackTrace();
@@ -89,12 +148,12 @@ public class OrderDao {
 
 
     public static void main(String[] args) {
-        Order order = OrderDao.getInstance().getOrderById("US02");
-        if (order == null){
-            System.out.println("null");
+        List<Order> list = getInstance().getOrderStatus("US02","ST001");
+        System.out.println(list.size());
+        for (Order o: list
+             ) {
+            System.out.println(o.toString());
         }
-//        System.out.println(order.toString());
-
 
 
     }

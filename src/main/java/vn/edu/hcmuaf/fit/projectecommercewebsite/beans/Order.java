@@ -1,5 +1,7 @@
 package vn.edu.hcmuaf.fit.projectecommercewebsite.beans;
 
+import vn.edu.hcmuaf.fit.projectecommercewebsite.dao.OrderDao;
+
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -117,6 +119,10 @@ public class Order {
         Locale localeVN = new Locale("vi", "VN");
         NumberFormat vn = NumberFormat.getInstance(localeVN);
         return  vn.format(this.order_total);
+    }
+
+    public String getStatusOrder(){
+        return OrderDao.getInstance().getStatusOrder(this.status_id);
     }
 
     @Override
