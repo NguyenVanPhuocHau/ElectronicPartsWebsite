@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+
 public class Order {
     private String id_order;
     private String id_user;
@@ -17,8 +18,24 @@ public class Order {
     private Double order_total;
     private Date createAt;
     private List<OrderItem> ListOrderItems = new ArrayList<>();
-    public Order(){
+    private Date date;
 
+    public Order() {
+
+    }
+
+
+
+    public Order(String id_order, String id_user, String name, String address, String phone, String email, String state, double total_money, Date date_time) {
+        this.id_order = id_order;
+        this.id_user = id_user;
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
+        this.email = email;
+        this.status_id = state;
+        this.order_total = total_money;
+        this.date = date_time;
     }
 
     public Order(String id_order, String id_user, String name, String address, String phone, String email, String status_id, Double order_total, Date createAt) {
@@ -113,10 +130,18 @@ public class Order {
         ListOrderItems = listOrderItems;
     }
 
-    public String getVnTotalMoney(){
+    public String getVnTotalMoney() {
         Locale localeVN = new Locale("vi", "VN");
         NumberFormat vn = NumberFormat.getInstance(localeVN);
-        return  vn.format(this.order_total);
+        return vn.format(this.order_total);
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     @Override
