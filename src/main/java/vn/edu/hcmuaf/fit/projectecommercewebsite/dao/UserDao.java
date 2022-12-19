@@ -164,9 +164,30 @@ public class UserDao {
         }
         return false;
     }
+
+    public boolean changePassword(String user_id,String newPassword) {
+        try {
+            Connection con = GetConnection.getCon();
+            //insert infor
+            String sql = "update user set user_password = ? where user_id=?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, newPassword);
+            ps.setString(2, user_id);
+            int result = ps.executeUpdate();
+            if (result == 1)
+                return true;
+            else
+                return false;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
     public static void main(String[] args) {
-        UserBean userBean = getInstance().getUserById("US02");
-        System.out.println(userBean.toString());
+        UserBean userBean = getInstance().getUserLogin("admin","admin");
+
     }
 }
 

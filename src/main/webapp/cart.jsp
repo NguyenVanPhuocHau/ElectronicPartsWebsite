@@ -109,8 +109,8 @@
                             </tbody>
                         </table>
                         <div class="cart-buttons">
-                            <a href="/project_LTW_war/Shop" class="boxed-btn">Tiếp tục mua</a>
-                            <a href="/project_LTW_war/showOrder" class="boxed-btn black">Đặt hàng</a>
+                            <a href="/ProjectEcommerceWebsite_war/" class="boxed-btn">Tiếp tục mua</a>
+                            <a href="/ProjectEcommerceWebsite_war/order" class="boxed-btn black">Đặt hàng</a>
                         </div>
                     </div>
                 </div>
