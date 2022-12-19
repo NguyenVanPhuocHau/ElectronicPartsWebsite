@@ -4,6 +4,7 @@ package vn.edu.hcmuaf.fit.projectecommercewebsite.controller.user_profile;
 
 import vn.edu.hcmuaf.fit.projectecommercewebsite.beans.UserBean;
 import vn.edu.hcmuaf.fit.projectecommercewebsite.beans.UserProfileBean;
+import vn.edu.hcmuaf.fit.projectecommercewebsite.controller.Logout;
 import vn.edu.hcmuaf.fit.projectecommercewebsite.dao.ProfileDao;
 import vn.edu.hcmuaf.fit.projectecommercewebsite.dao.UserDao;
 
@@ -32,11 +33,15 @@ public class ChangePassword extends HttpServlet {
         String confPas = request.getParameter("confirmPassword");
         HttpSession session = request.getSession();
         UserBean userBean = (UserBean) session.getAttribute("user");
+        boolean checkOld = false, checkNew = false, checkConf = false;
         if (oldPass != null){
             if (!userBean.getPassword().equals(oldPass)){
                 request.setAttribute("hasErrorOldPass","has-error");
                 request.setAttribute("WrongPassMess","Mật khẩu không đúng");
                 request.setAttribute("hau","dau");
+            }
+            else {
+                checkOld = true;
             }
         }
         if (newPass != null){
@@ -45,12 +50,25 @@ public class ChangePassword extends HttpServlet {
                 request.setAttribute("hasErrorNewPass","has-error");
                 request.setAttribute("errorNewPass","<div class=\"error-message\"> Mật khẩu không đúng định dạng</div>");
             }
+            else {
+                checkNew = true;
+            }
         }
         if (confPas != null){
             if (!newPass.equals(confPas)){
                 request.setAttribute("hasErrorConfPass","has-error");
                 request.setAttribute("errorConfPass","<div class=\"error-message\">Mật khẩu chưa trùng khớp</div>");
             }
+            else {
+                checkConf = true;
+            }
+        }
+
+        if(checkOld && checkNew && checkConf){
+            UserDao.getInstance().changePassword(userBean.getUser_id(),newPass);
+            session.removeAttribute("user");
+            session.removeAttribute("cart");
+            response.sendRedirect("/ProjectEcommerceWebsite_war/");
         }
 
         request.getRequestDispatcher("changepassword.jsp").forward(request,response);
