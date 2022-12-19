@@ -9,6 +9,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet(name = "Logout", urlPatterns = "/logout")
 public class Logout extends HttpServlet {
@@ -25,6 +26,20 @@ public class Logout extends HttpServlet {
             session.removeAttribute("cart");
 
         response.sendRedirect("/ProjectEcommerceWebsite_war/");
+
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out=response.getWriter();
+        try {
+            //huy
+            session.invalidate();
+
+            // quay ve dang nhap
+            RequestDispatcher dispatcher= getServletContext().getRequestDispatcher("/login.jsp");
+            dispatcher.forward(request,response);
+        }
+        finally {
+            out.close();
+        }
 
 
     }

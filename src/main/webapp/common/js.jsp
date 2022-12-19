@@ -12,4 +12,6 @@
 
 <script src="assets/themes/js/bootshop.js"></script>
 <script src="assets/themes/js/listOrder.js"></script>
+<script src="assets/js/admin.js"></script>
+
 <script src="assets/themes/js/jquery.lightbox-0.5.js"></script>

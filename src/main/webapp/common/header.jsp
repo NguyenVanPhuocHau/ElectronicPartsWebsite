@@ -34,6 +34,7 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/fix.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/search.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/listOrder.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/admin.css">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
 <style type="text/css" id="enject"></style>
