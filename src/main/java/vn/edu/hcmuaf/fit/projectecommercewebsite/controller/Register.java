@@ -1,5 +1,6 @@
 package vn.edu.hcmuaf.fit.projectecommercewebsite.controller;
 
+import vn.edu.hcmuaf.fit.projectecommercewebsite.beans.User;
 import vn.edu.hcmuaf.fit.projectecommercewebsite.dao.UserDao;
 
 import javax.servlet.*;
@@ -20,12 +21,43 @@ public class Register extends HttpServlet {
         String getUsername_regis = request.getParameter("username_regis");
         String getPassword_regis = request.getParameter("password_regis");
         String getRePassword = request.getParameter("rePassword");
+        String encyptPassword = new User().MD5(getPassword_regis);
         String getAddressEmail = request.getParameter("addressEmail_regis");
         String getPhoneNumber = request.getParameter("phone_regis");
+        if(getUsername_regis.equals("")){
+            request.setAttribute("errolNameNullr","Nhập username");
+        }else{
+            request.setAttribute("errolNameNullr","");
+
+        }
+        if(getPassword_regis.equals("")){
+            request.setAttribute("errolPassNullr","Nhập password");
+        }else{
+            request.setAttribute("errolPassNullr","");
+
+        }
+        if(getRePassword.equals("")){
+            request.setAttribute("errolRePassNullr","Nhập password");
+        }else{
+            request.setAttribute("errolRePassNullr","");
+
+        }
+        if(getAddressEmail.equals("")){
+            request.setAttribute("errolEmailNullr","Nhập password");
+        }else{
+            request.setAttribute("errolEmailNullr","");
+
+        }
+        if(getPhoneNumber.equals("")){
+            request.setAttribute("errolPhoneNullr","Nhập password");
+        }else{
+            request.setAttribute("errolPhoneNullr","");
+
+        }
 
         try {
             if(getPassword_regis.equals(getRePassword)&& !getUsername_regis.equals("")&&!getPassword_regis.equals("")){
-                UserDao.getInstance().insertData(getUsername_regis,getPassword_regis,getAddressEmail,getPhoneNumber);
+                UserDao.getInstance().insertData(getUsername_regis,encyptPassword,getAddressEmail,getPhoneNumber);
                 response.sendRedirect("login.jsp");
 
             }
@@ -35,5 +67,6 @@ public class Register extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
     }
 }

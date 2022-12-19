@@ -1,11 +1,11 @@
 package vn.edu.hcmuaf.fit.projectecommercewebsite.Service;
 
+import vn.edu.hcmuaf.fit.projectecommercewebsite.connect.Connect;
+import vn.edu.hcmuaf.fit.projectecommercewebsite.connect.DBconnect;
 import vn.edu.hcmuaf.fit.projectecommercewebsite.connect.GetConnection;
 import vn.edu.hcmuaf.fit.projectecommercewebsite.dao.UserDao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class UserService {
     private static UserService instance;
@@ -33,6 +33,9 @@ public class UserService {
 //            UserDao.getInstance().insertData(username, password, re_password, address, phone);
 //        }
 //        return false;
+    }
+    public boolean checkAdmin(String username, String password) {
+        return  new UserDao().checkAdmin(username,password);
     }
 
 

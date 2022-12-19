@@ -5,6 +5,7 @@
   Time: 5:40 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%@include file="common/tablig.jsp" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -25,27 +26,33 @@
                 <div class="group">
                     <label for="user_signup" class="label">Tên</label>
                     <input id="user_signup" type="text" class="input" name="username_regis">
+                    <p class="offShow"><c:out value="${requestScope.errolNameNullr}"/>
+
                 </div>
 
                 <div class="group">
                     <label for="email" class="label">Địa chỉ email</label>
                     <input id="email" type="text" class="input" name="addressEmail_regis">
-                    <p class="notification" id="notification_email"></p>
-                    <%
+                    <p class="offShow"><c:out value="${requestScope.errolEmailNullr}"/>
 
-                    %>
                 </div>
                 <div class="group">
                     <label for="phone" class="label">Số điện thoại</label>
                     <input id="phone" type="tel" class="input" name="phone_regis">
+                    <p class="offShow"><c:out value="${requestScope.errolPhoneNullr}"/>
+
                 </div>
                 <div class="group">
                     <label for="pass_signup" class="label">Mật khẩu</label>
                     <input id="pass_signup" type="password" class="input" data-type="password" name="password_regis">
+                    <p class="offShow"><c:out value="${requestScope.errolPassNullr}"/>
+
                 </div>
                 <div class="group">
                     <label for="verifiers_pass" class="label">Xác nhận mật khẩu</label>
                     <input id="verifiers_pass" type="password" class="input" data-type="password" name="rePassword">
+                    <p class="offShow"><c:out value="${requestScope.errolRePassNullr}"/>
+
                 </div>
                 <div class="group">
                     <input type="submit" class="button" value="Đăng ký"
