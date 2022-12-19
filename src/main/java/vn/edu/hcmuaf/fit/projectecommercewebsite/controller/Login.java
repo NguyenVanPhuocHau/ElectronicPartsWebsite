@@ -46,13 +46,12 @@ public class Login extends HttpServlet {
                 HttpSession session = request.getSession();
 
                 session.setAttribute("logOut","Đăng xuất");
-
-            UserBean userBean = UserDao.getInstance().getUserLogin(getUsername,getPass);
+            UserBean userBean = UserDao.getInstance().getUserLogin(getUsername,encryptPassword);
             session.setAttribute("user", userBean);
-//            Cart currentCart = (Cart) session.getAttribute("cart");
-//            Cart cart = new Cart(userBean.getUser_id(),currentCart);
-//            session.setAttribute("cart",cart);
-                response.sendRedirect("homes");
+            Cart currentCart = (Cart) session.getAttribute("cart");
+            Cart cart = new Cart(userBean.getUser_id(),currentCart);
+            session.setAttribute("cart",cart);
+            response.sendRedirect("homes");
             }
 
         } else {

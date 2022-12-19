@@ -42,6 +42,8 @@ public class UpdateUserProfile extends HttpServlet {
         UserDao.getInstance().updateNameAndNickName(user_id,fullName,userName);
         ProfileDao.getInstance().updateProfile(user_id,new Date(year-month-day),gender,country);
         UserProfileBean profileBean = ProfileDao.getInstance().getProfileById(user.getUser_id());
+        UserBean userBean = UserDao.getInstance().getUserById(user_id);
+        session.setAttribute("user",userBean);
         request.setAttribute("profile",profileBean);
         request.getRequestDispatcher("userInfor.jsp").forward(request,response);
     }

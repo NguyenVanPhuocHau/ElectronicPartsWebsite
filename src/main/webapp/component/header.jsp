@@ -58,8 +58,14 @@
                     <li class=""><a href="searchOrder.jsp">Tra cứu đơn hàng</a></li>
                     <li class=""><a href="contact.jsp">Liên hệ</a></li>
                     <li class="">
-                        <a href="login.jsp"  ><span class="btn btn-large btn-success"><c:out value="${sessionScope.logOut}" default="Đăng nhập"/></span></a>
-
+                        <c:choose>
+                            <c:when test="${user!=null}">
+                                <a href="/ProjectEcommerceWebsite_war/logout"  ><span class="btn btn-large btn-success"><c:out value="${sessionScope.logOut}" default="Đăng nhập"/></span></a>
+                            </c:when>
+                            <c:otherwise>
+                                <a href="login.jsp"  ><span class="btn btn-large btn-success"><c:out value="${sessionScope.logOut}" default="Đăng nhập"/></span></a>
+                            </c:otherwise>
+                        </c:choose>
                     </li>
                 </ul>
             </div>

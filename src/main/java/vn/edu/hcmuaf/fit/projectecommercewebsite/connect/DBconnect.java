@@ -7,7 +7,7 @@ import java.sql.Statement;
 
 public class DBconnect {
     public static DBconnect instance;
-    private static String DB_URL="jdbc:mysql://localhost:3306/laptrinhweb";
+    private static String DB_URL="jdbc:mysql://localhost:3306/laptrinhweb1";
     private static String USER="root";
     private static String PASS="";
     private Connection connection;

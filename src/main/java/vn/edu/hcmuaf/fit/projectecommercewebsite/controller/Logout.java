@@ -23,7 +23,7 @@ public class Logout extends HttpServlet {
 
             session.removeAttribute("user");
             session.removeAttribute("cart");
-
+            session.removeAttribute("logOut");
         response.sendRedirect("/ProjectEcommerceWebsite_war/");
 
 

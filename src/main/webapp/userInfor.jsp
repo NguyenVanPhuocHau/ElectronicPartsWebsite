@@ -488,7 +488,7 @@
         color: rgb(56, 56, 61);
     }
 
-    .lCUBE .list-item .status {
+    .lCUBE .list-item .statusButton {
         color: rgb(27, 168, 255);
         flex: 1 1 0%;
         -webkit-box-pack: justify;
@@ -854,7 +854,7 @@
                                             class="icon" alt="">
                                         <div class="detail"><span>Số điện thoại</span><span>${user.phone}</span></div>
                                     </div>
-                                    <div class="status"><span></span>
+                                    <div class="statusButton"><span></span>
                                         <button class="button active">Cập nhật</button>
                                     </div>
                                 </div>
@@ -865,7 +865,7 @@
                                         <div class="detail"><span>Địa chỉ email</span><span>${user.email}</span>
                                         </div>
                                     </div>
-                                    <div class="status"><span></span>
+                                    <div class="statusButton"><span></span>
                                         <button class="button active">Cập nhật</button>
                                     </div>
                                 </div>

@@ -7,6 +7,9 @@ import vn.edu.hcmuaf.fit.projectecommercewebsite.connect.Connect;
 import vn.edu.hcmuaf.fit.projectecommercewebsite.connect.DBconnect;
 import vn.edu.hcmuaf.fit.projectecommercewebsite.connect.GetConnection;
 
+import javax.xml.bind.DatatypeConverter;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.util.Random;
 
@@ -208,8 +211,9 @@ public class UserDao {
             Connection con = GetConnection.getCon();
             //insert infor
             String sql = "update user set user_password = ? where user_id=?";
+            System.out.println(MD5(newPassword));
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, newPassword);
+            ps.setString(1, MD5(newPassword));
             ps.setString(2, user_id);
             int result = ps.executeUpdate();
             if (result == 1)
@@ -223,10 +227,27 @@ public class UserDao {
         }
         return false;
     }
+
+    public static String MD5(String password){
+        MessageDigest md = null;
+        String myHash="";
+
+        try {
+            md = MessageDigest.getInstance("MD5");
+            md.update(password.getBytes());
+            byte[] digest = md.digest();
+            myHash = DatatypeConverter
+                    .printHexBinary(digest).toUpperCase();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return myHash;
+
+
+
+    }
     public static void main(String[] args) {
-//        UserBean userBean = getInstance().getUserLogin("admin","admin");
-        Random generator = new Random();
-        System.out.println(generator.nextInt(9999)+1000);
+        System.out.println(MD5("HAU@090701"));
 
     }
 }
