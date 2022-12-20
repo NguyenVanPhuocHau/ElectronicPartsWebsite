@@ -99,7 +99,7 @@
                                             <h4 style="text-align:center"><a class="btn"
                                                                              href="${pageContext.request.contextPath}/detail?id_product=${product.product_id}">
                                                 <i
-                                                        class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i
+                                                        class="icon-zoom-in"></i></a> <a class="btn" href="#">Thêm vào giỏ <i
                                                     class="icon-shopping-cart"></i></a> <a class="btn btn-primary"
                                                                                            href="#">${product.product_price} VNĐ</a>
                                             </h4>
@@ -132,6 +132,45 @@
 <!-- Footer ================================================================== -->
 <c:import url="component/footer.jsp"></c:import>
 <!-- Placed at the end of the document so the pages load faster ============================================= -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script>
+
+    function addToCart(product_id) {
+        $.ajax({
+            url: '/ProjectEcommerceWebsite_war/AddProductToCart',
+            type: 'post',
+            data: {
+                product_id: product_id
+            },
+            success: function (data) {
+                $("#numberItemsCart").html(data);
+                updateCart()
+            },
+            error: function (xhr) {
+
+            }
+        })
+
+    }
+
+    function updateCart() {
+        $.ajax({
+            url: '/ProjectEcommerceWebsite_war/updateNumberCart',
+            type: 'get',
+            data:{
+                location: "body"
+            },
+            success: function (data) {
+                $("#myCart").html(data);
+            },
+            error: function (xhr) {
+
+            }
+        })
+    }
+
+</script>
+
 <c:import url="common/js.jsp"></c:import>
 
 

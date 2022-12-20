@@ -69,8 +69,8 @@
                                 <td class="product-name">${p.product_name}
                                 </td>
                                 <td class="product-price">${p.getVnProductPrice()}đ</td>
-                                <td class="product-quantity"><input type="number" placeholder="1"
-                                                                    value="${item.amount_bought}"></td>
+                                <td class="product-quantity"><input id="${p.product_id}" type="number" placeholder="1"
+                                                                    value="${item.amount_bought}" min="1" onchange="changeNum(this)"></td>
                                 <td class="product-total">${item.getVnPrice()}đ</td>
                             </tr>
                         </c:forEach>
@@ -136,6 +136,26 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
 <script>
 
+    function changeNum(inputNum){
+        var num = inputNum.value;
+        var product_id =  inputNum.id;
+        $.ajax({
+            url: '/ProjectEcommerceWebsite_war/ChangeNumProductInCart',
+            type: 'post',
+            data: {
+                product_id: product_id,
+                num: num
+            },
+            success: function (data) {
+                $("#tableTotal").html(data);
+                updateCart()
+            },
+            error: function (xhr) {
+
+            }
+        })
+
+    }
 
 
 

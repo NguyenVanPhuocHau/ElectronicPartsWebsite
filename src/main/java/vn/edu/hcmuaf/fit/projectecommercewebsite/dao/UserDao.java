@@ -247,7 +247,7 @@ public class UserDao {
 
     }
     public static void main(String[] args) {
-        System.out.println(MD5("HAU@090701"));
+        System.out.println(MD5("Hau@090701"));
 
     }
 }
