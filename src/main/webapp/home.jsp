@@ -19,7 +19,7 @@
         <div class="carousel-inner">
             <div class="item active">
                 <div class="container">
-                    <a href="register.html"><img style="width:100%" src="assets/themes/images/carousel/1.png"
+                    <a href="register.html"><img style="width:100%" src="https://bucket.nhanh.vn/f2fe44-24897/bn/20221212_UNcXrhYFicqJJaEL.jpg"
                                                  alt="special offers"/></a>
                     <div class="carousel-caption">
                         <h4>Second Thumbnail label</h4>
@@ -30,7 +30,7 @@
             </div>
             <div class="item">
                 <div class="container">
-                    <a href="register.html"><img style="width:100%" src="assets/themes/images/carousel/2.png"
+                    <a href="register.html"><img style="width:100%" src="http://bkaii.com.vn/images/linh-kien-dien-tu.jpg"
                                                  alt=""/></a>
                     <div class="carousel-caption">
                         <h4>Second Thumbnail label</h4>
@@ -41,7 +41,7 @@
             </div>
             <div class="item">
                 <div class="container">
-                    <a href="register.html"><img src="assets/themes/images/carousel/3.png" alt=""/></a>
+                    <a href="register.html"><img src="https://bucket.nhanh.vn/f2fe44-24897/bn/20221212_JBX7jwPXRPzitcrP.jpg" alt=""/></a>
                     <div class="carousel-caption">
                         <h4>Second Thumbnail label</h4>
                         <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
@@ -52,7 +52,7 @@
             </div>
             <div class="item">
                 <div class="container">
-                    <a href="register.html"><img src="assets/themes/images/carousel/4.png" alt=""/></a>
+                    <a href="register.html"><img src="https://bucket.nhanh.vn/f2fe44-24897/bn/20221212_JBX7jwPXRPzitcrP.jpg" alt=""/></a>
                     <div class="carousel-caption">
                         <h4>Second Thumbnail label</h4>
                         <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
@@ -63,7 +63,7 @@
             </div>
             <div class="item">
                 <div class="container">
-                    <a href="register.html"><img src="assets/themes/images/carousel/5.png" alt=""/></a>
+                    <a href="register.html"><img src="http://bkaii.com.vn/images/linh-kien-dien-tu.jpg" alt=""/></a>
                     <div class="carousel-caption">
                         <h4>Second Thumbnail label</h4>
                         <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
@@ -73,7 +73,7 @@
             </div>
             <div class="item">
                 <div class="container">
-                    <a href="register.html"><img src="assets/themes/images/carousel/6.png" alt=""/></a>
+                    <a href="register.html"><img src="https://bucket.nhanh.vn/f2fe44-24897/bn/20221212_JBX7jwPXRPzitcrP.jpg" alt=""/></a>
                     <div class="carousel-caption">
                         <h4>Second Thumbnail label</h4>
                         <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta

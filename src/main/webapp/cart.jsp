@@ -110,7 +110,15 @@
                         </table>
                         <div class="cart-buttons">
                             <a href="/ProjectEcommerceWebsite_war/" class="boxed-btn">Tiếp tục mua</a>
-                            <a href="/ProjectEcommerceWebsite_war/order" class="boxed-btn black">Đặt hàng</a>
+                            <c:choose>
+                                <c:when test="${cart.getNumberProductInCart()==0}">
+                                    <a href="/ProjectEcommerceWebsite_war/" class="boxed-btn">Không thể đặt hàng</a>
+                                </c:when>
+                                <c:otherwise>
+                                    <a href="/ProjectEcommerceWebsite_war/order" class="boxed-btn black">Đặt hàng</a>
+                                </c:otherwise>
+                            </c:choose>
+
                         </div>
                     </div>
                 </div>
