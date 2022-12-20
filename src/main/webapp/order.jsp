@@ -13,13 +13,13 @@
         padding-bottom: 80px;
     }
 
-    .container {
-        max-width: 1140px;
-        padding-right: 15px;
-        padding-left: 15px;
-        margin-right: auto;
-        margin-left: auto;
-    }
+    /*.container {*/
+    /*    max-width: 1140px;*/
+    /*    padding-right: 15px;*/
+    /*    padding-left: 15px;*/
+    /*    margin-right: auto;*/
+    /*    margin-left: auto;*/
+    /*}*/
 
     .row {
         display: -ms-flexbox;
@@ -274,7 +274,7 @@
                                     style="text-transform: none">${cart.getVnFinalMoneyCart()}đ</span></li>
                         </ul>
                         <button id="changeInfor" type="submit"
-                                class="styles__StyledBtnSubmit-sc-s5c7xj-3 cqEaiM btn-submit">Lưu
+                                class="styles__StyledBtnSubmit-sc-s5c7xj-3 cqEaiM btn-submit essence-btn">Lưu
                             thay đổi
                         </button>
                     </div>
