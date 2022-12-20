@@ -36,14 +36,16 @@ public class Login extends HttpServlet {
 
         }
 
+        HttpSession session = request.getSession();
 
         if (UserService.getInstance().checkLogin(getUsername, encryptPassword)) {
             if (UserService.getInstance().checkAdmin(getUsername, encryptPassword) == true) {
-                response.sendRedirect("admin");
+                response.sendRedirect("manager");
+                session.setAttribute("logOut","Đăng xuất");
+
 
 
             } else {
-                HttpSession session = request.getSession();
 
                 session.setAttribute("logOut","Đăng xuất");
             UserBean userBean = UserDao.getInstance().getUserLogin(getUsername,encryptPassword);
