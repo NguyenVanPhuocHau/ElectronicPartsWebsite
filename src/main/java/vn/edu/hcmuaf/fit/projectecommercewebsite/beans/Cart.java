@@ -81,11 +81,28 @@ public class Cart implements Serializable {
 
         if (listItems.containsKey(key)) {
             listItems.get(key).upMoreQuantitySold(num);
-//            CartDao.getInstance().updatecart(this.iduser,product.getId_product(),product.getColor(),product.getSize(),productList.get(key).getQuantitySold());
+            if (this.iduser != null) {
+                int newQuatity = listItems.get(key).getAmount_bought();
+                CartDao.getInstance().updateQuantityCartItem(this.iduser, key, newQuatity);
+            }
         } else {
-            listItems.put(key, new CartItem(product, num));
-//            CartDao.getInstance().insertCart(this.iduser,product.getId_product(),product.getColor(),product.getSize(),1);
+            listItems.put(key,new CartItem(product,num));
+            if (this.iduser != null){
+                CartDao.getInstance().insertCartItem(this.iduser,key,num);
+            }
         }
+    }
+
+    public void updateNumProductInCart(String product_id,int num) {
+
+            listItems.get(product_id).setAmount_bought(num);
+            if (this.iduser != null) {
+
+                CartDao.getInstance().updateQuantityCartItem(this.iduser, product_id, num);
+            }
+
+
+
     }
 
 

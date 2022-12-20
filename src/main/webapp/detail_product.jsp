@@ -82,13 +82,14 @@
                         <form class="form-horizontal qtyFrm">
                             <div class="control-group">
                                 <label class="control-label"><span><c:out value="${requestScope.detailProduct.product_price}"/> VNĐ</span></label>
-                                <div class="controls">
-                                    <input type="number" class="span1" value="1" min="1"/>
-                                    <button type="submit" class="btn btn-large btn-primary pull-right"> Add to cart <i
-                                            class=" icon-shopping-cart"></i></button>
-                                </div>
+
                             </div>
                         </form>
+                        <div class="controls">
+                            <input id="quantity" type="number" class="span1" value="1" min="1"/>
+                            <button id="addToCart" pid="${requestScope.detailProduct.product_id}" class="btn btn-large btn-primary pull-right"> thêm vào giỏ <i
+                                    class=" icon-shopping-cart"></i></button>
+                        </div>
 
                         <hr class="soft"/>
                         <h4>100 items in stock</h4>
@@ -544,6 +545,52 @@
 <!-- MainBody End ============================= -->
 <!-- Footer ================================================================== -->
 <c:import url="component/footer.jsp"></c:import>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script>
+
+    $("#addToCart").click(function (){
+        var product_id = $(this).attr("pid");;
+        var num = $("#quantity").val();
+
+        $.ajax({
+            url: '/ProjectEcommerceWebsite_war/AddMoreProductToCart',
+            type: 'post',
+            data: {
+                product_id: product_id,
+                quantity: num
+            },
+            success: function (data) {
+                $("#numberItemsCart").html(data);
+                updateCart()
+            },
+            error: function (xhr) {
+
+            }
+        })
+
+    });
+
+
+
+
+    function updateCart() {
+        $.ajax({
+            url: '/ProjectEcommerceWebsite_war/updateNumberCart',
+            type: 'get',
+            data:{
+                location: "body"
+            },
+            success: function (data) {
+                $("#myCart").html(data);
+            },
+            error: function (xhr) {
+
+            }
+        })
+    }
+
+</script>
+
 <c:import url="common/js.jsp"></c:import>
 </body>
 </html>
