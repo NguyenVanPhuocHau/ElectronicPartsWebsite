@@ -1,4 +1,4 @@
-# ProjectEcommerceWebsite
+# ElectronicPartsWebsite
 ## Môn: Lập trình Web
 ## Tên đồ án: Web bán linh kiện điện tử
 ### Thành viên:
