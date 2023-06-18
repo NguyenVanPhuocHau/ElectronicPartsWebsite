@@ -1,6 +1,6 @@
 # ProjectEcommerceWebsite
 ## Môn: Lập trình Web
-## Tên đồ án: Web bán linh kiện điện thoại
+## Tên đồ án: Web bán linh kiện điện tử
 ### Thành viên:
 >
 > Nguyễn Văn Phước Hậu - 19130066
